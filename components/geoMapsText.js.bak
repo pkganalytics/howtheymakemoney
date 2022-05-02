@@ -1,11 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
-import PieChartOutlineIcon from '@mui/icons-material/PieChartOutline';
+import PublicIcon from '@mui/icons-material/Public';
 
-const PieCharts = () => {
+
+const GeoMapsText = () => {
 	return (
 		<div className="mainText">
-		<h1><PieChartOutlineIcon ddchartIcon fontSize="inherit" style={{position: 'relative', top: '3px'}} /> Pie Charts </h1>
+		<h1><PublicIcon fontSize="inherit" style={{position: 'relative', top: '3px'}} /> GeoMaps</h1>
 		
 			<p>Bar charts, line charts and pie charts. 	Aute ipsum in irure culpa laboris. Excepteur enim eiusmod ullamco labore irure. Aliquip mollit cillum voluptate et. </p>
 			<ul >
@@ -21,4 +22,4 @@ const PieCharts = () => {
 	);
 };
 
-export default 	PieCharts;
+export default GeoMaps;

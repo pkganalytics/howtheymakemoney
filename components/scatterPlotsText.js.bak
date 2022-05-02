@@ -1,11 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
-import TimelineIcon from '@mui/icons-material/Timeline';
+import AutoGraphIcon from '@mui/icons-material/AutoGraph';
 
-const LineCharts = () => {
+const ScatterPlotsText = () => {
 	return (
 		<div className="mainText">
-		<h1><TimelineIcon ddchartIcon fontSize="inherit" style={{position: 'relative', top: '3px'}} /> Line Charts </h1>
+		<h1><AutoGraphIcon fontSize="inherit" style={{position: 'relative', top: '3px'}} /> Scatter Plots</h1>
 		
 			<p>Bar charts, line charts and pie charts. 	Aute ipsum in irure culpa laboris. Excepteur enim eiusmod ullamco labore irure. Aliquip mollit cillum voluptate et. </p>
 			<ul >
@@ -21,4 +21,4 @@ const LineCharts = () => {
 	);
 };
 
-export default 	LineCharts;
+export default 	ScatterPlotsText;

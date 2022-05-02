@@ -1,0 +1,17 @@
+{
+  "extends": "next/core-web-vitals",
+  "rules": { "react/no-unescaped-entities": 0,
+	  "import/no-anonymous-default-export" : ["error", {
+  "allowArray": false,
+  "allowArrowFunction" : true,
+  "allowAnonymousClass": false,
+  "allowAnonymousFunction": false,
+  "allowCallExpression": true, // The true value here is for backward compatibility
+  "allowLiteral": false,
+  "allowObject": false}],
+"next/next/no-html-link-for-pages" : 0,
+	"next/next/no-img-element": 0,
+	"react/jsx-no-duplicate-props": 0,
+"react/display-name": 0
+  }
+}

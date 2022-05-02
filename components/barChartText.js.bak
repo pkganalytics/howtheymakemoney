@@ -1,7 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
-import { select, axisBottom, axisLeft, scaleLinear, scaleBand } from "d3";
+import { select, axisBottom, axisLeft, axisRight, scaleLinear, scaleBand } from "d3";
 import Link from 'next/link';
 import BarChartIcon from '@mui/icons-material/BarChart';
+
 
 const useResizeObserver = (ref) => {
   const [dimensions, setDimensions] = useState(null);
@@ -20,8 +21,9 @@ const useResizeObserver = (ref) => {
   return dimensions;
 };
 
-function BarCharts({ data }) {
-  const svgRef = useRef();
+function BarChartText() {
+const [data, setData] = useState([25, 30, 45, 60, 10, 65, 75] );
+const svgRef = useRef();
   const wrapperRef = useRef();
   const dimensions = useResizeObserver(wrapperRef);
 
@@ -95,7 +97,7 @@ function BarCharts({ data }) {
 
 	return (
 <div className="mainText">
-	<div>
+	<div className="graph" ref={wrapperRef}>
 		<h1><BarChartIcon fontSize="inherit" style={{position: 'relative', top: '3px'}} /> Bar Charts </h1>
 			<p>Bar charts, line charts and pie charts. 	Aute ipsum in irure culpa laboris. Excepteur enim eiusmod ullamco labore irure. Aliquip mollit cillum voluptate et. </p>
 
@@ -103,10 +105,12 @@ function BarCharts({ data }) {
         <g className="x-axis" />
         <g className="y-axis" />
       </svg>
-      <button onClick={() => setData(data.map(value => value + 5))}>
+	</div>
+	<div className="buttons">
+      <button className="controlButton" onClick={() => setData(data.map(value => value + 5))}>
         Update data
       </button>
-      <button onClick={() => setData(data.filter(value => value < 35))}>
+      <button className="controlButton" onClick={() => setData(data.filter(value => value < 35))}>
         Filter data
       </button>
 	</div>
@@ -114,3 +118,4 @@ function BarCharts({ data }) {
 	);
 };
 
+export default 	BarChartText;

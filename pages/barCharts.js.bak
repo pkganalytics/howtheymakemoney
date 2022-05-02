@@ -9,4 +9,4 @@ const BarCharts = () => (
 	</Layout>
 );
 
-export default BarCharts;
+export default Barcharts;

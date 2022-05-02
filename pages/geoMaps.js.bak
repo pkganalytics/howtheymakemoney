@@ -1,11 +1,11 @@
 import Layout from '../components/Layout';
-import ScatterPlotText from '../components/scatterPlotText';
+import GeoMapText from '../components/geoMapText';
 import SidePanel from '../components/sidePanel';
 
 const Consultation = () => (
-	<Layout title="Animated Charts
+	<Layout title="Geographic Charts
 	">
-		<ScatterPlotText />
+		<GeoMap />
 		<SidePanel />
 	</Layout>
 );

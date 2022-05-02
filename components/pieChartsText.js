@@ -1,11 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
-import AutoGraphIcon from '@mui/icons-material/AutoGraph';
+import PieChartOutlineIcon from '@mui/icons-material/PieChartOutline';
 
-const ScatterPlots = () => {
+const PieChartsText = () => {
 	return (
 		<div className="mainText">
-		<h1><AutoGraphIcon fontSize="inherit" style={{position: 'relative', top: '3px'}} /> Scatter Plots</h1>
+		<h1><PieChartOutlineIcon ddchartIcon fontSize="inherit" style={{position: 'relative', top: '3px'}} /> Pie Charts </h1>
 		
 			<p>Bar charts, line charts and pie charts. 	Aute ipsum in irure culpa laboris. Excepteur enim eiusmod ullamco labore irure. Aliquip mollit cillum voluptate et. </p>
 			<ul >
@@ -21,4 +21,4 @@ const ScatterPlots = () => {
 	);
 };
 
-export default 	ScatterPlots;
+export default PieChartsText;

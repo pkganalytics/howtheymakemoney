@@ -5,7 +5,7 @@ import SidePanel from '../components/sidePanel';
 const Consultation = () => (
 	<Layout title="Animated Charts
 	">
-		<ScatterPlotText />
+		<ScatterPlot />
 		<SidePanel />
 	</Layout>
 );
