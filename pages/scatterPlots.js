@@ -1,11 +1,11 @@
 import Layout from '../components/Layout';
-import ScatterPlotText from '../components/scatterPlotText';
+import ScatterPlotsText from '../components/scatterPlotsText';
 import SidePanel from '../components/sidePanel';
 
 const Consultation = () => (
 	<Layout title="Animated Charts
 	">
-		<ScatterPlotText />
+		<ScatterPlotsText />
 		<SidePanel />
 	</Layout>
 );

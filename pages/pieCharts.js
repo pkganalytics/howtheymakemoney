@@ -1,11 +1,11 @@
 import Layout from '../components/Layout';
-import PieChartText from '../components/pieChartText';
+import PieChartsText from '../components/pieChartsText';
 import SidePanel from '../components/sidePanel';
 
 const Consultation = () => (
 	<Layout title="Animated Charts
 	">
-		<PieChartText />
+		<PieChartsText />
 		<SidePanel />
 	</Layout>
 );

@@ -1,11 +1,11 @@
 import Layout from '../components/Layout';
-import GeoMapText from '../components/geoMapText';
+import GeoMapsText from '../components/geoMapsText';
 import SidePanel from '../components/sidePanel';
 
 const Consultation = () => (
 	<Layout title="Geographic Charts
 	">
-		<GeoMapText />
+		<GeoMapsText />
 		<SidePanel />
 	</Layout>
 );

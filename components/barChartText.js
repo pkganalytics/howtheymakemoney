@@ -2,7 +2,10 @@ import React, { useRef, useEffect, useState } from "react";
 import { select, axisBottom, axisLeft, axisRight, scaleLinear, scaleBand } from "d3";
 import Link from 'next/link';
 import BarChartIcon from '@mui/icons-material/BarChart';
+import SidePanel from './sidePanel';
 
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
 
 const useResizeObserver = (ref) => {
   const [dimensions, setDimensions] = useState(null);
@@ -37,12 +40,12 @@ const svgRef = useRef();
     // scales
     const xScale = scaleBand()
       .domain(data.map((value, index) => index))
-      .range([0, dimensions.width]) // change
+      .range([0, dimensions.width])
       .padding(0.5);
 
     const yScale = scaleLinear()
-      .domain([0, 150]) // todo
-      .range([dimensions.height, 0]); // change
+      .domain([0, 150])
+      .range([dimensions.height, 0]);
 
     const colorScale = scaleLinear()
       .domain([75, 100, 150])
@@ -54,13 +57,14 @@ const svgRef = useRef();
     svg
       .select(".x-axis")
       .style("transform", `translateY(${dimensions.height}px)`)
+	  .style("font", "16px times")
       .call(xAxis);
 
     // create y-axis
-    const yAxis = axisRight(yScale);
+    const yAxis = axisLeft(yScale);
     svg
       .select(".y-axis")
-      .style("transform", `translateX(${dimensions.width}px)`)
+	  .style("font", "16px times")
       .call(yAxis);
 
     // draw the bars
@@ -97,15 +101,25 @@ const svgRef = useRef();
 
 	return (
 <div className="mainText">
-	<div className="graph" ref={wrapperRef}>
+	<Grid container>
+		<Grid item container md={8} sm={12}>
+		<Grid item xs={12}>
+	<div className="subHeading">
 		<h1><BarChartIcon fontSize="inherit" style={{position: 'relative', top: '3px'}} /> Bar Charts </h1>
 			<p>Bar charts, line charts and pie charts. 	Aute ipsum in irure culpa laboris. Excepteur enim eiusmod ullamco labore irure. Aliquip mollit cillum voluptate et. </p>
-
+	</div>
+	</Grid>
+		<Grid item xs={12}>
+	<div className="graph" ref={wrapperRef}>
       <svg ref={svgRef}>
         <g className="x-axis" />
         <g className="y-axis" />
       </svg>
 	</div>
+		</Grid>
+	</Grid>
+		<Grid item container md={4} sm={12}>
+	<Grid item xs={12}>
 	<div className="buttons">
       <button className="controlButton" onClick={() => setData(data.map(value => value + 5))}>
         Update data
@@ -114,6 +128,14 @@ const svgRef = useRef();
         Filter data
       </button>
 	</div>
+	</Grid>
+	<Grid item xs={12}>
+	<div sidePanel>
+	<SidePanel />
+	</div>
+	</Grid>
+		</Grid>
+	</Grid>
 </div>
 	);
 };

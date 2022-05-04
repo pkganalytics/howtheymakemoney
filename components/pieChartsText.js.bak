@@ -21,4 +21,4 @@ const PieChartsText = () => {
 	);
 };
 
-export default PieCharts;
+export default PieChartsText;

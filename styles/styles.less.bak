@@ -10,21 +10,24 @@ svg {
   overflow: visible;
   // display: block;
   width: 100%;
-  height: 50vh;
+  height: 60vh;
+  margin-left: 1vh;
+  margin-top: 1vh;
+  padding-bottom: 2vh;
 }
 
-// graph {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: stretch;
-//   justify-content: center;
-//   height: 100vh;
-//   padding: 0 50px;
-//   flex: 1 0 auto;
-//   border: thick blue solid;
-// }
+.subHeading {
+	border: thick black dotted;
+}
+.graph {
+	border: thin red solid;
+}
 
-controlButton {
+.sidePanel {
+	border: thick yellow dotted;
+}
+
+.controlButton {
   width: 100px;
   border: 1px solid black;
   margin: 0 auto 5px;

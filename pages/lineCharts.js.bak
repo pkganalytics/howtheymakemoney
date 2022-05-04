@@ -1,11 +1,11 @@
 import Layout from '../components/Layout';
-import LineChartText from '../components/lineChartText';
+import LineChartsText from '../components/lineChartsText';
 import SidePanel from '../components/sidePanel';
 
 const Consultation = () => (
 	<Layout title="Animated Charts
 	">
-		<LineChart />
+		<LineChartText />
 		<SidePanel />
 	</Layout>
 );
