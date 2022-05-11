@@ -10,21 +10,18 @@ svg {
   overflow: visible;
   // display: block;
   width: 100%;
-  height: 60vh;
-  margin-left: 1vh;
-  margin-top: 1vh;
-  padding-bottom: 2vh;
+  height: 50vh;
 }
 
-.subHeading {
-	border: thick black dotted;
-}
 .graph {
-	border: thin red solid;
+  margin-left: 3vh;
+  margin-right: 3vh;
+  margin-bottom: 3vh;
+  padding-top: 1vh;
 }
 
-.sidePanel {
-	border: thick yellow dotted;
+.icons {
+ font-size: 7rem !important;
 }
 
 .controlButton {
@@ -205,7 +202,8 @@ h1 {
 	color: green;
 	font-weight: bold;
 	font-size: 2em;
-	padding-bottom: 0.7em;
+	display: inline;
+	padding-bottom: 2em;
 }
 
 img.resume {

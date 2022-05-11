@@ -31,13 +31,3 @@ export default function MyApp(props) {
   );
 }
 
-MyApp.propTypes = {
-  Component: PropTypes.elementType.isRequired,
-  emotionCache: PropTypes.object,
-  pageProps: PropTypes.object.isRequired,
-};
-
-// This default export is required in a new `pages/_app.js` file.
-// export default function MyApp({ Component, pageProps }) {
-	// return <Component {...pageProps} />;
-// }

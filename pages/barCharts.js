@@ -1,12 +1,19 @@
-import Layout from '../components/Layout';
-import BarChartText from '../components/barChartText';
-// import SidePanel from '../components/sidePanel';
+import { useState } from "react";
+import {values, allkeys, colors}  from "/components/barChartsData";
+import BarChartsControls from "/components/barChartsControls";
+import BarChartsSvg from "/components/barChartsSvg";
 
-const BarCharts = () => (
-	<Layout title="Bar Charts">
-		<BarChartText />
-		{/* <SidePanel /> */}
-	</Layout>
-);
+
+function BarCharts() {
+  
+	const [keys, setKeys] = useState(allkeys);
+	const selectKeys = setKeys;
+	return (
+    <>
+<BarChartsSvg values={values} keys={keys} colors={colors} />
+<BarChartsControls allKeys={allkeys} keys={keys} colors={colors} selectKeys={selectKeys} />
+    </>
+  );
+}
 
 export default BarCharts;

@@ -19,6 +19,7 @@ export default function BasicMenu() {
   return (
     <div>
       <Button
+		  // mx={{md: }}
         id="basic-button"
         aria-controls="basic-menu"
         aria-haspopup="true"
@@ -37,7 +38,7 @@ export default function BasicMenu() {
         }}
       >
         <MenuItem onClick={() => router.push("/")}>Home</MenuItem>
-		<MenuItem onClick={() => router.push("/consultation")}>Consultation</MenuItem>
+		  <MenuItem onClick={() => router.push("/consultation")}>Consultation sx={{color: "red"}}</MenuItem>
         <MenuItem onClick={() => router.push("/typesetting")}>Typesetting</MenuItem>
 	    <MenuItem onClick={() => router.push("/proofreading")}>Writing and Proofreading</MenuItem>
         <MenuItem onClick={() => router.push("/keywords")}>Keywords</MenuItem>
