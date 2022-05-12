@@ -5,8 +5,10 @@ import BarChartsSidePanel from "/components/barChartsSidePanel";
 import Grid from '@mui/material/Grid';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import { Typography } from '@mui/material';
-import Paper from '@mui/material/Paper';
 import Layout from '../components/Layout';
+import Image from 'next/image';
+import womenImage from '../public/twowomenwhiteboard.jpg'
+
 
 const Index = () => <Layout title="Dynamic D3">
     <IndexText />
@@ -36,15 +38,20 @@ const BarCharts = () =>  {
 	</div>
 	</Grid>
 		<Grid item xs={12}>
-	<div className="graph" >
-<BarChartsSvg values={values} keys={keys} colors={colors} />
+	 <div className="graph" >
+			<BarChartsSvg values={values} keys={keys} colors={colors} />
 	</div>
 		</Grid>
 	</Grid>
-		<Grid item container md={4} sm={12}>
-	<Grid item xs={12}>
-	< BarChartsSidePanel allKeys={allkeys} keys={keys} colors={colors} selectKeys={selectKeys}/>
-	</Grid>
+		<Grid item container md={4} sm={12} sx={{borderLeft: "2px green solid", paddingLeft: "2rem"}}>
+			< BarChartsSidePanel allKeys={allkeys} keys={keys} colors={colors} selectKeys={selectKeys}/>
+			<Image
+				src={womenImage}
+				width="100vw"
+				height="60vw"
+				alt=""
+				/>
+
 		</Grid>
 	</Grid>
 		</Layout>

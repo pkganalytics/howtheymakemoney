@@ -5,6 +5,10 @@
 @primary-color: green;
 // Styles for react hook d3 examples
 
+.menuItem {
+color: "red";
+}
+
 svg {
   // background: #eee;
   overflow: visible;
@@ -163,11 +167,9 @@ h3 {
 	// min-width: 50px;
 }
 .sidePanel {
-	flex: 1 0 auto;
-	width: 25%;
 	padding: 0em 4rem;
-	min-width: 30rem;
-	font-size: 1rem;
+	margin-left: -1rem;
+	display: block;
 	border-left: solid 2px green;
 }
 
