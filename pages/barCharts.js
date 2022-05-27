@@ -10,12 +10,6 @@ import Image from 'next/image';
 import womenImage from '../public/twowomenwhiteboard.jpg'
 
 
-const Index = () => <Layout title="Dynamic D3">
-    <IndexText />
-    <SidePanel />
-</Layout>;
-
-
 const BarCharts = () =>  {
 	const [keys, setKeys] = useState(allkeys);
 	const selectKeys = setKeys;
