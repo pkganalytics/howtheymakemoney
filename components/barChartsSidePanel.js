@@ -9,7 +9,7 @@ import FormLabel from '@mui/material/FormLabel';
 import { useSelector, useDispatch } from 'react-redux';
 import {spleen, liver, heart, all} from './store';
 
-const stackedBarChartsSidePanel = ({keys, allKeys, colors, selectKeys}) => {
+const stackedBarChartsSidePanel = () => {
 
 	const dispatch = useDispatch();
 

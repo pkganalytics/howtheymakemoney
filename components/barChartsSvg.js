@@ -10,11 +10,12 @@ import {
   stackOrderAscending
 } from "d3";
 import useResizeObserver from "./useResizeObserver";
-import { useSelector, useDispatch } from 'react-redux';
-import {spleen, liver, heart, all} from './store';
+import { useSelector} from 'react-redux';
+import { counterSlice } from './store';
 
 
-function StackedBarChartsSvg({ values, keys, colors }) {
+function StackedBarChartsSvg({ values, colors }) {
+	const keys = useSelector(state => state);
   const svgRef = useRef();
   const wrapperRef = useRef();
   const dimensions = useResizeObserver(wrapperRef);
@@ -67,7 +68,7 @@ function StackedBarChartsSvg({ values, keys, colors }) {
 
     const yAxis = axisLeft(yScale);
     svg.select(".y-axis").call(yAxis);
-  }, [colors, dimensions, values, keys]);
+  }, [colors, dimensions, keys, values]);
 
   return (
       <div className="graph" ref={wrapperRef} >

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {values, allkeys, colors}  from "/components/barChartsData";
+import {values, colors}  from "/components/barChartsData";
 import BarChartsSvg from "/components/barChartsSvg";
 import BarChartsSidePanel from "/components/barChartsSidePanel";
 import Grid from '@mui/material/Grid';
@@ -11,8 +11,6 @@ import womenImage from '../public/twowomenwhiteboard.jpg'
 
 
 const BarCharts = () =>  {
-	const [keys, setKeys] = useState(allkeys);
-	const selectKeys = setKeys;
 
 	return (
 <Layout title="Bar Charts">
@@ -33,12 +31,12 @@ const BarCharts = () =>  {
 	</Grid>
 		<Grid item xs={12}>
 	 <div className="graph" >
-			<BarChartsSvg values={values} keys={keys} colors={colors} />
+		 <BarChartsSvg values={values} colors={colors} />
 	</div>
 		</Grid>
 	</Grid>
 		<Grid item container md={4} sm={12} sx={{borderLeft: "2px green solid", paddingLeft: "2rem"}}>
-			< BarChartsSidePanel allKeys={allkeys} keys={keys} colors={colors} selectKeys={selectKeys}/>
+			< BarChartsSidePanel />
 			<Image
 				src={womenImage}
 				width="100vw"
