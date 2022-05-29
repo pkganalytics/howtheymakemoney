@@ -38,11 +38,12 @@ export default function BasicMenu() {
         }}
       >
         <MenuItem onClick={() => router.push("/")}>Home</MenuItem>
-		  <MenuItem onClick={() => router.push("/consultation")}>Consultation sx={{color: "red"}}</MenuItem>
-        <MenuItem onClick={() => router.push("/typesetting")}>Typesetting</MenuItem>
-	    <MenuItem onClick={() => router.push("/proofreading")}>Writing and Proofreading</MenuItem>
-        <MenuItem onClick={() => router.push("/keywords")}>Keywords</MenuItem>
-        <MenuItem onClick={() => router.push("/contactus")}>Contact Us</MenuItem>
+		<MenuItem onClick={() => router.push("/barCharts")}>Bar Charts</MenuItem>
+        <MenuItem onClick={() => router.push("/lineCharts")}>Line Charts</MenuItem>
+	    <MenuItem onClick={() => router.push("/scatterPlots")}>Scatter Plots</MenuItem>
+        <MenuItem onClick={() => router.push("/pieCharts")}>Pie Charts</MenuItem>
+        <MenuItem onClick={() => router.push("/geoMaps")}>Geo Maps</MenuItem>
+        <MenuItem onClick={() => router.push("/contactUs")}>Contact Us</MenuItem>
 
       </Menu>
     </div>

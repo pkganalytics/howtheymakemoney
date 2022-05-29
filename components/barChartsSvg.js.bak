@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+emport React, { useEffect, useRef } from "react";
 import {
   select,
   scaleBand,
@@ -15,7 +15,7 @@ import { counterSlice } from './store';
 
 
 function StackedBarChartsSvg({ values, colors }) {
-	const keys = useSelector(counterSlice);
+	const keys = useSelector(state => state);
   const svgRef = useRef();
   const wrapperRef = useRef();
   const dimensions = useResizeObserver(wrapperRef);

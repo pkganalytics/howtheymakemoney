@@ -1,6 +1,6 @@
 import { useState } from "react";
-import {valuess, colors}  from "/components/barChartsData";
-import BarChartsSvg from "/components/barChartsSvg";
+import {values, colors}  from "/components/barChartsData";
+// import BarChartsSvg from "/components/barChartsSvg";
 import BarChartsSidePanel from "/components/barChartsSidePanel";
 import Grid from '@mui/material/Grid';
 import BarChartIcon from '@mui/icons-material/BarChart';
@@ -31,7 +31,7 @@ const BarCharts = () =>  {
 	</Grid>
 		<Grid item xs={12}>
 	 <div className="graph" >
-		 <BarChartsSvg values={values} colors={colors} />
+		  <BarChartsSvg values={values} colors={colors} />
 	</div>
 		</Grid>
 	</Grid>

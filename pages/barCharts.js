@@ -31,7 +31,7 @@ const BarCharts = () =>  {
 	</Grid>
 		<Grid item xs={12}>
 	 <div className="graph" >
-		 <BarChartsSvg values={values} colors={colors} />
+		  <BarChartsSvg values={values} colors={colors} />
 	</div>
 		</Grid>
 	</Grid>

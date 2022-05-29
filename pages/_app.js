@@ -3,12 +3,11 @@ import 'react-app-polyfill/ie9';
 require('../styles/styles.less');
 import Head from 'next/head';
 import PropTypes from 'prop-types';
-import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider } from '@emotion/react';
-// import theme from '../src/theme';
-import theme from '../styles/theme.js';
 import createEmotionCache from '../src/createEmotionCache';
+import { ThemeProvider } from '@mui/material/styles';
+import theme from '../styles/theme.js';
 import { Provider } from 'react-redux';
 import store from '../components/store';
 
@@ -22,14 +21,15 @@ export default function MyApp(props) {
 	 <Provider store={store}>  
 		<CacheProvider value={emotionCache}>
 			<Head>
+<link rel="shortcut icon" href="/D3js.ico" />
 				<title>My page</title>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
-      <ThemeProvider theme={theme}>
+	<ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <Component {...pageProps} />
-		  </ThemeProvider>
+	</ThemeProvider>
     </CacheProvider>
 	 </Provider>
   );

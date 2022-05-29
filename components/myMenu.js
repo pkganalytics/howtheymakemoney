@@ -9,26 +9,6 @@ import MaterialMenu from './materialMenu';
 import Typography from '@mui/material/Typography';
 
 
-// const useStyles = makeStyles(theme => ({
-// 		flexContainer: {
-// 			justifyContent : "space-around"
-// 						},
-// 		bigMenu: {
-// 			[theme.breakpoints.down('md')]:
-// 			{display: "none"}
-// 	},
-// 		smallMenu: {
-// 		[theme.breakpoints.up('md')]: {
-// 			display: "none"}
-// 			},
-// 	title: {
-// 	color: "white",
-// 	display: "block",
-// 	fontSize: 45,
-// 	marginLeft: 50
-// }
-// }));
-
 
 const indexToTabName= {
 	home: 0,
@@ -48,12 +28,11 @@ const tabNametoIndex = {
 	3: "/scatterPlots",
 	4: "/pieCharts",
 	5: "/geoMaps",
-	6: "/contactus"
+	6: "/contactUs"
 }
 
 const MyMenu = () => {
 
-  // const classes = useStyles();
   const router = useRouter();
 	const handleChange = (event, index) => {
 		router.replace(tabNametoIndex[index]);
@@ -65,7 +44,7 @@ const MyMenu = () => {
 			  Dynamic D3
 		</Typography>
 		  <div className="smallMenu">
-		  <MaterialMenu />
+		   <MaterialMenu />
 		  </div>
 		  <Tabs
 		textColor="inherit"
