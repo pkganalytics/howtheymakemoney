@@ -31,7 +31,7 @@ function StackedBarChartsSvg({ values, colors }) {
     const layers = stackGenerator(values);
     const extent = [
       0,
-      max(layers, layer => max(layer, sequence => sequence[1]))
+      max(layers, layer => max(layer, d => d[1]))
     ];
 
     // scales
@@ -44,6 +44,23 @@ function StackedBarChartsSvg({ values, colors }) {
       .domain(extent)
       .range([height, 0]);
 
+    const yHeightScale = scaleLinear()
+      .domain(extent)
+      .range([0, height]);
+
+	  const barTopY = d => {yScale(d[0] + d[1])};
+	  const barBaseY = d => yScale(d[0]);
+	  const barHeight = d => yHeightScale(d[1])
+	  
+	  const animateBars = (selection) => {
+		selection.transition()
+		  .duration(5000)
+		  .attr('fake', console.log("yScale[d0]", barBaseY))
+		  .attr("fake", () => console.log("height", height))
+	  .attr("y", barBaseY)
+      .attr("height", barHeight)
+	 }
+
     // rendering
     svg
       .selectAll(".layer")
@@ -51,13 +68,14 @@ function StackedBarChartsSvg({ values, colors }) {
       .join("g")
       .attr("class", "layer")
       .attr("fill", layer => colors[layer.key])
-      .selectAll("rect")
+		        .selectAll("rect")
       .data(layer => layer)
       .join("rect")
-      .attr("x", sequence => xScale(sequence.data.year))
+      .attr("x", d => xScale(d.data.year))
       .attr("width", xScale.bandwidth())
-      .attr("y", sequence => yScale(sequence[1]))
-      .attr("height", sequence => yScale(sequence[0]) - yScale(sequence[1]));
+      .attr("y", d => yScale(d[1]))
+	  .attr("height", height)
+		  .call(animateBars)
 
     // axes
     const xAxis = axisBottom(xScale);
