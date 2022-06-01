@@ -1,0 +1,19 @@
+import { useState } from "react";
+import {values, allkeys, colors}  from "/components/stackedBarChartsData";
+import StackedBarChartsControls from "/components/stackedBarChartsControls";
+import StackedBarChartsSvg from "/components/stackedBarChartsSvg";
+
+
+function StackedBarCharts() {
+  
+	const [keys, setKeys] = useState(allkeys);
+  
+	return (
+    <>
+<StackedBarChartsSvg values={values} keys={keys} colors={colors} />
+<StackedBarChartsControls keys={keys} colors={colors} />
+    </>
+  );
+}
+
+export default StackedBarCharts;

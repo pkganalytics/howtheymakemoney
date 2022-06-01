@@ -49,8 +49,8 @@ function StackedBarChartsSvg({ values, colors }) {
       .range([0, height]);
 
 	  const barTopY = d => {yScale(d[0] + d[1])};
-	  const barBaseY = d => yScale(d[0]);
-	  const barHeight = d => yHeightScale(d[1])
+	  const barBaseY = d => height - yScale(d[1]);
+	  const barHeight = d => yScale(d[1])
 	  
 	  const animateBars = (selection) => {
 		selection.transition()
@@ -73,8 +73,8 @@ function StackedBarChartsSvg({ values, colors }) {
       .join("rect")
       .attr("x", d => xScale(d.data.year))
       .attr("width", xScale.bandwidth())
-      .attr("y", d => yScale(d[1]))
-	  .attr("height", height)
+      .attr("y", height)
+	  .attr("height", 0)
 		  .call(animateBars)
 
     // axes
