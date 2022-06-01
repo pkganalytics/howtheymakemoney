@@ -57,8 +57,8 @@ function StackedBarChartsSvg({ values, colors }) {
 		  .duration(5000)
 		  .attr('fake', console.log("yScale[d0]", barBaseY))
 		  .attr("fake", () => console.log("height", height))
-	  .attr("y", barBaseY)
-      .attr("height", barHeight)
+			  .attr("y", d => yScale(d[1]))
+			  .attr("height", d => yScale(d[0]) - yScale(d[1]))
 	 }
 
     // rendering
