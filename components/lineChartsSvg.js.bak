@@ -54,7 +54,7 @@ function StackedBarChartsSvg({ values, colors }) {
 	  
 	  const animateBars = (selection) => {
 		selection.transition()
-		  .duration(1000)
+		  .duration(5000)
 		  .attr('fake', console.log("yScale[d0]", barBaseY))
 		  .attr("fake", () => console.log("height", height))
 			  .attr("y", d => yScale(d[1]))

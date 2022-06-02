@@ -14,7 +14,7 @@ import { useSelector} from 'react-redux';
 import { counterSlice } from './store';
 
 
-function StackedBarChartsSvg({ values, colors }) {
+function StackedLineChartsSvg({ values, colors }) {
 	const keys = useSelector(state => state);
   const svgRef = useRef();
   const wrapperRef = useRef();
@@ -52,9 +52,9 @@ function StackedBarChartsSvg({ values, colors }) {
 	  const barBaseY = d => height - yScale(d[1]);
 	  const barHeight = d => yScale(d[1])
 	  
-	  const animateBars = (selection) => {
+	  const animateLines = (selection) => {
 		selection.transition()
-		  .duration(1000)
+		  .duration(5000)
 		  .attr('fake', console.log("yScale[d0]", barBaseY))
 		  .attr("fake", () => console.log("height", height))
 			  .attr("y", d => yScale(d[1]))
@@ -75,7 +75,7 @@ function StackedBarChartsSvg({ values, colors }) {
       .attr("width", xScale.bandwidth())
       .attr("y", height)
 	  .attr("height", 0)
-		  .call(animateBars)
+		  .call(animateLines)
 
     // axes
     const xAxis = axisBottom(xScale);
@@ -98,4 +98,4 @@ function StackedBarChartsSvg({ values, colors }) {
   );
 }
 
-export default StackedBarChartsSvg;
+export default StackedLineChartsSvg;
