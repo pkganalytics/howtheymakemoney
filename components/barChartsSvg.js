@@ -3,6 +3,7 @@ import {
   select,
   scaleBand,
   axisBottom,
+	scaleOrdinal,
   stack,
   max,
   scaleLinear,
@@ -16,7 +17,7 @@ import { legendColor } from 'd3-svg-legend';
 
 
 function StackedBarChartsSvg({ values, colors }) {
-	const keys = useSelector(state => state);
+  const keys = useSelector(state => state);
   const svgRef = useRef();
   const wrapperRef = useRef();
   const dimensions = useResizeObserver(wrapperRef);
@@ -56,16 +57,16 @@ function StackedBarChartsSvg({ values, colors }) {
 	  const animateBars = (selection) => {
 		selection.transition()
 		  .duration(1000)
-		  .attr('fake', console.log("yScale[d0]", barBaseY))
-		  .attr("fake", () => console.log("height", height))
 			  .attr("y", d => yScale(d[1]))
 			  .attr("height", d => yScale(d[0]) - yScale(d[1]))
 	 }
 
+// Legend
 
-var linear = scaleLinear()
-  .domain([0,10])
-  .range(["rgb(46, 73, 123)", "rgb(71, 187, 94)"]);
+if (keys.length == 3)  {
+var band = scaleOrdinal()
+  .domain(["spleen", "liver", "heart"])
+		  .range(["purple", "brown", "red"]);
 
 
 svg.append("g")
@@ -74,13 +75,14 @@ svg.append("g")
 
 var legendLinear = legendColor()
   .shapeWidth(30)
+  .shapePadding(20)
   .orient('horizontal')
-  .scale(linear);
+  .scale(band);
 
-svg.select(".legendLinear")
-  .call(legendLinear);
+  svg.select(".legendLinear")
+	 .call(legendLinear)
           
-
+}
 
     // rendering
     svg
