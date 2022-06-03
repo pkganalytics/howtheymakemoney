@@ -28,7 +28,7 @@ const stackedBarChartsSidePanel = () => {
   <RadioGroup
     aria-labelledby="demo-radio-buttons-group-label"
 	row
-    defaultValue="All Three"
+    defaultValue="all"
     name="Organ"
 	onChange={handleChange}
 

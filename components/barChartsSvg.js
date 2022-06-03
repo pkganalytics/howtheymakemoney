@@ -12,6 +12,7 @@ import {
 import useResizeObserver from "./useResizeObserver";
 import { useSelector} from 'react-redux';
 import { counterSlice } from './store';
+import { legendColor } from 'd3-svg-legend';
 
 
 function StackedBarChartsSvg({ values, colors }) {
@@ -51,7 +52,7 @@ function StackedBarChartsSvg({ values, colors }) {
 	  const barTopY = d => {yScale(d[0] + d[1])};
 	  const barBaseY = d => height - yScale(d[1]);
 	  const barHeight = d => yScale(d[1])
-	  
+
 	  const animateBars = (selection) => {
 		selection.transition()
 		  .duration(1000)
@@ -60,6 +61,26 @@ function StackedBarChartsSvg({ values, colors }) {
 			  .attr("y", d => yScale(d[1]))
 			  .attr("height", d => yScale(d[0]) - yScale(d[1]))
 	 }
+
+
+var linear = scaleLinear()
+  .domain([0,10])
+  .range(["rgb(46, 73, 123)", "rgb(71, 187, 94)"]);
+
+
+svg.append("g")
+  .attr("class", "legendLinear")
+  .attr("transform", "translate(20,20)");
+
+var legendLinear = legendColor()
+  .shapeWidth(30)
+  .orient('horizontal')
+  .scale(linear);
+
+svg.select(".legendLinear")
+  .call(legendLinear);
+          
+
 
     // rendering
     svg
