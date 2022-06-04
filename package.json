@@ -20,8 +20,8 @@
 	"main": "src/index.js",
 	"scripts": {
 		"dev": "next dev",
-		"build": "next build 5001",
-		"start": "next start -p 5001",
+		"build": "next build",
+		"start": "next start",
 		"lint": "next lint"
 	},
 	"dependencies": {
