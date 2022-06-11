@@ -1,6 +1,6 @@
 import { createSlice, configureStore } from '@reduxjs/toolkit';
 
-const counterSlice = createSlice({
+const organSlice = createSlice({
 	name: 'dataSelection',
 	initialState: ["Spleen", "Liver", "Heart"],
 	reducers: {
@@ -11,5 +11,6 @@ const counterSlice = createSlice({
 	}
 })
 
-export const {spleen, liver, heart, all} = counterSlice.actions;
-export default configureStore({reducer: counterSlice.reducer});
+
+export const {spleen, liver, heart, all} = organSlice.actions;
+export default configureStore({reducer: organSlice.reducer});

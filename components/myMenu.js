@@ -16,8 +16,9 @@ const indexToTabName= {
 	lineCharts: 2,
 	scatterPlots: 3,
 	pieCharts: 4,
-	geoMaps: 5,
-	contactus: 6
+	sankey: 5,
+	geoMaps: 6,
+	contactus: 7
 }
 
 
@@ -27,8 +28,9 @@ const tabNametoIndex = {
 	2: "/lineCharts",
 	3: "/scatterPlots",
 	4: "/pieCharts",
-	5: "/geoMaps",
-	6: "/contactUs"
+	5: "/sankey",
+	6: "/geoMaps",
+	7: "/contactUs"
 }
 
 const MyMenu = () => {
@@ -52,10 +54,11 @@ const MyMenu = () => {
 		onChange={handleChange}
 		indicatorColor='secondary'>
             <Tab label='Home'  />
-			  <Tab label='Bar Charts' sx={{width: 1/7}} />
+			<Tab label='Bar Charts' sx={{width: 1/7}} />
             <Tab label='Line Charts' sx={{width: 1/7}} />
             <Tab label='Scatter Plots' sx={{width: 1/7}} />
             <Tab label='Pie Charts' sx={{width: 1/7}} />
+			<Tab label="Sankey Diagrams" sx={{width: 1/7}} />
             <Tab label='GeoMaps' sx={{width: 1/7}} />
             <Tab label='Contact Us' sx={{width: 1/7}} />
         </Tabs>
