@@ -23,22 +23,19 @@ function SankeySvg({ values, colors }) {
   const margin=10;
 
   useEffect(() => {
-    const svg = select(svgRef.current);
     const { width, height } =
       dimensions || wrapperRef.current.getBoundingClientRect();
+    const svg = select(svgRef.current)
+			.attr("width", width)
+			.attr("height", height)
 
+	  console.log("width=", width);
+	  console.log("height=", height);
 
 // format variables
 const formatNumber = d3Format(",.0f"), // zero decimal places
     format = function(d) { return formatNumber(d); },
     color = scaleOrdinal(schemeCategory10);
-
-// append the svg object to the body of the page
- svg.attr("width", width + margin + margin)
-    .attr("height", height + margin + margin)
-  .append("g")
-    .attr("transform", 
-          "translate(" + margin + "," + margin + ")");
 
 // Set the sankey diagram properties
 const sankey = d3Sankey()
@@ -96,6 +93,9 @@ const path = sankey.links();
       .attr("x", function(d) { return d.x1 + 6; })
       .attr("text-anchor", "start");
 
+	  return () => {
+      svg.selectAll('*').remove()
+    }
   }, [colors, dimensions, keys, values]);
 
   return (
