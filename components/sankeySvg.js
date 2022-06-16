@@ -28,10 +28,6 @@ function SankeySvg({ values, colors }) {
     const svg = select(svgRef.current)
 			.attr("width", width)
 			.attr("height", height)
-
-	  console.log("width=", width);
-	  console.log("height=", height);
-
 // format variables
 const formatNumber = d3Format(",.0f"), // zero decimal places
     format = function(d) { return formatNumber(d); },
@@ -54,12 +50,12 @@ const path = sankey.links();
     .enter().append("path")
       .attr("class", "link")
       .attr("d", sankeyLinkHorizontal())
-      .attr("stroke-width", function(d) { return d.width; });  
+	  .attr("stroke-width", d => d.width);
 
 // add the link titles
   link.append("title")
         .text(function(d) {
-    		    return d.source.name + " → " + 
+    		    return d.source.name + " → " +
                 d.target.name + "\n" + format(d.value); });
 
 // add in the nodes
@@ -70,13 +66,12 @@ const path = sankey.links();
 
 // add the rectangles for the nodes
   node.append("rect")
-      .attr("x", function(d) { return d.x0; })
-      .attr("y", function(d) { return d.y0; })
+	  .attr("x", d => d.x0)
+		.attr("y", d => d.y0)
       .attr("height", function(d) { return d.y1 - d.y0; })
       .attr("width", sankey.nodeWidth())
-      .style("fill", function(d) { 
-		      return d.color = color(d.name.replace(/ .*/, "")); })
-      .style("stroke", function(d) { 
+		  .attr("fill", d => colors[d.index])
+      .style("stroke", function(d) {
 		  return rgb(d.color).darker(2); })
     .append("title")
       .text(function(d) {
@@ -84,7 +79,7 @@ const path = sankey.links();
 
 // add in the title for the nodes
   node.append("text")
-      .attr("x", function(d) { return d.x0 - 6; })
+		  .attr("x", d => d.x0 - 6)
       .attr("y", function(d) { return (d.y1 + d.y0) / 2; })
       .attr("dy", "0.35em")
       .attr("text-anchor", "end")
