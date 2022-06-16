@@ -3,7 +3,7 @@ import {values, colors}  from "/components/sankeyData";
 import SankeySvg from "/components/sankeySvg";
 import SankeySidePanel from "/components/sankeySidePanel";
 import Grid from '@mui/material/Grid';
-import TimelineIcon from '@mui/icons-material/Timeline';
+import MediationIcon from '@mui/icons-material/Mediation';
 import { Typography } from '@mui/material';
 import Layout from '../components/Layout';
 import Image from 'next/image';
@@ -13,17 +13,17 @@ import womenImage from '../public/twowomenwhiteboard.jpg'
 const Sankey = () =>  {
 
 	return (
-<Layout title="Line Charts">
+<Layout title="Sankey Diagrams">
 	<Grid container>
 		<Grid item container md={8} sm={12}>
 			<Grid>
 	<div className="subHeading">
 		<Grid container direction="row" alignItems="center">
   <Grid item>
-	  <TimelineIcon color="primary" className="icons" />
+	  <MediationIcon color="primary" className="icons" />
   </Grid>
   <Grid item>
-		<Typography variant="h2"> Line Charts </Typography>
+		<Typography variant="h4"> Sankey Diagrams </Typography>
 
   </Grid>
 </Grid>

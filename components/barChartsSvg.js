@@ -109,6 +109,8 @@ var legendLinear = legendColor()
 
     const yAxis = axisLeft(yScale);
     svg.select(".y-axis").call(yAxis);
+
+
   }, [colors, dimensions, keys, values]);
 
   return (

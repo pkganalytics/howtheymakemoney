@@ -8,7 +8,14 @@ const customTheme = createTheme({
 				},
 			secondary: {
 				main: "#FFF"
-				 }
+				 },
+  },
+ typography: {
+    h4: {
+		color: teal[500],
+		fontWeight: 'bold'
+    }
+
   } });
 
 export default customTheme;
