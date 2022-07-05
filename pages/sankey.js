@@ -18,7 +18,7 @@ const Sankey = () =>  {
 		<Grid item container md={8} sm={12}>
 			<Grid>
 	<div className="subHeading">
-		<Grid container direction="row" alignItems="center">
+		<Grid container direction="row" alignItems="center" spacing={1}>
   <Grid item>
 	  <MediationIcon color="primary" className="icons" />
   </Grid>

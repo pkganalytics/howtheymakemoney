@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef} from "react";
 import {
   select,
   selectAll,
-  json,
+	json,
   rgb,
   scaleOrdinal,
   intensityRamp,
@@ -15,7 +15,6 @@ import { useSelector} from 'react-redux';
 import { counterSlice } from './store';
 
 function SankeySvg({ values, colors }) {
-
   const keys = useSelector(state => state);
   const svgRef = useRef();
   const wrapperRef = useRef();

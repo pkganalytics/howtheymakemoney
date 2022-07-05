@@ -42,6 +42,7 @@ export default function BasicMenu() {
         <MenuItem onClick={() => router.push("/lineCharts")}>Line Charts</MenuItem>
 	    <MenuItem onClick={() => router.push("/scatterPlots")}>Scatter Plots</MenuItem>
         <MenuItem onClick={() => router.push("/pieCharts")}>Pie Charts</MenuItem>
+        <MenuItem onClick={() => router.push("/sankey")}>Sankey Diagram</MenuItem>
         <MenuItem onClick={() => router.push("/geoMaps")}>Geo Maps</MenuItem>
         <MenuItem onClick={() => router.push("/contactUs")}>Contact Us</MenuItem>
 
