@@ -35,7 +35,7 @@ const formatNumber = d3Format(",.0f"), // zero decimal places
 // Set the sankey diagram properties
 const sankey = d3Sankey()
     .nodeWidth(36)
-    .nodePadding(40)
+    .nodePadding(30)
     .size([width, height]);
 
 const path = sankey.links();
