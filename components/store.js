@@ -11,6 +11,19 @@ const organSlice = createSlice({
 	}
 })
 
+const refugeeSlice = createSlice({
+	name: 'year',
+	initialState: ['2021'],
+	reducers: {
+		Data2021: (state) => ['2021'],
+		Data2020: (state) => ['2020'],
+		Data2019: (state) => ['2019'],
+	}
+})
 
 export const {spleen, liver, heart, all} = organSlice.actions;
-export default configureStore({reducer: organSlice.reducer});
+export const {Data2021, Data2020, Data2019} = refugeeSlice.actions;
+export default configureStore({reducer: {
+								dataSelection: organSlice.reducer,
+								year: refugeeSlice.reducer
+							}});

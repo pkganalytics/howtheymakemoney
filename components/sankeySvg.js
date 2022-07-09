@@ -2,7 +2,7 @@ import React, { useEffect, useRef} from "react";
 import {
   select,
   selectAll,
-	json,
+  json,
   rgb,
   scaleOrdinal,
   intensityRamp,
@@ -28,7 +28,7 @@ function SankeySvg({ values, colors }) {
 			.attr("width", width)
 			.attr("height", height)
 // format variables
-const formatNumber = d3Format(",.0f"), // zero decimal places
+const formatNumber = d3Format(",.0f"),
     format = function(d) { return formatNumber(d); },
     color = scaleOrdinal(schemeCategory10);
 
