@@ -1,17 +1,20 @@
 import { useState } from "react";
-import {values, colors}  from "/components/sankeyData";
-import SankeySvg from "/components/sankeySvg";
-import SankeySidePanel from "/components/sankeySidePanel";
+import {colors}  from "/components/sankey/sankeyData";
+import SankeySvg from "/components/sankey/sankeySvg";
+import SankeySidePanel from "/components/sankey/sankeySidePanel";
 import Grid from '@mui/material/Grid';
 import MediationIcon from '@mui/icons-material/Mediation';
 import { Typography } from '@mui/material';
 import Layout from '../components/Layout';
 import Image from 'next/image';
 import womenImage from '../public/twowomenwhiteboard.jpg'
+import { useSelector} from 'react-redux';
 
 
 const Sankey = () =>  {
 
+	const _values = useSelector(state => state.year);
+    const values = JSON.parse(JSON.stringify(_values));
 	return (
 <Layout title="Sankey Diagrams">
 	<Grid container>
@@ -31,7 +34,7 @@ const Sankey = () =>  {
 	</Grid>
 		<Grid item xs={12}>
 	 <div className="graph" >
-		  <SankeySvg values={values} colors={colors} />
+		  <SankeySvg colors={colors} values={values} />
 	</div>
 		</Grid>
 	</Grid>
