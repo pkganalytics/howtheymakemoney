@@ -78,9 +78,25 @@ export const values2021 = {
 ]}
 
 
-const links2020 = [
-{"source":0,"target":7,"value":198},
-{"source":0,"target":8,"value":88},
+export const values2020 = {
+"nodes":[
+{"name":"DR Congo"},
+{"name":"Burma"},
+{"name":"Ukraine"},
+{"name":"Afghanistan"},
+{"name":"Iraq"},
+{"name":"Syria"},
+{"name":"Others"},
+{"name":"California"},
+{"name":"Washington"},
+{"name":"Texas"},
+{"name":"New York"},
+{"name":"Michigan"},
+{"name":"Other"}
+],
+"links":[
+{"source":0,"target":7,"value":298},
+{"source":0,"target":8,"value":188},
 {"source":0,"target":9,"value":76},
 {"source":0,"target":10,"value":15},
 {"source":0,"target":11,"value":15},
@@ -139,11 +155,27 @@ const links2020 = [
 {"source":0,"target":10,"value":4},
 {"source":0,"target":11,"value":4},
 {"source":0,"target":12,"value":4}
-]
+]}
 
-const links2019 = [
-{"source":0,"target":7,"value":198},
-{"source":0,"target":8,"value":88},
+export const values2019 = {
+"nodes":[
+{"name":"DR Congo"},
+{"name":"Burma"},
+{"name":"Ukraine"},
+{"name":"Afghanistan"},
+{"name":"Iraq"},
+{"name":"Syria"},
+{"name":"Others"},
+{"name":"California"},
+{"name":"Washington"},
+{"name":"Texas"},
+{"name":"New York"},
+{"name":"Michigan"},
+{"name":"Other"}
+],
+"links":[
+{"source":0,"target":7,"value":498},
+{"source":0,"target":8,"value":188},
 {"source":0,"target":9,"value":76},
 {"source":0,"target":10,"value":15},
 {"source":0,"target":11,"value":15},
@@ -202,10 +234,7 @@ const links2019 = [
 {"source":0,"target":10,"value":4},
 {"source":0,"target":11,"value":4},
 {"source":0,"target":12,"value":4}
-]
-
-export const values2019 = values2021.links2019;
-export const values2020 = values2021.links2020;
+]}
 
 export const colors = ["purple", "brown", "red","orange", "yellow", "orange","purple", "brown", "red","orange", "yellow", "orange", "purple", "brown", "red","orange", "yellow", "orange","purple", "brown"]
 

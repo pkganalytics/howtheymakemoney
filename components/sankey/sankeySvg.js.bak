@@ -38,7 +38,6 @@ const sankey = d3Sankey()
 	  const path = sankey.links();
 console.log("values=", values)
 // load the data
-const clone = [...originalArray]
 	  	const graph = sankey(values)
 console.log("graph=", graph)
 

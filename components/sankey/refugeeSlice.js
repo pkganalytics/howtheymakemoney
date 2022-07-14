@@ -5,12 +5,12 @@ const refugeeSlice = createSlice({
 	name: 'year',
 	initialState: values2021,
 	reducers: {
-		Data2021: (state) => values2021,
-		Data2020: (state) => values2020,
-		Data2019: (state) => values2019
+		setValues2021: (state) => values2021,
+		setValues2020: (state) => values2020,
+		setValues2019: (state) => values2019
 	}
 })
 
-export const {Data2021, Data2020, Data2019} = refugeeSlice.actions;
+export const {setValues2021, setValues2020, setValues2019} = refugeeSlice.actions;
 
 export default refugeeSlice.reducer;

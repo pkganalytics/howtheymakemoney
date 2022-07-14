@@ -7,17 +7,17 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import { useSelector, useDispatch } from 'react-redux';
-import { Data2021, Data2020, Data2019 } from './refugeeSlice';
+import { setValues2021, setValues2020, setValues2019 } from './refugeeSlice';
 
 const SankeySidePanel = () => {
 
 	const dispatch = useDispatch();
 
 	const handleChange = (e) => {
-		console.log((e.target.value))
-		if (e.target.value == 'Data2021') {dispatch(Data2021()); return}
-		if (e.target.value == 'Data2020') {dispatch(Data2020()); return}
-		if (e.target.value == 'Data2019') {dispatch(Data2019()); return}
+		console.log(("e.target.value:", e.target.value))
+		if (e.target.value == 'values2021') {dispatch(setValues2021()); return}
+		if (e.target.value == 'values2020') {dispatch(setValues2020()); return}
+		if (e.target.value == 'values2019') {dispatch(setValues2019()); return}
 	}
 
 	return(
@@ -27,30 +27,25 @@ const SankeySidePanel = () => {
   <RadioGroup
     aria-labelledby="demo-radio-buttons-group-label"
 	row
-    defaultValue="All Three"
-    name="Organ"
+    defaultValue="values2021"
+    name="Year"
 	onChange={handleChange}
 
  >
 	  <FormControlLabel
-				value="all"
+				value="values2021"
 				control={<Radio/>}
-				label="All Three"/>
+				label="2021"/>
 
 	  <FormControlLabel
-				value="spleen"
+				value="values2020"
 				control={<Radio/>}
-				label="Spleen"/>
+				label="2020"/>
 
 	  <FormControlLabel
-				value="liver"
+				value="values2019"
 				control={<Radio/>}
-				label="Liver"/>
-
-	  <FormControlLabel
-				value="heart"
-				control={<Radio/>}
-				label="Heart"/>
+				label="2019"/>
 
 
   </RadioGroup>

@@ -89,7 +89,7 @@ console.log("graph=", graph)
 	  return () => {
       svg.selectAll('*').remove()
     }
-  }, [colors, dimensions]);
+  }, [values, colors, dimensions]);
 
   return (
       <div className="graph" ref={wrapperRef} >
