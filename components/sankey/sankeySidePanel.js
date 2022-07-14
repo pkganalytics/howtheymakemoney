@@ -7,7 +7,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import { useSelector, useDispatch } from 'react-redux';
-import {spleen, liver, heart, all} from './../store';
+import { Data2021, Data2020, Data2019 } from './refugeeSlice';
 
 const SankeySidePanel = () => {
 
@@ -15,10 +15,9 @@ const SankeySidePanel = () => {
 
 	const handleChange = (e) => {
 		console.log((e.target.value))
-		if (e.target.value == 'spleen') {dispatch(spleen()); return}
-		if (e.target.value == 'liver') {dispatch(liver()); return}
-		if (e.target.value == 'heart') {dispatch(heart()); return}
-		if (e.target.value == 'all') {dispatch(all()); return}
+		if (e.target.value == 'Data2021') {dispatch(Data2021()); return}
+		if (e.target.value == 'Data2020') {dispatch(Data2020()); return}
+		if (e.target.value == 'Data2019') {dispatch(Data2019()); return}
 	}
 
 	return(

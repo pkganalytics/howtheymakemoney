@@ -1,7 +1,7 @@
 import { useState } from "react";
-import {values, colors}  from "/components/barChartsData";
-// import BarChartsSvg from "/components/barChartsSvg";
-import BarChartsSidePanel from "/components/barChartsSidePanel";
+import { values, colors }  from "/components/barcharts/barChartsData";
+import BarChartsSvg from "/components/barcharts/barChartsSvg";
+import BarChartsSidePanel from "/components//barcharts/barChartsSidePanel";
 import Grid from '@mui/material/Grid';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import { Typography } from '@mui/material';
@@ -11,7 +11,8 @@ import womenImage from '../public/twowomenwhiteboard.jpg'
 
 
 const BarCharts = () =>  {
-
+console.log('values8=', values)
+console.log('colors=', colors)
 	return (
 <Layout title="Bar Charts">
 	<Grid container>

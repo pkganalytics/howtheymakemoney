@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import organReducer from'/barcharts/organSlice'
-import refugeeReducer from '/sankey/refugeeSlice'
+import organReducer from'.//barcharts/organSlice'
+import refugeeReducer from './/sankey/refugeeSlice'
 
 
 

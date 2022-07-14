@@ -7,7 +7,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import { useSelector, useDispatch } from 'react-redux';
-import {spleen, liver, heart, all} from './store';
+import {spleen, liver, heart, all} from './organSlice';
 
 const StackedBarChartsSidePanel = () => {
 

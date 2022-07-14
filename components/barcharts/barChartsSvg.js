@@ -3,21 +3,20 @@ import {
   select,
   scaleBand,
   axisBottom,
-	scaleOrdinal,
+  scaleOrdinal,
   stack,
   max,
   scaleLinear,
   axisLeft,
   stackOrderAscending
 } from "d3";
-import useResizeObserver from "./useResizeObserver";
+import useResizeObserver from "./../useResizeObserver";
 import { useSelector} from 'react-redux';
-import { counterSlice } from './store';
 import { legendColor } from 'd3-svg-legend';
 
 
 function StackedBarChartsSvg({ values, colors }) {
-  const keys = useSelector(state => state);
+  const organ = useSelector(state => state.organ);
   const svgRef = useRef();
   const wrapperRef = useRef();
   const dimensions = useResizeObserver(wrapperRef);
@@ -25,10 +24,11 @@ function StackedBarChartsSvg({ values, colors }) {
   // will be called initially and on every data change
   useEffect(() => {
     const svg = select(svgRef.current);
+console.log('values=', values)
     const { width, height } =
       dimensions || wrapperRef.current.getBoundingClientRect();
     const stackGenerator = stack()
-      .keys(keys)
+      .keys(organ)
       .order(stackOrderAscending);
     const layers = stackGenerator(values);
     const extent = [
@@ -63,7 +63,7 @@ function StackedBarChartsSvg({ values, colors }) {
 
 // Legend
 
-if (keys.length == 3)  {
+if (organ.length == 3)  {
 var band = scaleOrdinal()
   .domain(["spleen", "liver", "heart"])
 		  .range(["purple", "brown", "red"]);
@@ -111,7 +111,7 @@ var legendLinear = legendColor()
     svg.select(".y-axis").call(yAxis);
 
 
-  }, [colors, dimensions, keys, values]);
+  }, [colors, dimensions, organ, values]);
 
   return (
       <div className="graph" ref={wrapperRef} >

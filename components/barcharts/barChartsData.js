@@ -1,4 +1,3 @@
-
 export const values = [
   {
     year: 2018,
@@ -39,4 +38,3 @@ export const colors = {
   "Liver": "brown",
   "Heart": "red"
 };
-
