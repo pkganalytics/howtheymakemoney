@@ -18,11 +18,11 @@ function SankeySvg({ colors, values }) {
   const wrapperRef = useRef();
   const dimensions = useResizeObserver(wrapperRef);
   const margin=10;
-  const [previousState, setPreviousState ] = useState(0);
+  const [previousState, setPreviousState ] = useState({...values});
 
-	useEffect(() => {
-	setPreviousState({...values});
-	}, [])	
+	// useEffect(() => {
+	// setPreviousState({...values});
+	// }, [])	
 
   useEffect(() => {
 	console.log('previousState=', previousState);
