@@ -14,7 +14,7 @@ const SankeySidePanel = () => {
 	const dispatch = useDispatch();
 
 	const handleChange = (e) => {
-		console.log(("e.target.value:", e.target.valueb))
+		console.log(("e.target.value:", e.target.value))
 		if (e.target.value == 'values2021') {dispatch(setValues2021()); return}
 		if (e.target.value == 'values2020') {dispatch(setValues2020()); return}
 		if (e.target.value == 'values2019') {dispatch(setValues2019()); return}

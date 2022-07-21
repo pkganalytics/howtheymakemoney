@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import organReducer from'.//barcharts/organSlice'
 import refugeeReducer from './/sankey/refugeeSlice'
-
+import previousRefugeeReducer from './/sankey/previousRefugeeSlice'
 
 
 export default configureStore({reducer: {
-								dataSelection: organReducer,
-								year: refugeeReducer
+								organ: organReducer,
+								year: refugeeReducer,
 							}});
 

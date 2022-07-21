@@ -1,4 +1,4 @@
-import React, { useEffect, useRef} from "react";
+import React, { useEffect, useRef, useState} from "react";
 import {
   select,
   selectAll,
@@ -13,17 +13,26 @@ import { format as d3Format } from 'd3-format';
 import useResizeObserver from "./../useResizeObserver";
 
 function SankeySvg({ colors, values }) {
+
   const svgRef = useRef();
   const wrapperRef = useRef();
   const dimensions = useResizeObserver(wrapperRef);
   const margin=10;
+  const [previousState, setPreviousState ] = useState(0);
+
+	useEffect(() => {
+	setPreviousState({...values});
+	}, [])	
 
   useEffect(() => {
+	console.log('previousState=', previousState);
+	console.log('values=', values)
     const { width, height} =
       dimensions || wrapperRef.current.getBoundingClientRect();
     const svg = select(svgRef.current)
 			.attr("width", width)
 			.attr("height", height)
+
 // format variables
 const formatNumber = d3Format(",.0f"),
     format = function(d) { return formatNumber(d); },
@@ -36,10 +45,8 @@ const sankey = d3Sankey()
     .size([width, height]);
 
 	  const path = sankey.links();
-console.log("values=", values)
 // load the data
 	  	const graph = sankey(values)
-console.log("graph=", graph)
 
 
 // add in the links
@@ -86,10 +93,12 @@ console.log("graph=", graph)
       .attr("x", function(d) { return d.x1 + 6; })
       .attr("text-anchor", "start");
 
+	  setPreviousState({...values});
+
 	  return () => {
       svg.selectAll('*').remove()
     }
-  }, [colors, dimensions]);
+  }, [values, colors, dimensions]);
 
   return (
       <div className="graph" ref={wrapperRef} >
