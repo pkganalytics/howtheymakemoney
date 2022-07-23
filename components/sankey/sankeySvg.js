@@ -46,7 +46,7 @@ const sankey = d3Sankey()
 
 	  const path = sankey.links();
 // load the data
-	  	const graph = sankey(values)
+	  	const graph = sankey(previousState)
 
 
 // add in the links
@@ -92,6 +92,43 @@ const sankey = d3Sankey()
     .filter(function(d) { return d.x0 < width / 2; })
       .attr("x", function(d) { return d.x1 + 6; })
       .attr("text-anchor", "start");
+
+// Recalculate sankey layout
+
+	  	const graph2 = sankey(values)
+
+
+// Select each element that needs to be changed and pass the new data values
+
+	svg.selectAll(".link")
+      .data(graph2.links)
+      .transition()
+      .duration(1300)
+	  .attr("stroke-width", d => d.width);
+
+    //   .data(nodeData, function(d) { return d.name; })
+    //   .transition()
+    //   .duration(1300)
+    //   .attr("transform", function(d) {
+    //     return "translate(" + d.x + "," + d.y + ")";
+    //   });
+
+    // svg.selectAll(".node rect")
+    //   .transition()
+    //   .duration(1300)
+    //   .attr("height", function(d) {
+    //     return d.dy;
+    //   });
+
+    // svg.selectAll(".node text")
+    //   .transition()
+    //   .duration(1300)
+    //   .attr("y", function(d) {
+    //     return d.dy / 2;
+    //   })
+    //   .style("font-size", function(d) {
+    //     return Math.floor(fontScale(d.value)) + "px";
+    //   });
 
 	  setPreviousState({...values});
 
