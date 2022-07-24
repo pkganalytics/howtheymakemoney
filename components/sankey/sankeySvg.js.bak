@@ -11,6 +11,7 @@ import {
 import { sankey as d3Sankey, sankeyLinkHorizontal } from 'd3-sankey';
 import { format as d3Format } from 'd3-format';
 import useResizeObserver from "./../useResizeObserver";
+import { transition } from 'd3-transition'
 
 function SankeySvg({ colors, values }) {
 
@@ -47,16 +48,18 @@ const sankey = d3Sankey()
 
 // // Create key for links data
 // 		const linksWithKey = graph.links.map(d => {
-// 			d.id = d.source + "->" + d.target;
 // 			return { source: d.source,
 // 					 target: d.target,
-// 					 id: d.id,
+// 					 id: d,
 // 					 value: d.value }
-			 // } )
+// 			 } )
+
+	  // console.log("linksWithKey=", linksWithKey);
+	  console.log('graph.links', graph.links);
 
 // add in the links
   const link = svg.append("g").selectAll(".link")
-		.data(linksWithKey, d => d.id)
+	  .data(graph.links, d => {d.source.name + d.target.name})
     .enter().append("path")
       .attr("class", "link")
       .attr("d", sankeyLinkHorizontal())
@@ -70,17 +73,17 @@ const sankey = d3Sankey()
 
 // add in the nodes
   const node = svg.append("g").selectAll(".node")
-      .data(graph.nodes)
+		  .data(graph.nodes, d => d.name)
     .enter().append("g")
       .attr("class", "node");
 
 // add the rectangles for the nodes
   node.append("rect")
 	  .attr("x", d => d.x0)
-		.attr("y", d => d.y0)
+	  .attr("y", d => d.y0)
       .attr("height", function(d) { return d.y1 - d.y0; })
       .attr("width", sankey.nodeWidth())
-		  .attr("fill", d => colors[d.index])
+	  .attr("fill", d => colors[d.index])
       .style("stroke", function(d) {
 		  return rgb(d.color).darker(2); })
     .append("title")
@@ -98,16 +101,15 @@ const sankey = d3Sankey()
       .attr("x", function(d) { return d.x1 + 6; })
       .attr("text-anchor", "start");
 
-// Recalculate sankey layout
+// Recalculate sankey layout ////////////////////////////////
 
 	  	const graph2 = sankey(values)
 
 
 // Select each element that needs to be changed and pass the new data values
 
-
-
 	svg.selectAll(".link")
+	  .data(graph2.links, d =>  {d.source.name + d.target.name})
       .transition()
       .duration(3000)
       .attr("d", sankeyLinkHorizontal())
@@ -117,16 +119,18 @@ const sankey = d3Sankey()
 		  // return d.name + "\n" + format(d.value); });
 
 	svg.selectAll(".node")
-	   .transition()
+		  .data(graph2.nodes, d => d.name)
+		  .transition()
 	   .duration(3000)
 	   .attr("x", d => d.x0)
 	   .attr("y", d => d.y0)
 
 
 svg.selectAll(".node rect")
+	  .data(graph2.nodes, d => d.name)
 	   .transition()
 	   .duration(3000)
-   .attr("height", function(d) { return d.y1 - d.y0; })
+		  .attr("height", d  => { return d.y1 - d.y0; })
    .attr("width", sankey.nodeWidth())
    .attr("fill", d => colors[d.index])
    .style("stroke", function(d) {
