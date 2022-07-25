@@ -46,20 +46,15 @@ const sankey = d3Sankey()
 // load the data
 	  	const graph = sankey(previousState)
 
-// // Create key for links data
-// 		const linksWithKey = graph.links.map(d => {
-// 			return { source: d.source,
-// 					 target: d.target,
-// 					 id: d,
-// 					 value: d.value }
-// 			 } )
+
+const linkKey = d =>{d.source.name + '-' + d.target.name;};
 
 	  // console.log("linksWithKey=", linksWithKey);
 	  console.log('graph.links', graph.links);
 
 // add in the links
   const link = svg.append("g").selectAll(".link")
-	  .data(graph.links, d => {d.source.name + d.target.name})
+		  .data(graph.links)
     .enter().append("path")
       .attr("class", "link")
       .attr("d", sankeyLinkHorizontal())
@@ -81,7 +76,7 @@ const sankey = d3Sankey()
   node.append("rect")
 	  .attr("x", d => d.x0)
 	  .attr("y", d => d.y0)
-      .attr("height", function(d) { return d.y1 - d.y0; })
+		  .attr("height", d  => {return d.y1 - d.y0;})
       .attr("width", sankey.nodeWidth())
 	  .attr("fill", d => colors[d.index])
       .style("stroke", function(d) {
@@ -104,37 +99,59 @@ const sankey = d3Sankey()
 // Recalculate sankey layout ////////////////////////////////
 
 	  	const graph2 = sankey(values)
+console.log('graph2.links=', graph2.links);
+console.log('graph2.nodes=', graph2.nodes);
 
 
 // Select each element that needs to be changed and pass the new data values
 
-	svg.selectAll(".link")
-	  .data(graph2.links, d =>  {d.source.name + d.target.name})
+svg.selectAll(".link")
+		  .data(graph2.links)
       .transition()
       .duration(3000)
       .attr("d", sankeyLinkHorizontal())
 	  .attr("stroke-width", d => d.width);
-    // .append("title")
-      // .text(function(d) {
+
+	  // add in the nodes
+  const node2 = svg.append("g").selectAll(".node")
+		  .data(graph2.nodes, d => d.name)
+    // .enter().append("g")
+      .attr("class", "node");
+
+// add the rectangles for the nodes
+  node2.append("rect")
+	  .attr("x", d => d.x0)
+	  .attr("y", d => d.y0)
+		  .attr("height", d  => {return d.y1 - d.y0;})
+      .attr("width", sankey.nodeWidth())
+	  .attr("fill", d => colors[d.index])
+      .style("stroke", function(d) {
+		  return rgb(d.color).darker(2); })
+    .append("title")
+      .text(function(d) {
+		  return d.name + "\n" + format(d.value); });
+
+		  // link2.append("title")
+		  // .text(function(d) {
 		  // return d.name + "\n" + format(d.value); });
 
-	svg.selectAll(".node")
-		  .data(graph2.nodes, d => d.name)
-		  .transition()
-	   .duration(3000)
-	   .attr("x", d => d.x0)
-	   .attr("y", d => d.y0)
+	// svg.selectAll(".node")
+	// 	  .data(graph2.nodes, d => d.name)
+	// 	  .transition()
+	//    .duration(3000)
+	//    .attr("x", d => d.x0)
+	//    .attr("y", d => d.y0)
 
 
-svg.selectAll(".node rect")
-	  .data(graph2.nodes, d => d.name)
-	   .transition()
-	   .duration(3000)
-		  .attr("height", d  => { return d.y1 - d.y0; })
-   .attr("width", sankey.nodeWidth())
-   .attr("fill", d => colors[d.index])
-   .style("stroke", function(d) {
-	   return rgb(d.color).darker(2); })
+// svg.selectAll(".node rect")
+	// 	  .data(graph2.nodes, d => d.name)
+	//    .transition()
+	//    .duration(3000)
+	// 	  .attr("height", d  => {return d.y1 - d.y0;})
+   // .attr("width", sankey.nodeWidth())
+   // .attr("fill", d => colors[d.index])
+   // .style("stroke", function(d) {
+	//    return rgb(d.color).darker(2); })
 
 
 	  setPreviousState({...values});
