@@ -112,6 +112,10 @@ svg.selectAll(".link")
       .attr("d", sankeyLinkHorizontal())
 	  .attr("stroke-width", d => d.width);
 
+	  // remove old rectangles
+
+  svg.selectAll(".node rect").remove();
+
 	  // add in the nodes
   const node2 = svg.append("g").selectAll(".node")
 		  .data(graph2.nodes, d => d.name)
