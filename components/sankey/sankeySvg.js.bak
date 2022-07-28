@@ -49,13 +49,12 @@ const sankey = d3Sankey()
 
 const linkKey = d =>{d.source.name + '-' + d.target.name;};
 
-	  // console.log("linksWithKey=", linksWithKey);
-	  console.log('graph.links', graph.links);
-
 // add in the links
-  const link = svg.append("g").selectAll(".link")
+  const link = svg.append("g")
+	.selectAll(".link")
 		  .data(graph.links)
-    .enter().append("path")
+      .enter()
+	  .append("path")
       .attr("class", "link")
       .attr("d", sankeyLinkHorizontal())
 	  .attr("stroke-width", d => d.width);
@@ -99,9 +98,6 @@ const linkKey = d =>{d.source.name + '-' + d.target.name;};
 // Recalculate sankey layout ////////////////////////////////
 
 	  	const graph2 = sankey(values)
-console.log('graph2.links=', graph2.links);
-console.log('graph2.nodes=', graph2.nodes);
-
 
 // Select each element that needs to be changed and pass the new data values
 
@@ -112,51 +108,18 @@ svg.selectAll(".link")
       .attr("d", sankeyLinkHorizontal())
 	  .attr("stroke-width", d => d.width);
 
-	  // remove old rectangles
-
-  svg.selectAll(".node").remove();
-
 	  // add in the nodes
-  const node2 = svg.append("g").selectAll(".node")
-		  .data(graph2.nodes, d => d.name)
-    .enter().append("g")
-      .attr("class", "node");
 
-// add the rectangles for the nodes
-  node2.append("rect")
+  const node2 = svg.selectAll(".node")
+	  .data(graph2.nodes, d => d.name)
+
+const rect2 = svg.selectAll('.node rect')
+	  .data(graph2.nodes, d => d.name)
+		  .transition()
+	  .duration(3000)
 	  .attr("x", d => d.x0)
 	  .attr("y", d => d.y0)
 		  .attr("height", d  => {return d.y1 - d.y0;})
-      .attr("width", sankey.nodeWidth())
-	  .attr("fill", d => colors[d.index])
-      .style("stroke", function(d) {
-		  return rgb(d.color).darker(2); })
-    .append("title")
-      .text(function(d) {
-		  return d.name + "\n" + format(d.value); });
-
-		  // link2.append("title")
-		  // .text(function(d) {
-		  // return d.name + "\n" + format(d.value); });
-
-	// svg.selectAll(".node")
-	// 	  .data(graph2.nodes, d => d.name)
-	// 	  .transition()
-	//    .duration(3000)
-	//    .attr("x", d => d.x0)
-	//    .attr("y", d => d.y0)
-
-
-// svg.selectAll(".node rect")
-	// 	  .data(graph2.nodes, d => d.name)
-	//    .transition()
-	//    .duration(3000)
-	// 	  .attr("height", d  => {return d.y1 - d.y0;})
-   // .attr("width", sankey.nodeWidth())
-   // .attr("fill", d => colors[d.index])
-   // .style("stroke", function(d) {
-	//    return rgb(d.color).darker(2); })
-
 
 	  setPreviousState({...values});
 
