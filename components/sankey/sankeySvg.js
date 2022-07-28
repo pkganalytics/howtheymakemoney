@@ -45,8 +45,6 @@ const sankey = d3Sankey()
 	  	const graph = sankey(previousState)
 
 
-const linkKey = d =>{d.source.name + '-' + d.target.name;};
-
 // add in the links
   const link = svg.append("g")
 	.selectAll(".link")
@@ -113,12 +111,36 @@ svg.selectAll(".link")
 
 const rect2 = svg.selectAll('.node rect')
 	  .data(graph2.nodes, d => d.name)
-		  .transition()
+	  .transition()
 	  .duration(3000)
 	  .attr("x", d => d.x0)
 	  .attr("y", d => d.y0)
-		  .attr("height", d  => {return d.y1 - d.y0;})
+	  .attr("height", d  => {return d.y1 - d.y0;})
 
+const title2 = svg.selectAll("title")
+		  .exit()
+		  .remove()
+
+ node.selectAll("text")
+	  .exit()
+	  .remove()
+
+const rect3 = svg.selectAll(".node rect")
+	  .data(graph2.nodes, d => d.name)
+		  .append("title")
+     .text(function(d) {
+		  return d.name + "\n" + format(d.value); });
+
+  node.selectAll("text")
+	  .data(graph2.nodes, d => d.name)
+		.attr("x", d => d.x0 - 6)
+      .attr("y", function(d) { return (d.y1 + d.y0) / 2; })
+      .attr("dy", "0.35em")
+      .attr("text-anchor", "end")
+      .text(function(d) { return d.name; })
+    .filter(function(d) { return d.x0 < width / 2; })
+      .attr("x", function(d) { return d.x1 + 6; })
+      .attr("text-anchor", "start");
 	  setPreviousState({...values});
 
 	  return () => {
