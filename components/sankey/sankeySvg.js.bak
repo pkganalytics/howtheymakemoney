@@ -132,6 +132,9 @@ const rect3 = svg.selectAll(".node rect")
 		  return d.name + "\n" + format(d.value); });
 
   node.selectAll("text")
+	  .data(graph2.nodes, d => d.name)
+	  .transition()
+	  .duration(3000)
 		.attr("x", d => d.x0 - 6)
       .attr("y", function(d) { return (d.y1 + d.y0) / 2; })
       .attr("dy", "0.35em")
