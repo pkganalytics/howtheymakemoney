@@ -56,10 +56,17 @@ const sankey = d3Sankey()
 	  .attr("stroke-width", d => d.width);
 
 // add the link titles
-  link.append("title")
-        .text(function(d) {
-    		    return d.source.name + " → " +
-                d.target.name + "\n" + format(d.value); });
+  // link.append("title")
+  //       .text(function(d) {
+  //   		    return d.source.name + " → " +
+                // d.target.name + "\n" + format(d.value); });
+
+// Define the div for the tooltip
+
+const div = select("body")
+			  .append("div")
+			  .attr("class", "tooltip")				
+			  .style("opacity", 0);
 
 // add in the nodes
   const node = svg.append("g").selectAll(".node")
@@ -71,25 +78,41 @@ const sankey = d3Sankey()
   node.append("rect")
 	  .attr("x", d => d.x0)
 	  .attr("y", d => d.y0)
-		  .attr("height", d  => {return d.y1 - d.y0;})
+	  .attr("height", d  => {return d.y1 - d.y0;})
       .attr("width", sankey.nodeWidth())
 	  .attr("fill", d => colors[d.index])
       .style("stroke", function(d) {
 		  return rgb(d.color).darker(2); })
-    .append("title")
-      .text(function(d) {
-		  return d.name + "\n" + format(d.value); });
+    // .append("title")
+    //   .text(function(d) {
+		  // return d.name + "\n" + format(d.value); });
 
+.on("mouseover", function(event, d) {
+	div.transition()
+        .duration(200)
+		.style("font-weight", "bold")
+        .style("opacity", .8);
+
+	div.html("Uvo")
+	     .style("left", (event.pageX) + "px")
+        .style("top", (event.pageY - 28) + "px")
+            })
+        .on("mouseout", function(d) {		
+            div.transition()
+                .duration(500)
+                .style("opacity", 0);
+        });
 // add in the title for the nodes
-  node.append("text")
-		  .attr("x", d => d.x0 - 6)
-      .attr("y", function(d) { return (d.y1 + d.y0) / 2; })
-      .attr("dy", "0.35em")
-      .attr("text-anchor", "end")
-      .text(function(d) { return d.name; })
-    .filter(function(d) { return d.x0 < width / 2; })
-      .attr("x", function(d) { return d.x1 + 6; })
-      .attr("text-anchor", "start");
+  // node.append("text")
+		  // .attr("x", d => d.x0 - 6)
+  //     .attr("y", function(d) { return (d.y1 + d.y0) / 2; })
+  //     .attr("dy", "0.35em")
+  //     .attr("text-anchor", "end")
+  //     .text(function(d) { return d.name; })
+  //   .filter(function(d) { return d.x0 < width / 2; })
+  //     .attr("x", function(d) { return d.x1 + 6; })
+  //     .attr("text-anchor", "start");
+
 
 // Recalculate sankey layout ////////////////////////////////
 
@@ -98,7 +121,7 @@ const sankey = d3Sankey()
 // Select each element that needs to be changed and pass the new data values
 
 svg.selectAll(".link")
-		  .data(graph2.links)
+	  .data(graph2.links)
       .transition()
       .duration(3000)
       .attr("d", sankeyLinkHorizontal())
@@ -127,15 +150,15 @@ const title2 = svg.selectAll("title")
 
 const rect3 = svg.selectAll(".node rect")
 	  .data(graph2.nodes, d => d.name)
-		  .append("title")
-     .text(function(d) {
-		  return d.name + "\n" + format(d.value); });
+		  // .append("title")
+     // .text(function(d) {
+		  // return d.name + "\n" + format(d.value); });
 
   node.selectAll("text")
 	  .data(graph2.nodes, d => d.name)
 	  .transition()
 	  .duration(3000)
-		.attr("x", d => d.x0 - 6)
+	  .attr("x", d => d.x0 - 6)
       .attr("y", function(d) { return (d.y1 + d.y0) / 2; })
       .attr("dy", "0.35em")
       .attr("text-anchor", "end")
