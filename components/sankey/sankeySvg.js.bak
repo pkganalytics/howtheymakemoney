@@ -53,8 +53,24 @@ const sankey = d3Sankey()
 	  .append("path")
       .attr("class", "link")
       .attr("d", sankeyLinkHorizontal())
-	  .attr("stroke-width", d => d.width);
+	  .attr("stroke-width", d => d.width)
 
+.on("mouseover", function(event, d) {
+	div.transition()
+        .duration(200)
+		.style("font-weight", "bold")
+        .style("opacity", .8);
+
+	div.html d.source.name + " → " +
+                // d.target.name + "\n" + format(d.value))
+	     .style("left", (event.pageX) + "px")
+        .style("top", (event.pageY - 28) + "px")
+            })
+        .on("mouseout", function(d) {		
+            div.transition()
+                .duration(500)
+                .style("opacity", 0);
+        });
 // add the link titles
   // link.append("title")
   //       .text(function(d) {
@@ -65,7 +81,7 @@ const sankey = d3Sankey()
 
 const div = select("body")
 			  .append("div")
-			  .attr("class", "tooltip")				
+			  .attr("class", "tooltip")
 			  .style("opacity", 0);
 
 // add in the nodes
@@ -93,7 +109,7 @@ const div = select("body")
 		.style("font-weight", "bold")
         .style("opacity", .8);
 
-	div.html("Uvo")
+	div.html(d.name)
 	     .style("left", (event.pageX) + "px")
         .style("top", (event.pageY - 28) + "px")
             })
