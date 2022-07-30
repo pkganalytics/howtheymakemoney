@@ -61,8 +61,7 @@ const sankey = d3Sankey()
 		.style("font-weight", "bold")
         .style("opacity", .8);
 
-	div.html d.source.name + " → " +
-                // d.target.name + "\n" + format(d.value))
+	div.html(d.source.name + " → " + d.target.name + "\n" + format(d.value))
 	     .style("left", (event.pageX) + "px")
         .style("top", (event.pageY - 28) + "px")
             })

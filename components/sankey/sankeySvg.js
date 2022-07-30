@@ -118,15 +118,15 @@ const div = select("body")
                 .style("opacity", 0);
         });
 // add in the title for the nodes
-  // node.append("text")
-		  // .attr("x", d => d.x0 - 6)
-  //     .attr("y", function(d) { return (d.y1 + d.y0) / 2; })
-  //     .attr("dy", "0.35em")
-  //     .attr("text-anchor", "end")
-  //     .text(function(d) { return d.name; })
-  //   .filter(function(d) { return d.x0 < width / 2; })
-  //     .attr("x", function(d) { return d.x1 + 6; })
-  //     .attr("text-anchor", "start");
+  node.append("text")
+		  .attr("x", d => d.x0 - 6)
+      .attr("y", function(d) { return (d.y1 + d.y0) / 2; })
+      .attr("dy", "0.35em")
+      .attr("text-anchor", "end")
+      .text(function(d) { return d.name; })
+    .filter(function(d) { return d.x0 < width / 2; })
+      .attr("x", function(d) { return d.x1 + 6; })
+      .attr("text-anchor", "start");
 
 
 // Recalculate sankey layout ////////////////////////////////
