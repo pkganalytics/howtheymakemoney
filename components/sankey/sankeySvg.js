@@ -5,13 +5,16 @@ import {
   json,
   rgb,
   scaleOrdinal,
+  easeLinear,
   intensityRamp,
   schemeCategory10
 } from "d3";
 import { sankey as d3Sankey, sankeyLinkHorizontal } from 'd3-sankey';
 import { format as d3Format } from 'd3-format';
 import useResizeObserver from "./../useResizeObserver";
-import { transition } from 'd3-transition'
+import { transition } from 'd3-transition';
+import { group, rollups, sum } from 'd3-array';
+import { nest, entries } from 'd3-collection';
 
 function SankeySvg({ colors, values }) {
 
@@ -44,6 +47,13 @@ const sankey = d3Sankey()
 // load the data
 	  	const graph = sankey(previousState)
 
+// add the totals
+	  const groupedValues = rollups(values.links, v => sum (v, d => d.value), d => d.source);
+	  // const groupedValues = group(values.links, d => d.source)
+	  // .rollup(v => sum(v, d => d.value))
+		  // .entries(graph.links);
+	  console.log('groupedValues =', groupedValues)
+
 
 // add in the links
   const link = svg.append("g")
@@ -58,8 +68,9 @@ const sankey = d3Sankey()
 .on("mouseover", function(event, d) {
 	div.transition()
         .duration(200)
+		.ease(easeLinear)
 		.style("font-weight", "bold")
-        .style("opacity", .8);
+        .style("opacity", 1);
 
 	div.html(d.source.name + " → " + d.target.name + "\n" + format(d.value))
 	     .style("left", (event.pageX) + "px")
@@ -98,13 +109,11 @@ const div = select("body")
 	  .attr("fill", d => colors[d.index])
       .style("stroke", function(d) {
 		  return rgb(d.color).darker(2); })
-    // .append("title")
-    //   .text(function(d) {
-		  // return d.name + "\n" + format(d.value); });
 
 .on("mouseover", function(event, d) {
 	div.transition()
-        .duration(200)
+        .duration(300)
+		.ease(easeLinear)
 		.style("font-weight", "bold")
         .style("opacity", .8);
 
@@ -115,6 +124,7 @@ const div = select("body")
         .on("mouseout", function(d) {		
             div.transition()
                 .duration(500)
+				.ease(easeLinear)
                 .style("opacity", 0);
         });
 // add in the title for the nodes
