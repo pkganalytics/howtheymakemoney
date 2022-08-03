@@ -1,3 +1,4 @@
+
 export const values2021 = {
 "nodes":[
 {"name":"DR Congo"},
@@ -110,7 +111,7 @@ export const values2020 = {
 {"source":2,"target":7,"value":82},
 {"source":2,"target":8,"value":20},
 {"source":2,"target":9,"value":13},
-{"source":2,"target":10,"value":240},
+{"source":2,"target":10,"value":130},
 {"source":2,"target":11,"value":14},
 {"source":2,"target":12,"value":16},
 {"source":3,"target":7,"value":20},

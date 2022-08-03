@@ -13,8 +13,7 @@ import { sankey as d3Sankey, sankeyLinkHorizontal } from 'd3-sankey';
 import { format as d3Format } from 'd3-format';
 import useResizeObserver from "./../useResizeObserver";
 import { transition } from 'd3-transition';
-import { group, rollup, sum } from 'd3-array';
-import { nest, entries } from 'd3-collection';
+import { rollups, sum } from 'd3-array';
 
 function SankeySvg({ colors, values }) {
 
@@ -47,13 +46,27 @@ const sankey = d3Sankey()
 // load the data
 	  	const graph = sankey(previousState)
 
-// add the totals
-	  const groupedValues = rollups(values.links, v => sum (v, d => d.value), d => d.source);
-	  // const groupedValues = group(values.links, d => d.source)
-	  // .rollup(v => sum(v, d => d.value))
-		  // .entries(graph.links);
-	  console.log('groupedValues =', groupedValues)
+// calculate total for each source node
+	  // var groupedValues = new Array[13, 8]
+// console.log('groupedValues=', groupedValues)
+	  const sourceTotals = rollups(values.links, v => sum (v, d => d.value), d => d.source);
+	  console.log('sourceTotals [5][0] =', sourceTotals[5][0]);
+	  const targetTotals = rollups(values.links, v => sum (v, d => d.value), d => d.target);
+	  console.log('targetTotals[4][0] =', targetTotals[4][0]);
+	  const totals = sourceTotals.concat(targetTotals);
+	  console.log('targetTotals=', targetTotals);
 
+	  // groupedValues[9][0] = 0;
+	  // groupedValues[10][0] = 0;
+	  // groupedValues[11][0] = 0;
+	  // groupedValues[12][0] = 0;
+
+// // push totals to values.nodes
+	  // values.nodes.forEach((i) => {
+		  // values.nodes.totals = groupedValues[i][0].value || 0
+	  // });
+
+	  console.log('graph.nodes=', graph.nodes)
 
 // add in the links
   const link = svg.append("g")
@@ -81,11 +94,6 @@ const sankey = d3Sankey()
                 .duration(500)
                 .style("opacity", 0);
         });
-// add the link titles
-  // link.append("title")
-  //       .text(function(d) {
-  //   		    return d.source.name + " → " +
-                // d.target.name + "\n" + format(d.value); });
 
 // Define the div for the tooltip
 
@@ -96,9 +104,9 @@ const div = select("body")
 
 // add in the nodes
   const node = svg.append("g").selectAll(".node")
-		  .data(graph.nodes, d => d.name)
-    .enter().append("g")
-      .attr("class", "node");
+				  .data(graph.nodes, d => d.name)
+				  .enter().append("g")
+				  .attr("class", "node");
 
 // add the rectangles for the nodes
   node.append("rect")
@@ -117,9 +125,9 @@ const div = select("body")
 		.style("font-weight", "bold")
         .style("opacity", .8);
 
-	div.html(d.name)
+	div.html(d.total)
 	     .style("left", (event.pageX) + "px")
-        .style("top", (event.pageY - 28) + "px")
+         .style("top", (event.pageY - 28) + "px")
             })
         .on("mouseout", function(d) {		
             div.transition()
