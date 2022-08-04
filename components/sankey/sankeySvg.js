@@ -13,7 +13,7 @@ import { sankey as d3Sankey, sankeyLinkHorizontal } from 'd3-sankey';
 import { format as d3Format } from 'd3-format';
 import useResizeObserver from "./../useResizeObserver";
 import { transition } from 'd3-transition';
-import { rollups, sum } from 'd3-array';
+import { rollups, sum, merge } from 'd3-array';
 
 function SankeySvg({ colors, values }) {
 
@@ -56,17 +56,13 @@ const sankey = d3Sankey()
 	  const totals = sourceTotals.concat(targetTotals);
 	  console.log('totals=', totals);
 
-	  // groupedValues[9][0] = 0;
-	  // groupedValues[10][0] = 0;
-	  // groupedValues[11][0] = 0;
-	  // groupedValues[12][0] = 0;
+	  console.log('graph.nodes=', graph.nodes);
 
-// // push totals to values.nodes
-	  // values.nodes.forEach((i) => {
-		  // values.nodes.totals = groupedValues[i][0].value || 0
-	  // });
+	  console.log('previousState=', previousState);
 
-	  console.log('graph.nodes=', graph.nodes)
+	  graph.nodes.forEach((element, index) => graph.nodes.total = totals[index][0])
+
+	  console.log('graph.nodes=', graph.nodes);
 
 // add in the links
   const link = svg.append("g")
@@ -125,7 +121,7 @@ const div = select("body")
 		.style("font-weight", "bold")
         .style("opacity", .8);
 
-	div.html(d.total)
+	div.html(d.value + " Total")
 	     .style("left", (event.pageX) + "px")
          .style("top", (event.pageY - 28) + "px")
             })
