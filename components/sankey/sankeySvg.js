@@ -4,17 +4,15 @@ import {
   selectAll,
   json,
   rgb,
-  scaleOrdinal,
-  easeLinear,
-  intensityRamp,
-  schemeCategory10
+  scaleLinear,
+  easeLinear
 } from "d3";
 import { sankey as d3Sankey, sankeyLinkHorizontal } from 'd3-sankey';
 import { format as d3Format } from 'd3-format';
 import useResizeObserver from "./../useResizeObserver";
 import { transition } from 'd3-transition';
-import { rollups, sum, merge } from 'd3-array';
-import { color, hsl } from 'd3-color';
+import { rollups, sum, min, max, extent, merge } from 'd3-array';
+import { color, hsl, lab } from 'd3-color';
 
 function SankeySvg({ colors, values }) {
 
@@ -34,7 +32,7 @@ function SankeySvg({ colors, values }) {
 // format variables
 const formatNumber = d3Format(",.0f"),
     format = function(d) { return formatNumber(d); }
-    // color = scaleOrdinal(schemeCategory10);
+
 
 // Set the sankey diagram properties
 const sankey = d3Sankey()
@@ -52,10 +50,22 @@ const sankey = d3Sankey()
 // console.log('groupedValues=', groupedValues)
 	  const sourceTotals = rollups(values.links, v => sum (v, d => d.value), d => d.source);
 	  const targetTotals = rollups(values.links, v => sum (v, d => d.value), d => d.target);
-	  const totals = sourceTotals.concat(targetTotals);
 
+console.log('sourceTotals=', sourceTotals)
+	  const totals = sourceTotals.concat(targetTotals);
+console.log('totals=', totals)
 	  graph.nodes.forEach((element, index) => graph.nodes.total = totals[index][0])
 
+// Create array for colors
+	  const colorTotals = [];
+	  graph.nodes.forEach((element, index) => colorTotals[index] = totals[index][0].value);
+	  console.log('colorTotals=', colorTotals)
+
+	  const colorExtent = extent(colorTotals);
+	  console.log('extent=', colorExtent)
+const totalColor = scaleLinear()
+				  .domain(colorExtent)
+				  .range(["black", "red"])
 
 // add in the links
   const link = svg.append("g")
@@ -103,7 +113,8 @@ const div = select("body")
 	  .attr("y", d => d.y0)
 	  .attr("height", d  => {return d.y1 - d.y0;})
       .attr("width", sankey.nodeWidth())
-	  .attr("fill", d => rgb(d.value, 200, 300))
+	  .attr("fill", d => totalColor(d.value))
+	  // .attr("fill", d => rgb(d.value - 60, 0,0))
       .style("stroke", function(d) {
 		  return rgb(d.color).darker(2); })
 
