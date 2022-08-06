@@ -63,7 +63,7 @@ const totalRed = scaleLinear()
 
 const totalBlue = scaleLinear()
 				  .domain(colorExtent)
-				  .range(["#000000", "#0000ff"])
+				  .range(["#000020", "#0000ff"])
 
 
 // add in the links
@@ -192,7 +192,6 @@ const rect2 = svg.selectAll('.node rect')
 	  .attr("y", d => d.y0)
 	  .attr("height", d  => {return d.y1 - d.y0;})
 		  .attr("fill", d => { return d.index < 6 ? newTotalRed(d.value): newTotalBlue(d.value)})
-
 
 const title2 = svg.selectAll("title")
 		  .exit()

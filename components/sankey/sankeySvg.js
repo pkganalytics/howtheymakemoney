@@ -63,7 +63,7 @@ const totalRed = scaleLinear()
 
 const totalBlue = scaleLinear()
 				  .domain(colorExtent)
-				  .range(["#000000", "#0000ff"])
+				  .range(["#000020", "#0000ff"])
 
 
 // add in the links
@@ -168,7 +168,7 @@ const newTotalRed = scaleLinear()
 
 const newTotalBlue = scaleLinear()
 				  .domain(newColorExtent)
-				  .range(["#000000", "#0000ff"])
+				  .range(["#000020", "#0000ff"])
 
 // Select each element that needs to be changed and pass the new data values
 
