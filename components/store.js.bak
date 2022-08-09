@@ -6,6 +6,6 @@ import previousRefugeeReducer from './/sankey/previousRefugeeSlice'
 
 export default configureStore({reducer: {
 								organ: organReducer,
-								year: refugeeReducer,
+								year: refugeeReducer
 							}});
 

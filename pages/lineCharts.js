@@ -1,7 +1,7 @@
 import { useState } from "react";
-import {values, colors}  from "/components/lineChartsData";
-import LineChartsSvg from "/components/lineChartsSvg";
-import LineChartsSidePanel from "/components/lineChartsSidePanel";
+import {values, colors}  from "/components/lineCharts/lineChartsData";
+import LineChartsSvg from "/components/lineCharts/lineChartsSvg";
+import LineChartsSidePanel from "/components/lineCharts/lineChartsSidePanel";
 import Grid from '@mui/material/Grid';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import { Typography } from '@mui/material';

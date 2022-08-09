@@ -40,22 +40,22 @@ const sankey = d3Sankey()
     .nodePadding(30)
     .size([width, height]);
 
-	  const path = sankey.links();
+const path = sankey.links();
 
 // load the data
 	  	const graph = sankey(previousState)
 
 // calculate total for each source node
-	  const sourceTotals = rollups(previousState.links, v => sum (v, d => d.value), d => d.source);
-	  const targetTotals = rollups(previousState.links, v => sum (v, d => d.value), d => d.target);
-	  const totals = sourceTotals.concat(targetTotals);
+const sourceTotals = rollups(previousState.links, v => sum (v, d => d.value), d => d.source);
+const targetTotals = rollups(previousState.links, v => sum (v, d => d.value), d => d.target);
+const totals = sourceTotals.concat(targetTotals);
 	  graph.nodes.forEach((element, index) => graph.nodes.total = totals[index][0])
 
 
 // Create array for colors in order to calculate extent
-	  const colorTotals = [];
+const colorTotals = [];
 	  graph.nodes.forEach((element, index) => colorTotals[index] = totals[index][0].value);
-	  const colorExtent = extent(colorTotals);
+const colorExtent = extent(colorTotals);
 
 const totalRed = scaleLinear()
 				  .domain(colorExtent)
@@ -64,17 +64,23 @@ const totalRed = scaleLinear()
 const totalBlue = scaleLinear()
 				  .domain(colorExtent)
 				  .range(["#000020", "#0000ff"])
-
+console.log('colorTotals[4]=', colorTotals[4])
+console.log('colorTotals[4].index =', colorTotals[4].index)
+console.log('colorTotals =', colorTotals)
+console.log('graph.links =', graph.links)
+console.log('totalRed(colorTotals[18]) =', totalRed(colorTotals[8]))
 
 // add in the links
-  const link = svg.append("g")
-	.selectAll(".link")
-		  .data(graph.links)
+const link = svg.append("g")
+	  .selectAll(".link")
+	  .data(graph.links)
       .enter()
 	  .append("path")
       .attr("class", "link")
       .attr("d", sankeyLinkHorizontal())
 	  .attr("stroke-width", d => d.width)
+		  // .text(d => { return totalRed(colorTotals[d.source]); })
+		  .style("fill", d => { return totalRed(colorTotals[d.source]); })
 
 .on("mouseover", function(event, d) {
 	div.transition()
@@ -84,10 +90,10 @@ const totalBlue = scaleLinear()
         .style("opacity", 1);
 
 	div.html(d.source.name + " → " + d.target.name + "\n" + format(d.value))
-	     .style("left", (event.pageX) + "px")
+	    .style("left", (event.pageX) + "px")
         .style("top", (event.pageY - 28) + "px")
             })
-        .on("mouseout", function(d) {		
+        .on("mouseout", function(d) {
             div.transition()
                 .duration(500)
                 .style("opacity", 0);
@@ -112,9 +118,7 @@ const div = select("body")
 	  .attr("y", d => d.y0)
 	  .attr("height", d  => {return d.y1 - d.y0;})
       .attr("width", sankey.nodeWidth())
-		  // .attr("fill", d => [hsl(360, 100, d.value)])
 		  .attr("fill", d => { return d.index < 6 ? totalRed(d.value): totalBlue(d.value)})
-	  // .attr("fill", d => totalBlue(d.value))
       .style("stroke", function(d) {
 		  return rgb(d.color).darker(2); })
 
@@ -168,7 +172,7 @@ const newTotalRed = scaleLinear()
 
 const newTotalBlue = scaleLinear()
 				  .domain(newColorExtent)
-				  .range(["#000000", "#0000ff"])
+				  .range(["#000020", "#0000ff"])
 
 // Select each element that needs to be changed and pass the new data values
 
@@ -177,7 +181,10 @@ svg.selectAll(".link")
       .transition()
       .duration(3000)
       .attr("d", sankeyLinkHorizontal())
-	  .attr("stroke-width", d => d.width);
+	  .attr("stroke-width", d => d.width)
+		  .text('Uvo')
+		  .text(d => { return newTotalRed(colorTotals[d.source]); })
+		  .style("fill", d => { return newTotalRed(colorTotals[d.source]); })
 
 	  // add in the nodes
 
