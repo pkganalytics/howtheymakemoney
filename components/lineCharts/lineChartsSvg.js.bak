@@ -11,7 +11,7 @@ import {
 } from "d3";
 import useResizeObserver from "./../useResizeObserver";
 import { useSelector} from 'react-redux';
-import { counterSlice } from './store';
+import { counterSlice } from './../store';
 
 
 function StackedLineChartsSvg({ values, colors }) {

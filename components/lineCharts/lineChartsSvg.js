@@ -51,7 +51,7 @@ function StackedLineChartsSvg({ values, colors }) {
 	  const barTopY = d => {yScale(d[0] + d[1])};
 	  const barBaseY = d => height - yScale(d[1]);
 	  const barHeight = d => yScale(d[1])
-	  
+
 	  const animateLines = (selection) => {
 		selection.transition()
 		  .duration(5000)

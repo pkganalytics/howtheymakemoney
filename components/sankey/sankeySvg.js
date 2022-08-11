@@ -80,7 +80,7 @@ const link = svg.append("g")
       .attr("d", sankeyLinkHorizontal())
 	  .attr("stroke-width", d => d.width)
 		  // .text(d => { return totalRed(colorTotals[d.source]); })
-		  .style("fill", d => { return totalRed(colorTotals[d.source]); })
+		  // .style("fill", d => { return totalRed(colorTotals[d.source]); })
 
 .on("mouseover", function(event, d) {
 	div.transition()
@@ -182,9 +182,9 @@ svg.selectAll(".link")
       .duration(3000)
       .attr("d", sankeyLinkHorizontal())
 	  .attr("stroke-width", d => d.width)
-		  .text('Uvo')
-		  .text(d => { return newTotalRed(colorTotals[d.source]); })
-		  .style("fill", d => { return newTotalRed(colorTotals[d.source]); })
+		  // .text('Uvo')
+		  // .text(d => { return newTotalRed(colorTotals[d.source]); })
+		  // .style("fill", d => { return newTotalRed(colorTotals[d.source]); })
 
 	  // add in the nodes
 
@@ -231,7 +231,7 @@ const rect3 = svg.selectAll(".node rect")
 	  return () => {
       svg.selectAll('*').remove()
     }
-  }, [values, colors, dimensions, previousState]);
+  }, [values, colors, dimensions]);
 
   return (
       <div className="graph" ref={wrapperRef} >
