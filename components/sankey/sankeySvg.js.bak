@@ -79,8 +79,9 @@ const link = svg.append("g")
       .attr("class", "link")
       .attr("d", sankeyLinkHorizontal())
 	  .attr("stroke-width", d => d.width)
+		  // .style('stroke', 'green')
 		  // .text(d => { return totalRed(colorTotals[d.source]); })
-		  // .style("fill", d => { return totalRed(colorTotals[d.source]); })
+		  // .style("stroke", d => { return totalRed(colorTotals[this.source]); })
 
 .on("mouseover", function(event, d) {
 	div.transition()
@@ -123,6 +124,8 @@ const div = select("body")
 		  return rgb(d.color).darker(2); })
 
 .on("mouseover", function(event, d) {
+		// svg.selectAll('.link').attr("fill", 'green');
+// filter((d, i) => d.source == 1).
 	div.transition()
         .duration(300)
 		.ease(easeLinear)
@@ -131,9 +134,9 @@ const div = select("body")
 
 	div.html("Total" + "</br>" + d.value)
 	     .style("left", (event.pageX) + "px")
-         .style("top", (event.pageY - 28) + "px")
+         .style("top", (event.pageY - 28) + "px");
             })
-        .on("mouseout", function(d) {		
+        .on("mouseout", function(d) {
             div.transition()
                 .duration(500)
 				.ease(easeLinear)
@@ -184,7 +187,7 @@ svg.selectAll(".link")
 	  .attr("stroke-width", d => d.width)
 		  // .text('Uvo')
 		  // .text(d => { return newTotalRed(colorTotals[d.source]); })
-		  // .style("fill", d => { return newTotalRed(colorTotals[d.source]); })
+		  .style("stroke", d => { return newTotalRed(colorTotals[d.source]); })
 
 	  // add in the nodes
 
@@ -231,7 +234,8 @@ const rect3 = svg.selectAll(".node rect")
 	  return () => {
       svg.selectAll('*').remove()
     }
-  }, [values, colors, dimensions, previousState]);
+// eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [values, colors, dimensions]);
 
   return (
       <div className="graph" ref={wrapperRef} >

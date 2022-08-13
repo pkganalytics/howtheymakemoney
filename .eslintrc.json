@@ -1,6 +1,6 @@
 {
   "extends": "next/core-web-vitals",
-  "rules": { "react/no-unescaped-entities": 0,
+  "rules": { "react/no-unescaped-entities": 0, "react-hooks/exhaustive-deps" : 0,
 	  "import/no-anonymous-default-export" : ["error", {
   "allowArray": false,
   "allowArrowFunction" : true,
