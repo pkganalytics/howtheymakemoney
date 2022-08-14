@@ -66,12 +66,6 @@ const totalRed = scaleLinear()
 const totalBlue = scaleLinear()
 				  .domain(colorExtent)
 				  .range(["#000020", "#0000ff"])
-// console.log('colorTotals[4]=', colorTotals[4])
-// console.log('colorTotals[4].index =', colorTotals[4].index)
-// console.log('colorTotals =', colorTotals)
-// console.log('graph.links =', graph.links)
-// console.log('totalRed(colorTotals[18]) =', totalRed(colorTotals[8]))
-// console.log('previousState.links=', previousState.links)
 
 // add in the links
 const link = svg.append("g")
@@ -82,9 +76,6 @@ const link = svg.append("g")
       .attr("class", "link")
       .attr("d", sankeyLinkHorizontal())
 	  .attr("stroke-width", d => d.width)
-		  // .style('stroke', 'green')
-		  // .text(d => { return totalRed(colorTotals[d.source]); })
-		  // .style("stroke", d => { return totalRed(colorTotals[this.source]); })
 
 .on("mouseover", function(event, d) {
 	div.transition()
@@ -192,7 +183,6 @@ svg.selectAll(".link")
       .duration(3000)
       .attr("d", sankeyLinkHorizontal())
 	  .attr("stroke-width", d => d.width)
-		  // .style("stroke", d => { return newTotalRed(previousState.links[d.index].source.value)})
 		.style("stroke", d => { return newTotalRed(d.source.value) })
 
 	  // add in the nodes
