@@ -3,7 +3,8 @@
 	"version": "0.1.0",
 	"private": true,
 	"engines": {
-	"node": "16.x.x"},
+		"node": "16.x.x"
+	},
 	"babel": {
 		"presets": [
 			"@babel/env",
@@ -81,7 +82,7 @@
 		"html-loader": "^1.1.0",
 		"html-webpack-plugin": "^4.0.4",
 		"mini-css-extract-plugin": "^2.6.1",
-		"node-sass": "^4.13.1",
+		"node-sass": "^7.0.1",
 		"path": "^0.12.7",
 		"postcss": "^7.0.17",
 		"postcss-loader": "^3.0.0",
