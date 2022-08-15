@@ -63,6 +63,7 @@
 		"react-transition-group": "^4.4.2",
 		"redux": "^4.0.5",
 		"resize-observer-polyfill": "^1.5.1",
+		"sass": "^1.54.4",
 		"url-loader": "^4.1.1",
 		"webpack-cli": "^4.10.0",
 		"yup": "^0.32.9"
