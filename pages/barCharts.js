@@ -11,8 +11,6 @@ import womenImage from '../public/twowomenwhiteboard.jpg'
 
 
 const BarCharts = () =>  {
-console.log('values=', values)
-console.log('colors=', colors)
 	return (
 <Layout title="Bar Charts">
 	<Grid container>

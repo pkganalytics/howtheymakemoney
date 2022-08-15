@@ -50,7 +50,6 @@ const sourceTotals = rollups(previousState.links, v => sum (v, d => d.value), d 
 const targetTotals = rollups(previousState.links, v => sum (v, d => d.value), d => d.target);
 const totals = sourceTotals.concat(targetTotals);
 	  graph.nodes.forEach((element, index) => graph.nodes.total = totals[index][0])
-	  console.log('graph.nodes=', graph.nodes);
 	  console.log('graph.links=', graph.links);
 
 
@@ -116,10 +115,6 @@ const div = select("body")
 		  .attr("fill", d => { return d.index < 6 ? totalRed(d.value): totalBlue(d.value)})
       .style("stroke", function(d) {
 		  return rgb(d.color).darker(2); })
-	  // svg.selectAll(".link")
-  // .style('stroke', function(d){
-    // return d.source.color;
-  // })
 
 .on("mouseover", function(event, d) {
 		// svg.selectAll('.link').attr("fill", 'green');

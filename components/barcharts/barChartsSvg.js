@@ -24,7 +24,6 @@ function StackedBarChartsSvg({ values, colors }) {
   // will be called initially and on every data change
   useEffect(() => {
     const svg = select(svgRef.current);
-console.log('values=', values)
     const { width, height } =
       dimensions || wrapperRef.current.getBoundingClientRect();
     const stackGenerator = stack()

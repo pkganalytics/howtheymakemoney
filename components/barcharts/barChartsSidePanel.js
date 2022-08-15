@@ -14,7 +14,6 @@ const StackedBarChartsSidePanel = () => {
 	const dispatch = useDispatch();
 
 	const handleChange = (e) => {
-		console.log((e.target.value))
 		if (e.target.value == 'spleen') {dispatch(spleen()); return}
 		if (e.target.value == 'liver') {dispatch(liver()); return}
 		if (e.target.value == 'heart') {dispatch(heart()); return}

@@ -50,8 +50,6 @@ const sourceTotals = rollups(previousState.links, v => sum (v, d => d.value), d 
 const targetTotals = rollups(previousState.links, v => sum (v, d => d.value), d => d.target);
 const totals = sourceTotals.concat(targetTotals);
 	  graph.nodes.forEach((element, index) => graph.nodes.total = totals[index][0])
-	  console.log('graph.nodes=', graph.nodes);
-	  console.log('graph.links=', graph.links);
 
 
 // Create array for colors in order to calculate extent
