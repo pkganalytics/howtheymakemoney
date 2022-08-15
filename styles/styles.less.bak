@@ -10,7 +10,6 @@ color: "red";
 }
 
 svg {
-  // background: #eee;
   overflow: visible;
   // display: block;
   width: 100%;
@@ -44,7 +43,6 @@ div.tooltip {
     position: absolute;			
     text-align: center;			
     width: auto;
-	font-weight: bold;
     height: auto;
     padding: 10px;
     font: 12px sans-serif;
