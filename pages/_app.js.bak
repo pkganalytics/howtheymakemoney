@@ -1,7 +1,7 @@
 
 import 'react-app-polyfill/ie9';
 // require('../styles/styles.less');
-import '/styles/styles.scss'
+import '../styles/styles.scss';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import CssBaseline from '@mui/material/CssBaseline';
