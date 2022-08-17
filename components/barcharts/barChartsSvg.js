@@ -10,7 +10,7 @@ import {
   axisLeft,
   stackOrderAscending
 } from "d3";
-import useResizeObserver from "./../useResizeObserver";
+// import useResizeObserver from "./../useResizeObserver";
 import { useSelector} from 'react-redux';
 import { legendColor } from 'd3-svg-legend';
 
@@ -19,14 +19,17 @@ function StackedBarChartsSvg({ values, colors }) {
   const organ = useSelector(state => state.organ);
   const svgRef = useRef();
   const wrapperRef = useRef();
-  const dimensions = useResizeObserver(wrapperRef);
+  // const dimensions = useResizeObserver(wrapperRef);
+	const dimensions = {width: 500, height: 300};
 
   // will be called initially and on every data change
   useEffect(() => {
     const svg = select(svgRef.current);
     const { width, height } =
       dimensions || wrapperRef.current.getBoundingClientRect();
-    const stackGenerator = stack()
+    console.log('width=', width);
+    console.log('height=', height);
+	  const stackGenerator = stack()
       .keys(organ)
       .order(stackOrderAscending);
     const layers = stackGenerator(values);
