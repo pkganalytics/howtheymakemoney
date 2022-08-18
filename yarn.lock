@@ -1239,7 +1239,7 @@
     csstype "^3.1.0"
     prop-types "^15.8.1"
 
-"@mui/styles@^5.0.1":
+"@mui/styles@^5.9.3":
   version "5.9.3"
   resolved "https://registry.yarnpkg.com/@mui/styles/-/styles-5.9.3.tgz#7cd0cb49247325e1e88dbc29008cc17c183cc4cc"
   integrity sha512-omENe7oZxj6TYXYXYsSjwefmiXcU2pdy7QmXRtiD6MdTmw5+5WrDjrDRlFo2bHCFxjqNfUiXT1oEWAhV3pERww==
