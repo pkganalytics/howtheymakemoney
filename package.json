@@ -29,7 +29,6 @@
 		"@emotion/server": "^11.4.0",
 		"@emotion/styled": "^11.3.0",
 		"@hookform/resolvers": "^2.8.1",
-		"@juggle/resize-observer": "^3.3.1",
 		"@mui/icons-material": "^5.0.0",
 		"@mui/material": "^5.7.0",
 		"@mui/styles": "^5.9.3",

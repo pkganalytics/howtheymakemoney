@@ -13,12 +13,11 @@ import {
 import useResizeObserver from "./../useResizeObserver";
 import { useSelector} from 'react-redux';
 import { legendColor } from 'd3-svg-legend';
-import { ResizeObserver } from '@juggle/resize-observer';
 
-const ro = new ResizeObserver((entries, observer) => {
-  console.log('Body has resized!');
-  observer.disconnect(); // Stop observing
-});
+// const ro = new ResizeObserver((entries, observer) => {
+//   console.log('Body has resized!');
+//   observer.disconnect(); // Stop observing
+// });
 
 function StackedBarChartsSvg({ values, colors }) {
   const organ = useSelector(state => state.organ);
