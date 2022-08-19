@@ -13,15 +13,13 @@ import {
 import useResizeObserver from "./../useResizeObserver";
 import { useSelector} from 'react-redux';
 import { legendColor } from 'd3-svg-legend';
-import { ResizeObserver } from '@juggle/resize-observer';
+// import { ResizeObserver } from '@juggle/resize-observer';
 
-const ro = new ResizeObserver((entries, wrapperRef) => {
-  for (const entry of entries) {
-    const { width, height } = entry.contentRect; // legacy
-    console.log(entry.target, `${inlineSize} x ${blockSize}`);
-  }
-});
-const dimensions = {width: width, height: height};
+// const ro = new ResizeObserver((wrapperRef) => {
+//     const { width, height } = entry.contentRect; // legacy
+//     console.log(entry.target, `${inlineSize} x ${blockSize}`);
+// });
+const dimensions = {width: 700, height: 400};
 function StackedBarChartsSvg({ values, colors }) {
   const organ = useSelector(state => state.organ);
   const svgRef = useRef();
@@ -31,8 +29,7 @@ function StackedBarChartsSvg({ values, colors }) {
   // will be called initially and on every data change
   useEffect(() => {
     const svg = select(svgRef.current);
-    const { width, height } =
-      dimensions || wrapperRef.current.getBoundingClientRect();
+    const { width, height } = dimensions;
     console.log('width=', width);
     console.log('height=', height);
 	  const stackGenerator = stack()
@@ -123,7 +120,11 @@ var legendLinear = legendColor()
 
   return (
       <div className="graph" ref={wrapperRef} >
-        <svg ref={svgRef}>
+        <svg ref={svgRef}
+			preserveAspectRatio="xMaxYMax meet"
+			width={'100%'}
+			height={'100%'}
+		viewbox={'"0 0' + dimensions.width + dimensions.height + '"'}>
           <g className="x-axis" />
           <g className="y-axis" />
         </svg>
