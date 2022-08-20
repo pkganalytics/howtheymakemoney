@@ -1,6 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-
+import { ResizeObserver } from '@juggle/resize-observer';
+if (!window.ResizeObserver) {
+  window.ResizeObserver = ResizeObserver;
+}
 const useResizeObserver = (ref) => {
   const [dimensions, setDimensions] = useState(null);
   useEffect(() => {

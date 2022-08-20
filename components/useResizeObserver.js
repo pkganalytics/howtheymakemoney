@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-
 const useResizeObserver = (ref) => {
   const [dimensions, setDimensions] = useState(null);
   useEffect(() => {

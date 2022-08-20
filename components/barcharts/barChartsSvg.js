@@ -10,25 +10,24 @@ import {
   axisLeft,
   stackOrderAscending
 } from "d3";
-import useResizeObserver from "./../useResizeObserver";
+// import { ResizeObserver } from '@juggle/resize-observer';
+import useResizeObserver from "use-resize-observer/polyfilled";
+// import useResizeObserver from "./../useResizeObserver";
 import { useSelector} from 'react-redux';
 import { legendColor } from 'd3-svg-legend';
-import { ResizeObserver as Polyfill } from '@juggle/resize-observer';
-
-
-const ResizeObserver = useResizeObserver || Polyfill;
 
 function StackedBarChartsSvg({ values, colors }) {
   const organ = useSelector(state => state.organ);
   const svgRef = useRef();
-  const wrapperRef = useRef();
-  const dimensions = ResizeObserver(wrapperRef);
+  // const wrapperRef = useRef();
+  // const dimensions = useResizeObserver(wrapperRef);
 
+	  const { ref, width, height } = useResizeObserver();
+    console.log('width=', width);
+    console.log('height=', height);
   // will be called initially and on every data change
   useEffect(() => {
     const svg = select(svgRef.current);
-    const { width, height } =
-      dimensions || wrapperRef.current.getBoundingClientRect();
     console.log('width=', width);
     console.log('height=', height);
 	  const stackGenerator = stack()
@@ -115,11 +114,13 @@ var legendLinear = legendColor()
     svg.select(".y-axis").call(yAxis);
 
 
-  }, [colors, dimensions, organ, values]);
+  }, [colors, width, height, organ, values]);
 
   return (
-      <div className="graph" ref={wrapperRef} >
-        <svg ref={svgRef}>
+      <div className="graph" ref={ref} >
+        <svg ref={svgRef}
+		width={100}
+		height={100}>
           <g className="x-axis" />
           <g className="y-axis" />
         </svg>
