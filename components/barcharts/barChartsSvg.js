@@ -13,20 +13,23 @@ import {
 // import { ResizeObserver } from '@juggle/resize-observer';
 import useResizeObserver from "use-resize-observer/polyfilled";
 // import useResizeObserver from "./../useResizeObserver";
-import { useSelector} from 'react-redux';
 import { legendColor } from 'd3-svg-legend';
+
+
+import { useSelector } from 'react-redux';
+
 
 function StackedBarChartsSvg({ values, colors }) {
   const organ = useSelector(state => state.organ);
   const svgRef = useRef();
   // const wrapperRef = useRef();
   // const dimensions = useResizeObserver(wrapperRef);
-
-	  const { ref, width, height } = useResizeObserver();
+	const  { ref, width, height } = useResizeObserver();
     console.log('width=', width);
     console.log('height=', height);
   // will be called initially and on every data change
   useEffect(() => {
+
     const svg = select(svgRef.current);
     console.log('width=', width);
     console.log('height=', height);

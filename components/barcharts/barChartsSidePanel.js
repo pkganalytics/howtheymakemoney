@@ -12,6 +12,9 @@ import {spleen, liver, heart, all} from './organSlice';
 const StackedBarChartsSidePanel = () => {
 
 	const dispatch = useDispatch();
+	
+	//Need to dispatch(all) because otherwise use-resize-observer has undefined for width and height
+	dispatch(all());
 
 	const handleChange = (e) => {
 		if (e.target.value == 'spleen') {dispatch(spleen()); return}
