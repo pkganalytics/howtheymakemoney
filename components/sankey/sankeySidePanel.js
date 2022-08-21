@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import { Typography } from '@mui/material';
 import Slider from '@mui/material/Slider';
-// import Box from '@mui/material/Box';
 import Link from 'next/link';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';

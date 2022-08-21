@@ -40,12 +40,6 @@ const Sankey = () =>  {
 	</Grid>
 		<Grid item container md={4} sm={12} sx={{borderLeft: "2px green solid", paddingLeft: "2rem"}}>
 			< SankeySidePanel />
-			<Image
-				src={womenImage}
-				width="100vw"
-				height="60vw"
-				alt=""
-				/>
 
 		</Grid>
 	</Grid>

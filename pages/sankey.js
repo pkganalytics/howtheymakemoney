@@ -6,7 +6,6 @@ import MediationIcon from '@mui/icons-material/Mediation';
 import { Typography } from '@mui/material';
 import Layout from '../components/Layout';
 import Image from 'next/image';
-import womenImage from '../public/twowomenwhiteboard.jpg'
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 

@@ -28,7 +28,6 @@ const marks = [
 		if (value == 100) {dispatch(setValues2021()); return}
 		if (value == 50) {dispatch(setValues2020()); return}
 		if (value == 0) {dispatch(setValues2019()); return}
-	  
   };
 
 	return(
