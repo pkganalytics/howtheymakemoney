@@ -3,30 +3,28 @@ import {
   select,
   scaleBand,
   axisBottom,
+  scaleOrdinal,
   stack,
   max,
   scaleLinear,
   axisLeft,
   stackOrderAscending
 } from "d3";
-import useResizeObserver from "./../useResizeObserver";
-import { useSelector} from 'react-redux';
-import { counterSlice } from './../store';
+import useResizeObserver from "use-resize-observer/polyfilled";
+import { legendColor } from 'd3-svg-legend';
+import { useSelector } from 'react-redux';
 
 
-function StackedLineChartsSvg({ values, colors }) {
-	const keys = useSelector(state => state);
+function StackedBarChartsSvg({ values, colors }) {
+  const organ = useSelector(state => state.organ);
   const svgRef = useRef();
-  const wrapperRef = useRef();
-  const dimensions = useResizeObserver(wrapperRef);
+  const  { ref, width, height } = useResizeObserver();
 
-  // will be called initially and on every data change
   useEffect(() => {
+
     const svg = select(svgRef.current);
-    const { width, height } =
-      dimensions || wrapperRef.current.getBoundingClientRect();
-    const stackGenerator = stack()
-      .keys(keys)
+	  const stackGenerator = stack()
+      .keys(organ)
       .order(stackOrderAscending);
     const layers = stackGenerator(values);
     const extent = [
@@ -52,14 +50,35 @@ function StackedLineChartsSvg({ values, colors }) {
 	  const barBaseY = d => height - yScale(d[1]);
 	  const barHeight = d => yScale(d[1])
 
-	  const animateLines = (selection) => {
+	  const animateBars = (selection) => {
 		selection.transition()
-		  .duration(5000)
-		  .attr('fake', console.log("yScale[d0]", barBaseY))
-		  .attr("fake", () => console.log("height", height))
+		  .duration(1000)
 			  .attr("y", d => yScale(d[1]))
 			  .attr("height", d => yScale(d[0]) - yScale(d[1]))
 	 }
+
+// Legend
+
+if (organ.length == 3)  {
+var band = scaleOrdinal()
+  .domain(["spleen", "liver", "heart"])
+		  .range(["purple", "brown", "red"]);
+
+
+svg.append("g")
+  .attr("class", "legendLinear")
+  .attr("transform", "translate(20,20)");
+
+var legendLinear = legendColor()
+  .shapeWidth(30)
+  .shapePadding(20)
+  .orient('horizontal')
+  .scale(band);
+
+  svg.select(".legendLinear")
+	 .call(legendLinear)
+          
+}
 
     // rendering
     svg
@@ -75,7 +94,7 @@ function StackedLineChartsSvg({ values, colors }) {
       .attr("width", xScale.bandwidth())
       .attr("y", height)
 	  .attr("height", 0)
-		  .call(animateLines)
+		  .call(animateBars)
 
     // axes
     const xAxis = axisBottom(xScale);
@@ -86,11 +105,15 @@ function StackedLineChartsSvg({ values, colors }) {
 
     const yAxis = axisLeft(yScale);
     svg.select(".y-axis").call(yAxis);
-  }, [colors, dimensions, keys, values]);
+
+
+  }, [colors, width, height, organ, values]);
 
   return (
-      <div className="graph" ref={wrapperRef} >
-        <svg ref={svgRef}>
+      <div className="graph" ref={ref} >
+        <svg ref={svgRef}
+		width={100}
+		height={100}>
           <g className="x-axis" />
           <g className="y-axis" />
         </svg>
@@ -98,4 +121,4 @@ function StackedLineChartsSvg({ values, colors }) {
   );
 }
 
-export default StackedLineChartsSvg;
+export default StackedBarChartsSvg;

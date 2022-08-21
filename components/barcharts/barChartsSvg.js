@@ -10,29 +10,19 @@ import {
   axisLeft,
   stackOrderAscending
 } from "d3";
-// import { ResizeObserver } from '@juggle/resize-observer';
 import useResizeObserver from "use-resize-observer/polyfilled";
-// import useResizeObserver from "./../useResizeObserver";
 import { legendColor } from 'd3-svg-legend';
-
-
 import { useSelector } from 'react-redux';
 
 
 function StackedBarChartsSvg({ values, colors }) {
   const organ = useSelector(state => state.organ);
   const svgRef = useRef();
-  // const wrapperRef = useRef();
-  // const dimensions = useResizeObserver(wrapperRef);
-	const  { ref, width, height } = useResizeObserver();
-    console.log('width=', width);
-    console.log('height=', height);
-  // will be called initially and on every data change
+  const  { ref, width, height } = useResizeObserver();
+
   useEffect(() => {
 
     const svg = select(svgRef.current);
-    console.log('width=', width);
-    console.log('height=', height);
 	  const stackGenerator = stack()
       .keys(organ)
       .order(stackOrderAscending);

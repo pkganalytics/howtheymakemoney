@@ -9,7 +9,7 @@ import {
 } from "d3";
 import { sankey as d3Sankey, sankeyLinkHorizontal } from 'd3-sankey';
 import { format as d3Format } from 'd3-format';
-import useResizeObserver from "./../useResizeObserver";
+import useResizeObserver from "use-resize-observer/polyfilled";
 import { transition } from 'd3-transition';
 import { rollups, sum, min, max, extent, merge } from 'd3-array';
 import { color, hsl, lab } from 'd3-color';
@@ -17,14 +17,11 @@ import { color, hsl, lab } from 'd3-color';
 function SankeySvg({ colors, values }) {
 
   const svgRef = useRef();
-  const wrapperRef = useRef();
-  const dimensions = useResizeObserver(wrapperRef);
   const margin=10;
   const [previousState, setPreviousState ] = useState({...values});
+  const  { ref, width, height } = useResizeObserver();
 
   useEffect(() => {
-    const { width, height} =
-      dimensions || wrapperRef.current.getBoundingClientRect();
     const svg = select(svgRef.current)
 			.attr("width", width)
 			.attr("height", height)
@@ -224,10 +221,10 @@ const rect3 = svg.selectAll(".node rect")
 	  return () => {
       svg.selectAll('*').remove()
     }
-  }, [values, colors, dimensions]);
+  }, [values, colors, width, height]);
 
   return (
-      <div className="graph" ref={wrapperRef} >
+      <div className="graph" ref={ref} >
         <svg ref={svgRef}>
         </svg>
       </div>
