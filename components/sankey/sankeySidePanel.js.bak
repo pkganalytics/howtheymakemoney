@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import { Typography } from '@mui/material';
 import Slider from '@mui/material/Slider';
-// import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import Link from 'next/link';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
@@ -16,12 +17,12 @@ const SankeySidePanel = () => {
 const dispatch = useDispatch();
 
 const marks = [
-	{value: 100, label: '2021'},
+	{value: 0, label: '2019'},
 	{value: 50, label: '2020'},
-	{value: 0, label: '2019'}
+	{value: 100, label: '2021'},
 ];
 
-  const [value, setValue] = useState(100);
+  const [value, setValue] = useState(0);
 
   const changeValue = (event, value) => {
     setValue(value)
@@ -30,15 +31,45 @@ const marks = [
 		if (value == 0) {dispatch(setValues2019()); return}
   };
 
+	// const forward = () => {
+	// 	console.log('Forward function');
+	// 	setTimeout(function() {
+// }, 1000);
+	// 	dispatch(setValues2019());
+	// 	console.log('dispatched2019')
+	// 		setTimeout(function() {
+// }, 1000);
+	// 	console.log('dispatched2020')
+	// 		setTimeout(function() {
+// }, 1000);
+	// 	dispatch(setValues2020());
+
+	// 	console.log('dispatched2021')
+	// 	dispatch(setValues2021());
+  // }
+
 	return(
 <div className="sidePanel">
+	<br />
+	<Typography>
+		This shows the flow of refugees from their country of origin to their state of destination in the US.
+		<br /><br />
+The number of people moving in a given year is shown by the thickness of the link and by the height and colour of the node.
+	</Typography>
 <FormControl>
 
       <Slider
-		style={{ width: 300 }} value={value} onChange={changeValue}
+		style={{ width: 300 }}
+		value={value}
+		onChange={changeValue}
+		size='small'
 		step={null}
         marks={marks}
       />
+
+	 {/* <PlayArrowIcon fontSize='large' color='primary' /> */}
+ {/* </IconButton> */}
+
 </FormControl>
 
 </div>
