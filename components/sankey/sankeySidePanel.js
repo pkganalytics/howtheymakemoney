@@ -10,15 +10,17 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import { useSelector, useDispatch } from 'react-redux';
-import { setValues2021, setValues2020, setValues2019 } from './refugeeSlice';
+import { setValues2021, setValues2020, setValues2019, setValues2018, setValues2017 } from './refugeeSlice';
 
 const SankeySidePanel = () => {
 
 const dispatch = useDispatch();
 
 const marks = [
-	{value: 0, label: '2019'},
-	{value: 50, label: '2020'},
+	{value: 0, label: '2017'},
+	{value: 25, label: '2018'},
+	{value: 50, label: '2019'},
+	{value: 75, label: '2020'},
 	{value: 100, label: '2021'},
 ];
 
@@ -27,26 +29,11 @@ const marks = [
   const changeValue = (event, value) => {
     setValue(value)
 		if (value == 100) {dispatch(setValues2021()); return}
-		if (value == 50) {dispatch(setValues2020()); return}
-		if (value == 0) {dispatch(setValues2019()); return}
+		if (value == 75) {dispatch(setValues2020()); return}
+		if (value == 50) {dispatch(setValues2019()); return}
+		if (value == 25) {dispatch(setValues2018()); return}
+		if (value == 0) {dispatch(setValues2018()); return}
   };
-
-	// const forward = () => {
-	// 	console.log('Forward function');
-	// 	setTimeout(function() {
-// }, 1000);
-	// 	dispatch(setValues2019());
-	// 	console.log('dispatched2019')
-	// 		setTimeout(function() {
-// }, 1000);
-	// 	console.log('dispatched2020')
-	// 		setTimeout(function() {
-// }, 1000);
-	// 	dispatch(setValues2020());
-
-	// 	console.log('dispatched2021')
-	// 	dispatch(setValues2021());
-  // }
 
 	return(
 <div className="sidePanel">
@@ -68,8 +55,6 @@ The number of people moving in a given year is shown by the thickness of the lin
         marks={marks}
       />
 
-	 {/* <PlayArrowIcon fontSize='large' color='primary' /> */}
- {/* </IconButton> */}
 
 </FormControl>
 
