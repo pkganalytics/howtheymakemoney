@@ -394,5 +394,4 @@ export const values2017 = {
 {"source":0,"target":12,"value":4}
 ]}
 
-export const colors = ["purple", "brown", "red","orange", "yellow", "orange","purple", "brown", "red","orange", "yellow", "orange", "purple", "brown", "red","orange", "yellow", "orange","purple", "brown"]
-
+export const colours = [[["#200000", "#ff0000"], ["#000020", "#0000ff"]]];

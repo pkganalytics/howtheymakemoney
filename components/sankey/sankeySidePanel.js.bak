@@ -17,7 +17,7 @@ const SankeySidePanel = () => {
 const dispatch = useDispatch();
 
 const marks = [
-	{value: 0, label: '2018'},
+	{value: 0, label: '2017'},
 	{value: 25, label: '2018'},
 	{value: 50, label: '2019'},
 	{value: 75, label: '2020'},

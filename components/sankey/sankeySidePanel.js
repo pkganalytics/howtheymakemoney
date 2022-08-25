@@ -32,7 +32,7 @@ const marks = [
 		if (value == 75) {dispatch(setValues2020()); return}
 		if (value == 50) {dispatch(setValues2019()); return}
 		if (value == 25) {dispatch(setValues2018()); return}
-		if (value == 0) {dispatch(setValues2018()); return}
+		if (value == 0) {dispatch(setValues2017()); return}
   };
 
 	return(

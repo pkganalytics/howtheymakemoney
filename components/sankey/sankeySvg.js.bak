@@ -14,8 +14,8 @@ import { transition } from 'd3-transition';
 import { rollups, sum, min, max, extent, merge } from 'd3-array';
 import { color, hsl, lab } from 'd3-color';
 
-function SankeySvg({ colors, values }) {
-
+function SankeySvg({ colours, values }) {
+console.log('colours= ', colours);
   const svgRef = useRef();
   const margin=10;
   const [previousState, setPreviousState ] = useState({...values});
@@ -56,11 +56,13 @@ const colorExtent = extent(colorTotals);
 
 const totalRed = scaleLinear()
 				  .domain(colorExtent)
-				   .range(["#200000", "#ff0000"])
+				  .range(colours[0])
+				   // .range(["#200000", "#ff0000"])
 
 const totalBlue = scaleLinear()
 				  .domain(colorExtent)
-				  .range(["#000020", "#0000ff"])
+				  .rangle(colours[1])
+				  // .range(["#000020", "#0000ff"])
 
 // add in the links
 const link = svg.append("g")
@@ -221,7 +223,7 @@ const rect3 = svg.selectAll(".node rect")
 	  return () => {
       svg.selectAll('*').remove()
     }
-  }, [values, colors, dimensions]);
+  }, [values, colours, width, height]);
 
   return (
       <div className="graph" ref={ref} >

@@ -346,10 +346,10 @@ export const values2017 = {
 {"source":1,"target":12,"value":50},
 {"source":2,"target":7,"value":82},
 {"source":2,"target":8,"value":20},
-{"source":2,"target":9,"value":13},
-{"source":2,"target":10,"value":34},
-{"source":2,"target":11,"value":14},
-{"source":2,"target":12,"value":26},
+{"source":2,"target":9,"value":43},
+{"source":2,"target":10,"value":74},
+{"source":2,"target":11,"value":34},
+{"source":2,"target":12,"value":36},
 {"source":3,"target":7,"value":20},
 {"source":3,"target":8,"value":12},
 {"source":3,"target":9,"value":13},
@@ -394,5 +394,4 @@ export const values2017 = {
 {"source":0,"target":12,"value":4}
 ]}
 
-export const colors = ["purple", "brown", "red","orange", "yellow", "orange","purple", "brown", "red","orange", "yellow", "orange", "purple", "brown", "red","orange", "yellow", "orange","purple", "brown"]
-
+export const colours = [["#200000", "#ff0000"], ["#000020", "#0000ff"]];

@@ -1,4 +1,3 @@
-import {colors}  from "/components/sankey/sankeyData";
 import SankeySvg from "/components/sankey/sankeySvg";
 import SankeySidePanel from "/components/sankey/sankeySidePanel";
 import Grid from '@mui/material/Grid';
@@ -11,9 +10,10 @@ import { useSelector } from 'react-redux';
 
 const Sankey = () =>  {
 
+	const colours = useSelector(state => state.colours)
 	const _values = useSelector(state => state.year);
     const values = JSON.parse(JSON.stringify(_values));
-
+console.log('colours in sankey=', colours)
 	return (
 <Layout title="Sankey Diagrams">
 	<Grid container>
@@ -33,7 +33,7 @@ const Sankey = () =>  {
 	</Grid>
 		<Grid item xs={12}>
 	 <div className="graph" >
-		  <SankeySvg colors={colors} values={values} />
+		  <SankeySvg colours={colours} values={values} />
 	</div>
 		</Grid>
 	</Grid>
