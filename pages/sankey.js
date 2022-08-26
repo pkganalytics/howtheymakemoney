@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 
 const Sankey = () =>  {
 
-	const colours = useSelector(state => state.colours)
+	const colours = useSelector(state => state.colours);
 	const _values = useSelector(state => state.year);
     const values = JSON.parse(JSON.stringify(_values));
 console.log('colours in sankey=', colours)

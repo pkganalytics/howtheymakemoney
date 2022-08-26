@@ -1,20 +1,23 @@
 import React, {useState} from "react";
 import { Typography } from '@mui/material';
 import Slider from '@mui/material/Slider';
-import IconButton from '@mui/material/IconButton';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import Link from 'next/link';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
+import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import Switch from '@mui/material/Switch';
+import Link from 'next/link';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import { useSelector, useDispatch } from 'react-redux';
 import { setValues2021, setValues2020, setValues2019, setValues2018, setValues2017 } from './refugeeSlice';
+import { setColour0, setColour1 } from './colourSlice';
 
 const SankeySidePanel = () => {
 
 const dispatch = useDispatch();
+
+const colours = useSelector(state => state.colours);
 
 const marks = [
 	{value: 0, label: '2017'},
@@ -33,6 +36,16 @@ const marks = [
 		if (value == 50) {dispatch(setValues2019()); return}
 		if (value == 25) {dispatch(setValues2018()); return}
 		if (value == 0) {dispatch(setValues2017()); return}
+  };
+
+	const handleChange = (e) => {
+		console.log((e.target.value))
+		if (e.target.value == 'colour0') {dispatch(setColour0()); return}
+		if (e.target.value == 'colour1') {dispatch(setColour1()); return}
+	}
+
+  const switchHandler = (event) => {
+	  dispatch(setColour0)
   };
 
 	return(
@@ -56,6 +69,31 @@ The number of people moving in a given year is shown by the thickness of the lin
       />
 
 
+  <RadioGroup
+    aria-labelledby="demo-radio-buttons-group-label"
+	row
+    defaultValue="all"
+    name="Organ"
+	onChange={handleChange}
+
+ >
+	  <FormControlLabel
+				value="colour0"
+				control={<Radio/>}
+				label="Set Colour 0"/>
+
+	  <FormControlLabel
+				value="colour1"
+				control={<Radio/>}
+				label="Set Colour 1"/>
+
+
+  </RadioGroup>
+    {/* <FormGroup> */}
+    {/*   <FormControlLabel control={ */}
+    {/*   <Switch checked={checked} onChange={switchHandler} /> */}
+{/* } label="Color to black" /> */}
+    {/* </FormGroup> */}
 </FormControl>
 
 </div>

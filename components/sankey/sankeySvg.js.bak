@@ -53,6 +53,8 @@ const totals = sourceTotals.concat(targetTotals);
 const colorTotals = [];
 	  graph.nodes.forEach((element, index) => colorTotals[index] = totals[index][0].value);
 const colorExtent = extent(colorTotals);
+console.log('colours[0]=', colours[0]);
+console.log('colours[1]=', colours[1]);
 
 const totalRed = scaleLinear()
 				  .domain(colorExtent)
@@ -61,7 +63,7 @@ const totalRed = scaleLinear()
 
 const totalBlue = scaleLinear()
 				  .domain(colorExtent)
-				  .rangle(colours[1])
+				  .range(colours[1])
 				  // .range(["#000020", "#0000ff"])
 
 // add in the links
@@ -110,7 +112,7 @@ const div = select("body")
 	  .attr("y", d => d.y0)
 	  .attr("height", d  => {return d.y1 - d.y0;})
       .attr("width", sankey.nodeWidth())
-		  .attr("fill", d => { return d.index < 6 ? totalRed(d.value): totalBlue(d.value)})
+		  .attr("fill", d => { return d.index < 7 ? totalRed(d.value): totalBlue(d.value)})
       .style("stroke", function(d) {
 		  return rgb(d.color).darker(2); })
 
@@ -162,11 +164,13 @@ const div = select("body")
 
 const newTotalRed = scaleLinear()
 				  .domain(newColorExtent)
-				   .range(["#200000", "#ff0000"])
+				   // .range(["#200000", "#ff0000"])
+				  .range(colours[0])
 
 const newTotalBlue = scaleLinear()
 				  .domain(newColorExtent)
-				  .range(["#000020", "#0000ff"])
+				  // .range(["#000020", "#0000ff"])
+				  .range(colours[1])
 
 // Select each element that needs to be changed and pass the new data values
 
