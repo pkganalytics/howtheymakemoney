@@ -15,7 +15,6 @@ import { rollups, sum, min, max, extent, merge } from 'd3-array';
 import { color, hsl, lab } from 'd3-color';
 
 function SankeySvg({ colours, values }) {
-console.log('colours= ', colours);
   const svgRef = useRef();
   const margin=10;
   const [previousState, setPreviousState ] = useState({...values});
@@ -53,8 +52,6 @@ const totals = sourceTotals.concat(targetTotals);
 const colorTotals = [];
 	  graph.nodes.forEach((element, index) => colorTotals[index] = totals[index][0].value);
 const colorExtent = extent(colorTotals);
-console.log('colours[0]=', colours[0]);
-console.log('colours[1]=', colours[1]);
 
 const totalRed = scaleLinear()
 				  .domain(colorExtent)

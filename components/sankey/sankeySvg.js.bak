@@ -15,7 +15,6 @@ import { rollups, sum, min, max, extent, merge } from 'd3-array';
 import { color, hsl, lab } from 'd3-color';
 
 function SankeySvg({ colours, values }) {
-console.log('colours= ', colours);
   const svgRef = useRef();
   const margin=10;
   const [previousState, setPreviousState ] = useState({...values});
@@ -194,7 +193,7 @@ const rect2 = svg.selectAll('.node rect')
 	  .attr("x", d => d.x0)
 	  .attr("y", d => d.y0)
 	  .attr("height", d  => {return d.y1 - d.y0;})
-		  .attr("fill", d => { return d.index < 6 ? newTotalRed(d.value): newTotalBlue(d.value)})
+		  .attr("fill", d => { return d.index < 7 ? newTotalRed(d.value): newTotalBlue(d.value)})
 
 const title2 = svg.selectAll("title")
 		  .exit()

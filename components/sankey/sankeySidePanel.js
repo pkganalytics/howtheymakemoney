@@ -1,14 +1,17 @@
 import React, {useState} from "react";
 import { Typography } from '@mui/material';
 import Slider from '@mui/material/Slider';
+import Paper from '@mui/material/Paper';
+import Stack from '@mui/material/Stack';
+import { styled } from '@mui/material/styles';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormGroup from '@mui/material/FormGroup';
+import FormLabel from '@mui/material/FormLabel';
+import FormControl from '@mui/material/FormControl';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import Link from 'next/link';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
 import { useSelector, useDispatch } from 'react-redux';
 import { setValues2021, setValues2020, setValues2019, setValues2018, setValues2017 } from './refugeeSlice';
 import { setColour0, setColour1, setColour2, setColour3 } from './colourSlice';
@@ -50,17 +53,24 @@ const handleChange = (e) => {
 	  dispatch(setColour0)
   };
 
+const Item = styled(Paper)(({ theme }) => ({
+  padding: theme.spacing(1),
+  boxShadow: 'none',
+  textAlign: 'center',
+  color: theme.palette.text.secondary
+}));
 	return(
 <div className="sidePanel">
-	<br />
+
+
 	<Typography>
 		This shows the flow of refugees from their country of origin to their state of destination in the US.
 		<br /><br />
 The number of people moving in a given year is shown by the thickness of the link and by the height and colour of the node.
 		<br /><br />
 	</Typography>
-<FormControl>
-
+	<Stack spacing={2}>
+        <Item>
       <Slider
 		style={{ width: 300 }}
 		value={value}
@@ -69,15 +79,16 @@ The number of people moving in a given year is shown by the thickness of the lin
 		step={null}
         marks={marks}
       />
-
-
-  <RadioGroup
+</Item>
+        <Item>
+<FormControl>
+	<FormLabel>Colour Options</FormLabel>
+	 <RadioGroup
     aria-labelledby="demo-radio-buttons-group-label"
 	row
     defaultValue="colour0"
-    name="Organ"
+    name="Colour"
 	onChange={handleChange}
-
  >
 	  <FormControlLabel
 				value="colour0"
@@ -98,16 +109,13 @@ The number of people moving in a given year is shown by the thickness of the lin
 				value="colour3"
 				control={<Radio/>}
 				label="Colour scale (red/blue = 0; green = max)"/>
-
-
   </RadioGroup>
-    {/* <FormGroup> */}
-    {/*   <FormControlLabel control={ */}
-    {/*   <Switch checked={checked} onChange={switchHandler} /> */}
-{/* } label="Color to black" /> */}
-    {/* </FormGroup> */}
+
 </FormControl>
 
+</Item>
+
+      </Stack>
 </div>
 
 	)
