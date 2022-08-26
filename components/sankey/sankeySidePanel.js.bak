@@ -11,7 +11,7 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import { useSelector, useDispatch } from 'react-redux';
 import { setValues2021, setValues2020, setValues2019, setValues2018, setValues2017 } from './refugeeSlice';
-import { setColour0, setColour2 } from './colourSlice';
+import { setColour0, setColour1, setColour2, setColour3 } from './colourSlice';
 
 const SankeySidePanel = () => {
 
@@ -38,10 +38,12 @@ const marks = [
 		if (value == 0) {dispatch(setValues2017()); return}
   };
 
-	const handleChange = (e) => {
+const handleChange = (e) => {
 		console.log((e.target.value))
 		if (e.target.value == 'colour0') {dispatch(setColour0()); return}
 		if (e.target.value == 'colour1') {dispatch(setColour1()); return}
+		if (e.target.value == 'colour2') {dispatch(setColour2()); return}
+		if (e.target.value == 'colour3') {dispatch(setColour3()); return}
 	}
 
   const switchHandler = (event) => {
@@ -72,7 +74,7 @@ The number of people moving in a given year is shown by the thickness of the lin
   <RadioGroup
     aria-labelledby="demo-radio-buttons-group-label"
 	row
-    defaultValue="all"
+    defaultValue="colour0"
     name="Organ"
 	onChange={handleChange}
 
@@ -80,12 +82,22 @@ The number of people moving in a given year is shown by the thickness of the lin
 	  <FormControlLabel
 				value="colour0"
 				control={<Radio/>}
-				label="Set Colour 0"/>
+				label="Number shown as color scale (black = 0)"/>
 
 	  <FormControlLabel
 				value="colour1"
 				control={<Radio/>}
-				label="Set Colour 1"/>
+				label="Number shown as color scale (red/blue = 0)"/>
+
+	  <FormControlLabel
+				value="colour2"
+				control={<Radio/>}
+				label="Colour scale (green = 0)"/>
+
+	  <FormControlLabel
+				value=""
+				control={<Radio/>}
+				label="Colour scale (red/blue = 0; green = max)"/>
 
 
   </RadioGroup>
