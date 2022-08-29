@@ -8,7 +8,7 @@ const colourSlice = createSlice({
 		setColour0: (state) => colours[0],
 		setColour1: (state) => colours[1],
 		setColour2: (state) => colours[2],
-		setColour3: (state) => colours[3]
+		setColour3: (state) => colours[3],
 	}
 })
 

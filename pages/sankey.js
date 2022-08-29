@@ -11,9 +11,10 @@ import { useSelector } from 'react-redux';
 const Sankey = () =>  {
 
 	const colours = useSelector(state => state.colours);
+	const nodeFilter = useSelector(state => state.nodeFilter);
 	const _values = useSelector(state => state.year);
     const values = JSON.parse(JSON.stringify(_values));
-console.log('colours in sankey=', colours)
+
 	return (
 <Layout title="Sankey Diagrams">
 	<Grid container>
@@ -33,7 +34,7 @@ console.log('colours in sankey=', colours)
 	</Grid>
 		<Grid item xs={12}>
 	 <div className="graph" >
-		  <SankeySvg colours={colours} values={values} />
+		  <SankeySvg colours={colours} values={values} nodeFilter={nodeFilter}/>
 	</div>
 		</Grid>
 	</Grid>

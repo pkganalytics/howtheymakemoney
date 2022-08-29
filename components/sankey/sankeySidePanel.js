@@ -42,16 +42,12 @@ const marks = [
   };
 
 const handleChange = (e) => {
-		console.log((e.target.value))
 		if (e.target.value == 'colour0') {dispatch(setColour0()); return}
 		if (e.target.value == 'colour1') {dispatch(setColour1()); return}
 		if (e.target.value == 'colour2') {dispatch(setColour2()); return}
 		if (e.target.value == 'colour3') {dispatch(setColour3()); return}
 	}
 
-  const switchHandler = (event) => {
-	  dispatch(setColour0)
-  };
 
 const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),
@@ -109,6 +105,7 @@ The number of people moving in a given year is shown by the thickness of the lin
 				value="colour3"
 				control={<Radio/>}
 				label="Colour scale (red/blue = 0; green = max)"/>
+
   </RadioGroup>
 
 </FormControl>

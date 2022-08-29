@@ -12,14 +12,14 @@ import { format as d3Format } from 'd3-format';
 import useResizeObserver from "use-resize-observer/polyfilled";
 import { transition } from 'd3-transition';
 import { rollups, sum, min, max, extent, merge } from 'd3-array';
-import { color, hsl, lab } from 'd3-color';
+import { color } from 'd3-color';
 
-function SankeySvg({ colours, values }) {
+function SankeySvg({ colours, values, nodeFilter }) {
   const svgRef = useRef();
   const margin=10;
   const [previousState, setPreviousState ] = useState({...values});
   const  { ref, width, height } = useResizeObserver();
-
+console.log("nodeFilter=", nodeFilter)
   useEffect(() => {
     const svg = select(svgRef.current)
 			.attr("width", width)
@@ -39,7 +39,16 @@ const sankey = d3Sankey()
 const path = sankey.links();
 
 // load the data
-	  	const graph = sankey(previousState)
+	  	const unfiltered = sankey(previousState)
+		console.log('unfiltered=', unfiltered)
+// filter out any unwanted nodes
+const nodeFilter = 4;
+	  console.log('unfiltered.nodes.length=', unfiltered.nodes.length)
+	  var filtered = unfiltered.nodes.filter(item =>  { return item.index < nodeFilter - 1 || item.index > (unfiltered.nodes.length - 7) });
+	  console.log('filtered =', filtered);
+
+	const graph = sankey(previousState);
+
 
 // calculate total for each source node
 const sourceTotals = rollups(previousState.links, v => sum (v, d => d.value), d => d.source);
@@ -56,12 +65,10 @@ const colorExtent = extent(colorTotals);
 const totalRed = scaleLinear()
 				  .domain(colorExtent)
 				  .range(colours[0])
-				   // .range(["#200000", "#ff0000"])
 
 const totalBlue = scaleLinear()
 				  .domain(colorExtent)
 				  .range(colours[1])
-				  // .range(["#000020", "#0000ff"])
 
 // add in the links
 const link = svg.append("g")
@@ -114,8 +121,6 @@ const div = select("body")
 		  return rgb(d.color).darker(2); })
 
 .on("mouseover", function(event, d) {
-		// svg.selectAll('.link').attr("fill", 'green');
-// filter((d, i) => d.source == 1).
 	div.transition()
         .duration(300)
 		.ease(easeLinear)

@@ -49,9 +49,6 @@ const handleChange = (e) => {
 		if (e.target.value == 'colour3') {dispatch(setColour3()); return}
 	}
 
-  const switchHandler = (event) => {
-	  dispatch(setColour0)
-  };
 
 const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),
@@ -63,6 +60,12 @@ const Item = styled(Paper)(({ theme }) => ({
 <div className="sidePanel">
 
 
+	<Typography>
+		This shows the flow of refugees from their country of origin to their state of destination in the US.
+		<br /><br />
+The number of people moving in a given year is shown by the thickness of the link and by the height and colour of the node.
+		<br /><br />
+	</Typography>
 	<Stack spacing={2}>
         <Item>
       <Slider
@@ -103,6 +106,7 @@ const Item = styled(Paper)(({ theme }) => ({
 				value="colour3"
 				control={<Radio/>}
 				label="Colour scale (red/blue = 0; green = max)"/>
+
   </RadioGroup>
 
 </FormControl>
