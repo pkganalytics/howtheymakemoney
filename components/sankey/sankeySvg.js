@@ -42,13 +42,16 @@ const path = sankey.links();
 	  	const unfiltered = sankey(previousState)
 		console.log('unfiltered=', unfiltered)
 // filter out any unwanted nodes
-const nodeFilter = 4;
 	  console.log('unfiltered.nodes.length=', unfiltered.nodes.length)
-	  var filtered = unfiltered.nodes.filter(item =>  { return item.index < nodeFilter - 1 || item.index > (unfiltered.nodes.length - 7) });
-	  console.log('filtered =', filtered);
+	  var filteredNodes = unfiltered.nodes.filter(item =>  { return item.index < nodeFilter - 1 || item.index > (unfiltered.nodes.length - 7) });
+	  console.log('filteredNodes =', filteredNodes);
 
-	const graph = sankey(previousState);
-
+	  console.log('unfiltered.links =', unfiltered.links);
+	  var filteredLinks = unfiltered.links.filter(item =>  { return item.source.index < nodeFilter - 1 || item.source.index > (unfiltered.nodes.length - 7) });
+	  console.log('filteredLinks =', filteredLinks);
+	const graph = unfiltered;
+    graph.nodes = filteredNodes;
+	graph.links = filteredLinks;
 
 // calculate total for each source node
 const sourceTotals = rollups(previousState.links, v => sum (v, d => d.value), d => d.source);
@@ -151,7 +154,23 @@ const div = select("body")
 
 // Recalculate sankey layout ////////////////////////////////
 
-	  	const graph2 = sankey(values)
+	  	// const graph2 = sankey(values)
+
+	  	const unfiltered2 = sankey(values)
+		// console.log('unfiltered=', unfiltered)
+// filter out any unwanted nodes
+	  // console.log('unfiltered.nodes.length=', unfiltered.nodes.length)
+	  const filteredNodes2 = unfiltered2.nodes.filter(item =>  { return item.index < nodeFilter - 1 || item.index > (unfiltered2.nodes.length - 7) });
+	  // console.log('filteredNodes =', filteredNodes);
+
+	  // console.log('unfiltered.links =', unfiltered.links);
+	  var filteredLinks2 = unfiltered2.links.filter(item =>  { return item.source.index < nodeFilter - 1 || item.source.index > (unfiltered2.nodes.length - 7) });
+	  console.log('filteredLinks2 =', filteredLinks2);
+	const graph2 = unfiltered2;
+    graph2.nodes = filteredNodes2;
+	graph2.links = filteredLinks2;
+
+
 
 // calculate total for each source node
 	  const newSourceTotals = rollups(values.links, v => sum (v, d => d.value), d => d.source);
