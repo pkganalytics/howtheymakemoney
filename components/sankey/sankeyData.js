@@ -55,26 +55,7 @@ export const values2021 = {
 {"source":6,"target":8,"value":3},
 {"source":6,"target":9,"value":3},
 {"source":6,"target":10,"value":4},
-{"source":6,"target":11,"value":4},
-{"source":1,"target":12,"value":4},
-{"source":2,"target":7,"value":2},
-{"source":2,"target":8,"value":3},
-{"source":2,"target":9,"value":3},
-{"source":2,"target":10,"value":4},
-{"source":2,"target":11,"value":4},
-{"source":2,"target":12,"value":4},
-{"source":3,"target":7,"value":2},
-{"source":3,"target":8,"value":2},
-{"source":3,"target":9,"value":3},
-{"source":3,"target":10,"value":4},
-{"source":3,"target":11,"value":4},
-{"source":3,"target":12,"value":4},
-{"source":0,"target":7,"value":2},
-{"source":0,"target":8,"value":2},
-{"source":0,"target":9,"value":3},
-{"source":0,"target":10,"value":4},
-{"source":0,"target":11,"value":4},
-{"source":0,"target":12,"value":4}
+{"source":6,"target":11,"value":4}
 ]}
 
 
@@ -135,26 +116,7 @@ export const values2020 = {
 {"source":6,"target":8,"value":3},
 {"source":6,"target":9,"value":3},
 {"source":6,"target":10,"value":4},
-{"source":6,"target":11,"value":4},
-{"source":1,"target":12,"value":4},
-{"source":2,"target":7,"value":2},
-{"source":2,"target":8,"value":3},
-{"source":2,"target":9,"value":3},
-{"source":2,"target":10,"value":4},
-{"source":2,"target":11,"value":4},
-{"source":2,"target":12,"value":4},
-{"source":3,"target":7,"value":2},
-{"source":3,"target":8,"value":2},
-{"source":3,"target":9,"value":3},
-{"source":3,"target":10,"value":4},
-{"source":3,"target":11,"value":4},
-{"source":3,"target":12,"value":4},
-{"source":0,"target":7,"value":2},
-{"source":0,"target":8,"value":2},
-{"source":0,"target":9,"value":3},
-{"source":0,"target":10,"value":4},
-{"source":0,"target":11,"value":4},
-{"source":0,"target":12,"value":4}
+{"source":6,"target":11,"value":4}
 ]}
 
 export const values2019 = {
@@ -214,26 +176,7 @@ export const values2019 = {
 {"source":6,"target":8,"value":3},
 {"source":6,"target":9,"value":3},
 {"source":6,"target":10,"value":4},
-{"source":6,"target":11,"value":4},
-{"source":1,"target":12,"value":4},
-{"source":2,"target":7,"value":2},
-{"source":2,"target":8,"value":3},
-{"source":2,"target":9,"value":3},
-{"source":2,"target":10,"value":4},
-{"source":2,"target":11,"value":4},
-{"source":2,"target":12,"value":4},
-{"source":3,"target":7,"value":2},
-{"source":3,"target":8,"value":2},
-{"source":3,"target":9,"value":3},
-{"source":3,"target":10,"value":4},
-{"source":3,"target":11,"value":4},
-{"source":3,"target":12,"value":4},
-{"source":0,"target":7,"value":2},
-{"source":0,"target":8,"value":2},
-{"source":0,"target":9,"value":3},
-{"source":0,"target":10,"value":4},
-{"source":0,"target":11,"value":4},
-{"source":0,"target":12,"value":4}
+{"source":6,"target":11,"value":4}
 ]}
 
 export const values2018 = {
@@ -293,26 +236,7 @@ export const values2018 = {
 {"source":6,"target":8,"value":3},
 {"source":6,"target":9,"value":3},
 {"source":6,"target":10,"value":4},
-{"source":6,"target":11,"value":4},
-{"source":1,"target":12,"value":4},
-{"source":2,"target":7,"value":2},
-{"source":2,"target":8,"value":3},
-{"source":2,"target":9,"value":3},
-{"source":2,"target":10,"value":4},
-{"source":2,"target":11,"value":4},
-{"source":2,"target":12,"value":4},
-{"source":3,"target":7,"value":2},
-{"source":3,"target":8,"value":2},
-{"source":3,"target":9,"value":3},
-{"source":3,"target":10,"value":4},
-{"source":3,"target":11,"value":4},
-{"source":3,"target":12,"value":4},
-{"source":0,"target":7,"value":2},
-{"source":0,"target":8,"value":2},
-{"source":0,"target":9,"value":3},
-{"source":0,"target":10,"value":4},
-{"source":0,"target":11,"value":4},
-{"source":0,"target":12,"value":4}
+{"source":6,"target":11,"value":4}
 ]}
 
 export const values2017 = {
@@ -372,26 +296,7 @@ export const values2017 = {
 {"source":6,"target":8,"value":13},
 {"source":6,"target":9,"value":23},
 {"source":6,"target":10,"value":18},
-{"source":6,"target":11,"value":24},
-{"source":1,"target":12,"value":4},
-{"source":2,"target":7,"value":2},
-{"source":2,"target":8,"value":3},
-{"source":2,"target":9,"value":3},
-{"source":2,"target":10,"value":4},
-{"source":2,"target":11,"value":4},
-{"source":2,"target":12,"value":4},
-{"source":3,"target":7,"value":2},
-{"source":3,"target":8,"value":2},
-{"source":3,"target":9,"value":3},
-{"source":3,"target":10,"value":4},
-{"source":3,"target":11,"value":4},
-{"source":3,"target":12,"value":4},
-{"source":0,"target":7,"value":2},
-{"source":0,"target":8,"value":2},
-{"source":0,"target":9,"value":3},
-{"source":0,"target":10,"value":4},
-{"source":0,"target":11,"value":4},
-{"source":0,"target":12,"value":4}
+{"source":6,"target":11,"value":24}
 ]}
 
 export const colours = [[["#200000", "#ff0000"], ["#000020", "#0000ff"]], [["#ff0000", "#200000"], ["#0000ff", "#000020"]],[["#00ff00", "#ff0000"], ["#00ff00", "#0000ff"]], [["#ff0000", "#00ff00"], ["#0000ff", "#ff0000"]]];

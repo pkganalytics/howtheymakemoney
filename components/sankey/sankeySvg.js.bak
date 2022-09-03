@@ -54,8 +54,8 @@ const path = sankey.links();
 	graph.links = filteredLinks;
 
 // calculate total for each source node
-const sourceTotals = rollups(previousState.links, v => sum (v, d => d.value), d => d.source);
-const targetTotals = rollups(previousState.links, v => sum (v, d => d.value), d => d.target);
+const sourceTotals = rollups(graph.links, v => sum (v, d => d.value), d => d.source);
+const targetTotals = rollups(graph.links, v => sum (v, d => d.value), d => d.target);
 const totals = sourceTotals.concat(targetTotals);
 	  graph.nodes.forEach((element, index) => graph.nodes.total = totals[index][0])
 
@@ -173,8 +173,8 @@ const div = select("body")
 
 
 // calculate total for each source node
-	  const newSourceTotals = rollups(values.links, v => sum (v, d => d.value), d => d.source);
-	  const newTargetTotals = rollups(values.links, v => sum (v, d => d.value), d => d.target);
+	  const newSourceTotals = rollups(graph2.links, v => sum (v, d => d.value), d => d.source);
+	  const newTargetTotals = rollups(graph2.links, v => sum (v, d => d.value), d => d.target);
 	  const newTotals = newSourceTotals.concat(newTargetTotals);
 	  graph2.nodes.forEach((element, index) => graph2.nodes.total = totals[index][0])
 
@@ -224,12 +224,6 @@ const title2 = svg.selectAll("title")
  node.selectAll("text")
 	  .exit()
 	  .remove()
-
-const rect3 = svg.selectAll(".node rect")
-	  .data(graph2.nodes, d => d.name)
-		  // .append("title")
-     // .text(function(d) {
-		  // return d.name + "\n" + format(d.value); });
 
   node.selectAll("text")
 	  .data(graph2.nodes, d => d.name)

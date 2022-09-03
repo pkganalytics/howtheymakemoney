@@ -15,6 +15,7 @@ import Link from 'next/link';
 import { useSelector, useDispatch } from 'react-redux';
 import { setValues2021, setValues2020, setValues2019, setValues2018, setValues2017 } from './refugeeSlice';
 import { setColour0, setColour1, setColour2, setColour3 } from './colourSlice';
+import {setNodeFilter3, setNodeFilter4, setNodeFilter5, setNodeFilter6} from './nodeFilterSlice';
 
 const SankeySidePanel = () => {
 
@@ -22,7 +23,7 @@ const dispatch = useDispatch();
 
 const colours = useSelector(state => state.colours);
 
-const marks = [
+const yearMarks = [
 	{value: 0, label: '2017'},
 	{value: 25, label: '2018'},
 	{value: 50, label: '2019'},
@@ -30,24 +31,40 @@ const marks = [
 	{value: 100, label: '2021'},
 ];
 
-  const [value, setValue] = useState(0);
+const sourceMarks = [
+	{value: 0, label: 'All'},
+	{value: 25, label: 'Top 5'},
+	{value: 50, label: 'Top 4'},
+	{value: 75, label: 'Top 3'}
+];
 
-  const changeValue = (event, value) => {
-    setValue(value)
-		if (value == 100) {dispatch(setValues2021()); return}
-		if (value == 75) {dispatch(setValues2020()); return}
-		if (value == 50) {dispatch(setValues2019()); return}
-		if (value == 25) {dispatch(setValues2018()); return}
-		if (value == 0) {dispatch(setValues2017()); return}
+  const [year, setYear] = useState(0);
+  const [sources, setSources] = useState(0);
+
+
+  const changeYear = (event, year) => {
+    setYear(year)
+		if (year == 100) {dispatch(setValues2021()); return}
+		if (year == 75) {dispatch(setValues2020()); return}
+		if (year == 50) {dispatch(setValues2019()); return}
+		if (year == 25) {dispatch(setValues2018()); return}
+		if (year == 0) {dispatch(setValues2017()); return}
   };
 
-const handleChange = (e) => {
+const changeColour = (e) => {
 		if (e.target.value == 'colour0') {dispatch(setColour0()); return}
 		if (e.target.value == 'colour1') {dispatch(setColour1()); return}
 		if (e.target.value == 'colour2') {dispatch(setColour2()); return}
 		if (e.target.value == 'colour3') {dispatch(setColour3()); return}
 	}
 
+  const changeSources = (event, sources) => {
+    setSources(sources)
+		if (sources == 75) {dispatch(setNodeFilter3()); return}
+		if (sources == 50) {dispatch(setNodeFilter4()); return}
+		if (sources == 25) {dispatch(setNodeFilter5()); return}
+		if (sources == 0) {dispatch(setNodeFilter6()); return}
+  };
 
 const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),
@@ -69,11 +86,11 @@ The number of people moving in a given year is shown by the thickness of the lin
         <Item>
       <Slider
 		style={{ width: 300 }}
-		value={value}
-		onChange={changeValue}
+		value={year}
+		onChange={changeYear}
 		size='small'
 		step={null}
-        marks={marks}
+        marks={yearMarks}
       />
 </Item>
         <Item>
@@ -84,7 +101,7 @@ The number of people moving in a given year is shown by the thickness of the lin
 	row
     defaultValue="colour0"
     name="Colour"
-	onChange={handleChange}
+	onChange={changeColour}
  >
 	  <FormControlLabel
 				value="colour0"
@@ -112,6 +129,14 @@ The number of people moving in a given year is shown by the thickness of the lin
 
 </Item>
 
+      <Slider
+		style={{ width: 300 }}
+		value={sources}
+		onChange={changeSources}
+		size='small'
+		step={null}
+        marks={sourceMarks}
+      />
       </Stack>
 </div>
 
