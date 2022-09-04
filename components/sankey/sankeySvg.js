@@ -14,6 +14,9 @@ import { transition } from 'd3-transition';
 import { rollups, sum, min, max, extent, merge } from 'd3-array';
 import { color } from 'd3-color';
 
+
+const filtered = {};
+
 function SankeySvg({ colours, values, nodeFilter }) {
   const svgRef = useRef();
   const margin=10;
@@ -39,7 +42,8 @@ const sankey = d3Sankey()
 const path = sankey.links();
 
 // load the data
-	  	const unfiltered = sankey(previousState)
+	  const unfiltered = previousState;
+	  	// const unfiltered = sankey(previousState)
 		console.log('unfiltered=', unfiltered)
 // filter out any unwanted nodes
 	  console.log('unfiltered.nodes.length=', unfiltered.nodes.length)
@@ -49,9 +53,17 @@ const path = sankey.links();
 	  console.log('unfiltered.links =', unfiltered.links);
 	  var filteredLinks = unfiltered.links.filter(item =>  { return item.source.index < nodeFilter - 1 || item.source.index > (unfiltered.nodes.length - 7) });
 	  console.log('filteredLinks =', filteredLinks);
-	const graph = unfiltered;
-    graph.nodes = filteredNodes;
-	graph.links = filteredLinks;
+
+
+
+	console.log('filtered=', filtered)
+
+	filtered.nodes = filteredNodes;
+	filtered.links = filteredLinks;
+	console.log('filtered after adding nodes and links =', filtered)
+	filtered.length = 2;
+	console.log('length after adding nodes and links =', filtered.length)
+	const graph = sankey(filtered);
 
 // calculate total for each source node
 const sourceTotals = rollups(graph.links, v => sum (v, d => d.value), d => d.source);
@@ -154,21 +166,32 @@ const div = select("body")
 
 // Recalculate sankey layout ////////////////////////////////
 
-	  	// const graph2 = sankey(values)
+	  	const graph2 = sankey(values)
 
-	  	const unfiltered2 = sankey(values)
+	  	// // const unfiltereund2 = sankey(values)
+	   // const unfiltered2 = values;
 		// console.log('unfiltered=', unfiltered)
-// filter out any unwanted nodes
+// // filter out any unwanted nodes
 	  // console.log('unfiltered.nodes.length=', unfiltered.nodes.length)
-	  const filteredNodes2 = unfiltered2.nodes.filter(item =>  { return item.index < nodeFilter - 1 || item.index > (unfiltered2.nodes.length - 7) });
-	  // console.log('filteredNodes =', filteredNodes);
+	  // const filteredNodes2 = unfiltered2.nodes.filter(item =>  { return item.index < nodeFilter - 1 || item.index > (unfiltered2.nodes.length - 7) });
+	  // console.log('filteredNodes2 =', filteredNodes2);
 
 	  // console.log('unfiltered.links =', unfiltered.links);
-	  var filteredLinks2 = unfiltered2.links.filter(item =>  { return item.source.index < nodeFilter - 1 || item.source.index > (unfiltered2.nodes.length - 7) });
-	  console.log('filteredLinks2 =', filteredLinks2);
-	const graph2 = unfiltered2;
-    graph2.nodes = filteredNodes2;
-	graph2.links = filteredLinks2;
+	  // var filteredLinks2 = unfiltered2.links.filter(item =>  { return item.source.index < nodeFilter - 1 || item.source.index > (unfiltered2.nodes.length - 7) });
+	  	// console.log('filtered2=', filtered2)
+	// console.log('filteredlinks2 =', filteredlinks2);
+	  // const filtered2 = [];
+
+	// console.log('filtered2=', filtered2)
+
+    // filtered2[0] = "nodes"; filtered2[1] = "links";
+
+	// console.log('filtered2=', filtered2)
+
+	// filtered2.nodes = filterednodes2;
+	// filtered2.links = filteredlinks2;
+	// console.log('filtered2 after adding nodes and links =', filtered2)
+	// const graph2 = sankey(filtered2);
 
 
 
@@ -176,7 +199,7 @@ const div = select("body")
 	  const newSourceTotals = rollups(graph2.links, v => sum (v, d => d.value), d => d.source);
 	  const newTargetTotals = rollups(graph2.links, v => sum (v, d => d.value), d => d.target);
 	  const newTotals = newSourceTotals.concat(newTargetTotals);
-	  graph2.nodes.forEach((element, index) => graph2.nodes.total = totals[index][0])
+	  graph2.nodes.forEach((element, index) => graph2.nodes.total = newTotals[index][0])
 
 // Create array for colors in order to calculate extent
 	  const newColorTotals = [];
