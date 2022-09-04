@@ -43,6 +43,7 @@ const path = sankey.links();
 
 // load the data
 	  const unfiltered = previousState;
+	  console.log('unfiltered.length = ', unfiltered.length);
 	  	// const unfiltered = sankey(previousState)
 		console.log('unfiltered=', unfiltered)
 // filter out any unwanted nodes
@@ -61,7 +62,7 @@ const path = sankey.links();
 	filtered.nodes = filteredNodes;
 	filtered.links = filteredLinks;
 	console.log('filtered after adding nodes and links =', filtered)
-	filtered.length = 2;
+	delete filtered.length;
 	console.log('length after adding nodes and links =', filtered.length)
 	const graph = sankey(unfiltered);
 
