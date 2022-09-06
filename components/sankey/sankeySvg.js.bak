@@ -15,14 +15,12 @@ import { rollups, sum, min, max, extent, merge } from 'd3-array';
 import { color } from 'd3-color';
 
 
-const filtered = {};
-
 function SankeySvg({ colours, values, nodeFilter }) {
   const svgRef = useRef();
   const margin=10;
   const [previousState, setPreviousState ] = useState({...values});
   const  { ref, width, height } = useResizeObserver();
-console.log("nodeFilter=", nodeFilter)
+// console.log("nodeFilter=", nodeFilter)
   useEffect(() => {
     const svg = select(svgRef.current)
 			.attr("width", width)
@@ -42,34 +40,16 @@ const sankey = d3Sankey()
 const path = sankey.links();
 
 // load the data
-	  const unfiltered = previousState;
-	  console.log('unfiltered.length = ', unfiltered.length);
-	  	// const unfiltered = sankey(previousState)
-		console.log('unfiltered=', unfiltered)
-// filter out any unwanted nodes
-	  console.log('unfiltered.nodes.length=', unfiltered.nodes.length)
-	  var filteredNodes = unfiltered.nodes.filter(item =>  { return item.index < nodeFilter - 1 || item.index > (unfiltered.nodes.length - 7) });
-	  console.log('filteredNodes =', filteredNodes);
-
-	  console.log('unfiltered.links =', unfiltered.links);
-	  var filteredLinks = unfiltered.links.filter(item =>  { return item.source.index < nodeFilter - 1 || item.source.index > (unfiltered.nodes.length - 7) });
-	  console.log('filteredLinks =', filteredLinks);
-
-
-
-	console.log('filtered=', filtered)
-
-	filtered.nodes = filteredNodes;
-	filtered.links = filteredLinks;
-	console.log('filtered after adding nodes and links =', filtered)
-	delete filtered.length;
-	console.log('length after adding nodes and links =', filtered.length)
-	const graph = sankey(unfiltered);
-
+	  const graph = sankey(previousState);
+console.log('graph =', graph)
 // calculate total for each source node
 const sourceTotals = rollups(graph.links, v => sum (v, d => d.value), d => d.source);
+
+console.log('sourceTotals =', sourceTotals);
 const targetTotals = rollups(graph.links, v => sum (v, d => d.value), d => d.target);
+console.log('targetTotals =', targetTotals);
 const totals = sourceTotals.concat(targetTotals);
+console.log('totals =', totals);
 	  graph.nodes.forEach((element, index) => graph.nodes.total = totals[index][0])
 
 
@@ -166,7 +146,7 @@ const div = select("body")
 
 
 // Recalculate sankey layout ////////////////////////////////
-
+console.log('values in second half = ', values)
 	  	const graph2 = sankey(values)
 
 	  	// // const unfiltereund2 = sankey(values)
