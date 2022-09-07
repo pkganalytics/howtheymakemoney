@@ -13,14 +13,14 @@ import cloneDeep from 'lodash/cloneDeep';
 const Sankey = () =>  {
 
 	const colours = useSelector(state => state.colours);
-	// const nodeFilter = useSelector(state => state.nodeFilter);
-	const nodeFilter = 4;
+	const nodeFilter = useSelector(state => state.nodeFilter);
+	// const nodeFilter = 4;
 	const _values = useSelector(state => state.year);
 
 console.log('nodeFilter = ', nodeFilter);
 
-// var filtered = JSON.parse(JSON.stringify(_values));
 	var tobeFiltered = cloneDeep(_values);
+	console.log('_values =', _values)
 	console.log('tobeFiltered =', tobeFiltered)
 
 // Remove nodes > nodeFilter
@@ -31,13 +31,14 @@ console.log('nodeFilter = ', nodeFilter);
 // Remove links which reference nodes > nodeFilter
 	const linksWithRefNodesRemoved = cloneDeep(remove(tobeFiltered.links, item => item.source < (nodeFilter)));
 	console.log('linksWithRefNodesRemoved =', linksWithRefNodesRemoved);
+	console.log('_values.nodes.length - nodesWithNodesRemoved.length =', _values.nodes.length - nodesWithNodesRemoved.length);
 
 // Reduce values of target nodes
 	const linksWithReducedTargets = cloneDeep(linksWithRefNodesRemoved);
 
 	for (let i = 0; i < linksWithReducedTargets.length; i++) {
 	if (linksWithReducedTargets[i].target >= nodeFilter)
-		{linksWithReducedTargets[i].target = linksWithReducedTargets[i].target - 1;}
+		{linksWithReducedTargets[i].target = linksWithReducedTargets[i].target - (_values.nodes.length - nodesWithNodesRemoved.length);}
 	}
 	  console.log('linksWithReducedTargets =', linksWithReducedTargets);
 
@@ -47,9 +48,8 @@ console.log('nodeFilter = ', nodeFilter);
 	filtered.nodes = cloneDeep(nodesWithNodesRemoved);
 	filtered.links = cloneDeep(linksWithReducedTargets);
 	console.log('filtered =', filtered);
+	const values = cloneDeep(filtered);
 
-    // const values = JSON.parse(JSON.stringify(_values));
-	const values = cloneDeep(_values);
 	  // var filteredLinks = filtered.links.filter(item =>  { return item.source.index < nodeFilter - 1 || item.source.index > (filtered.nodes.length - 7) });
 	// var filteredLinks = remove(filtered.links, (item =>  { return item.source.index >= nodeFilter - 1 || item.source.index <= (filtered.nodes.length - 7) }));
 
