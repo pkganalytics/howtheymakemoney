@@ -246,7 +246,7 @@ const title2 = svg.selectAll("title")
 	  return () => {
       svg.selectAll('*').remove()
     }
-  }, [values, colours, width, height]);
+  }, [values, nodeFilter, colours, width, height]);
 
   return (
       <div className="graph" ref={ref} >

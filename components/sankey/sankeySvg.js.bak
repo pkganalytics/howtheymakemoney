@@ -146,7 +146,6 @@ const div = select("body")
 
 
 // Recalculate sankey layout ////////////////////////////////
-console.log('values in second half = ', values)
 	  	const graph2 = sankey(values)
 
 	  	// // const unfiltereund2 = sankey(values)

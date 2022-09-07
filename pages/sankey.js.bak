@@ -48,7 +48,7 @@ console.log('nodeFilter = ', nodeFilter);
 	filtered.nodes = cloneDeep(nodesWithNodesRemoved);
 	filtered.links = cloneDeep(linksWithReducedTargets);
 	console.log('filtered =', filtered);
-	const values = cloneDeep(_values);
+	const values = cloneDeep(filtered);
 
 	  // var filteredLinks = filtered.links.filter(item =>  { return item.source.index < nodeFilter - 1 || item.source.index > (filtered.nodes.length - 7) });
 	// var filteredLinks = remove(filtered.links, (item =>  { return item.source.index >= nodeFilter - 1 || item.source.index <= (filtered.nodes.length - 7) }));

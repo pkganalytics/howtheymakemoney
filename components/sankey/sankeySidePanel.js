@@ -15,7 +15,7 @@ import Link from 'next/link';
 import { useSelector, useDispatch } from 'react-redux';
 import { setValues2021, setValues2020, setValues2019, setValues2018, setValues2017 } from './refugeeSlice';
 import { setColour0, setColour1, setColour2, setColour3 } from './colourSlice';
-import {setNodeFilter3, setNodeFilter4, setNodeFilter5, setNodeFilter6} from './nodeFilterSlice';
+import {setNodeFilter3, setNodeFilter4, setNodeFilter5, setNodeFilter6, setNodeFilter7} from './nodeFilterSlice';
 
 const SankeySidePanel = () => {
 
@@ -33,9 +33,10 @@ const yearMarks = [
 
 const sourceMarks = [
 	{value: 0, label: 'All'},
-	{value: 25, label: 'Top 5'},
-	{value: 50, label: 'Top 4'},
-	{value: 75, label: 'Top 3'}
+	{value: 25, label: 'Top 6'},
+	{value: 50, label: 'Top 5'},
+	{value: 75, label: 'Top 4'},
+	{value: 100, label: 'Top 3'}
 ];
 
   const [year, setYear] = useState(0);
@@ -60,10 +61,11 @@ const changeColour = (e) => {
 
   const changeSources = (event, sources) => {
     setSources(sources)
-		if (sources == 75) {dispatch(setNodeFilter3()); return}
-		if (sources == 50) {dispatch(setNodeFilter4()); return}
-		if (sources == 25) {dispatch(setNodeFilter5()); return}
-		if (sources == 0) {dispatch(setNodeFilter6()); return}
+		if (sources == 100) {dispatch(setNodeFilter3()); return}
+		if (sources == 75) {dispatch(setNodeFilter4()); return}
+		if (sources == 50) {dispatch(setNodeFilter5()); return}
+		if (sources == 25) {dispatch(setNodeFilter6()); return}
+		if (sources == 0) {dispatch(setNodeFilter7()); return}
   };
 
 const Item = styled(Paper)(({ theme }) => ({

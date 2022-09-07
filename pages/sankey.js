@@ -14,7 +14,6 @@ const Sankey = () =>  {
 
 	const colours = useSelector(state => state.colours);
 	const nodeFilter = useSelector(state => state.nodeFilter);
-	// const nodeFilter = 4;
 	const _values = useSelector(state => state.year);
 
 console.log('nodeFilter = ', nodeFilter);
