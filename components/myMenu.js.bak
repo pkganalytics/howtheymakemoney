@@ -25,7 +25,7 @@ const indexToTabName= {
 const tabNametoIndex = {
 	0: "/",
 	1: "/time",
-	2: "/lineCharts",
+	2: "/subset",
 	3: "/scatterPlots",
 	4: "/pieCharts",
 	5: "/sankey",
@@ -43,7 +43,7 @@ const MyMenu = () => {
     return (
       <AppBar position='static'>
 		  <Typography sx={{color: "white", display: "block", fontSize: 45, marginLeft: 20}}>
-			  Dynamic D3
+			  D3 Sankey3
 		</Typography>
 		  <div className="smallMenu">
 		   <MaterialMenu />

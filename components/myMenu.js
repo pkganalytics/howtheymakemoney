@@ -43,7 +43,7 @@ const MyMenu = () => {
     return (
       <AppBar position='static'>
 		  <Typography sx={{color: "white", display: "block", fontSize: 45, marginLeft: 20}}>
-			  Dynamic D3
+			  D3 Sankey
 		</Typography>
 		  <div className="smallMenu">
 		   <MaterialMenu />
