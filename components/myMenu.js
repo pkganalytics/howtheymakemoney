@@ -12,8 +12,8 @@ import Typography from '@mui/material/Typography';
 
 const indexToTabName= {
 	home: 0,
-	barCharts: 1,
-	lineCharts: 2,
+	time: 1,
+	subset: 2,
 	scatterPlots: 3,
 	pieCharts: 4,
 	sankey: 5,
@@ -24,8 +24,8 @@ const indexToTabName= {
 
 const tabNametoIndex = {
 	0: "/",
-	1: "/barCharts",
-	2: "/lineCharts",
+	1: "/time",
+	2: "/subset",
 	3: "/scatterPlots",
 	4: "/pieCharts",
 	5: "/sankey",
@@ -54,8 +54,8 @@ const MyMenu = () => {
 		onChange={handleChange}
 		indicatorColor='secondary'>
             <Tab label='Home'  />
-			<Tab label='Bar Charts' sx={{width: 1/7}} />
-            <Tab label='Line Charts' sx={{width: 1/7}} />
+			<Tab label='Change over Time' sx={{width: 1/7}} />
+            <Tab label='Subsets of Data' sx={{width: 1/7}} />
             <Tab label='Scatter Plots' sx={{width: 1/7}} />
             <Tab label='Pie Charts' sx={{width: 1/7}} />
 			<Tab label="Sankey Diagrams" sx={{width: 1/7}} />
