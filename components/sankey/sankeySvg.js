@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState} from "react";
+import React, { useReducer, useEffect, useRef, useState} from "react";
 import {
   select,
   selectAll,
@@ -13,15 +13,19 @@ import useResizeObserver from "use-resize-observer/polyfilled";
 import { transition } from 'd3-transition';
 import { rollups, sum, min, max, extent, merge } from 'd3-array';
 import { color } from 'd3-color';
+import cloneDeep from 'lodash/cloneDeep';
 
-
-function SankeySvg({ colours, values, nodeFilter }) {
+function SankeySvg({colours, values, nodeFilter }) {
+	console.log('Beginning of functional component')
+	console.log('nodeFilter =', nodeFilter)
   const svgRef = useRef();
   const margin=10;
+
   const [previousState, setPreviousState ] = useState({...values});
   const  { ref, width, height } = useResizeObserver();
 // console.log("nodeFilter=", nodeFilter)
   useEffect(() => {
+	  console.log('Beginning of useEffect hook')
     const svg = select(svgRef.current)
 			.attr("width", width)
 			.attr("height", height)
@@ -37,7 +41,7 @@ const sankey = d3Sankey()
     .nodePadding(30)
     .size([width, height]);
 
-const path = sankey.links();
+// const path = sankey.links();
 
 // load the data
 	  const graph = sankey(previousState);
@@ -103,6 +107,7 @@ const div = select("body")
 // add in the nodes
   const node = svg.append("g").selectAll(".node")
 				  .data(graph.nodes, d => d.name)
+		  // .join("g")
 				  .enter().append("g")
 				  .attr("class", "node");
 
@@ -143,38 +148,12 @@ const div = select("body")
     .filter(function(d) { return d.x0 < width / 2; })
       .attr("x", function(d) { return d.x1 + 6; })
       .attr("text-anchor", "start");
-
+console.log('end of first half')
 
 // Recalculate sankey layout ////////////////////////////////
 	  	const graph2 = sankey(values)
 
-	  	// // const unfiltereund2 = sankey(values)
-	   // const unfiltered2 = values;
-		// console.log('unfiltered=', unfiltered)
-// // filter out any unwanted nodes
-	  // console.log('unfiltered.nodes.length=', unfiltered.nodes.length)
-	  // const filteredNodes2 = unfiltered2.nodes.filter(item =>  { return item.index < nodeFilter - 1 || item.index > (unfiltered2.nodes.length - 7) });
-	  // console.log('filteredNodes2 =', filteredNodes2);
-
-	  // console.log('unfiltered.links =', unfiltered.links);
-	  // var filteredLinks2 = unfiltered2.links.filter(item =>  { return item.source.index < nodeFilter - 1 || item.source.index > (unfiltered2.nodes.length - 7) });
-	  	// console.log('filtered2=', filtered2)
-	// console.log('filteredlinks2 =', filteredlinks2);
-	  // const filtered2 = [];
-
-	// console.log('filtered2=', filtered2)
-
-    // filtered2[0] = "nodes"; filtered2[1] = "links";
-
-	// console.log('filtered2=', filtered2)
-
-	// filtered2.nodes = filterednodes2;
-	// filtered2.links = filteredlinks2;
-	// console.log('filtered2 after adding nodes and links =', filtered2)
-	// const graph2 = sankey(filtered2);
-
-
-
+console.log('graph2 = ', graph2)
 // calculate total for each source node
 	  const newSourceTotals = rollups(graph2.links, v => sum (v, d => d.value), d => d.source);
 	  const newTargetTotals = rollups(graph2.links, v => sum (v, d => d.value), d => d.target);
@@ -197,18 +176,20 @@ const newTotalBlue = scaleLinear()
 				  .range(colours[1])
 
 // Select each element that needs to be changed and pass the new data values
+console.log('Starting second half')
 
-svg.selectAll(".link")
-	  .data(graph2.links)
+
+const link2 = svg.selectAll(".link")
+		  .data(graph2.links)
       .transition()
       .duration(3000)
       .attr("d", sankeyLinkHorizontal())
 	  .attr("stroke-width", d => d.width)
-		.style("stroke", d => { return newTotalRed(d.source.value) })
+		.style("stroke", d => { return newTotalRed(d.source.value) });
+
 
 	  // add in the nodes
-
-  const node2 = svg.selectAll(".node")
+const node2 = svg.selectAll(".node")
 	  .data(graph2.nodes, d => d.name)
 
 const rect2 = svg.selectAll('.node rect')
@@ -220,13 +201,11 @@ const rect2 = svg.selectAll('.node rect')
 	  .attr("height", d  => {return d.y1 - d.y0;})
 		  .attr("fill", d => { return d.index < 7 ? newTotalRed(d.value): newTotalBlue(d.value)})
 
+	  svg.selectAll('.node rect').exit().remove();
+
 const title2 = svg.selectAll("title")
-		  .exit()
-		  .remove()
 
  node.selectAll("text")
-	  .exit()
-	  .remove()
 
 
   node.selectAll("text")
@@ -241,12 +220,14 @@ const title2 = svg.selectAll("title")
     .filter(function(d) { return d.x0 < width / 2; })
       .attr("x", function(d) { return d.x1 + 6; })
       .attr("text-anchor", "start");
+	  // setPreviousState(values);
 	  setPreviousState({...values});
-
+console.log('end of second part')
 	  return () => {
-      svg.selectAll('*').remove()
+      svg.selectAll('*').remove();
+	  console.log('Ran return')
     }
-  }, [values, nodeFilter, colours, width, height]);
+  }, [values, colours, width, height]);
 
   return (
       <div className="graph" ref={ref} >

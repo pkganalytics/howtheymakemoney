@@ -16,21 +16,21 @@ const Sankey = () =>  {
 	const nodeFilter = useSelector(state => state.nodeFilter);
 	const _values = useSelector(state => state.year);
 
-console.log('nodeFilter = ', nodeFilter);
+// console.log('nodeFilter = ', nodeFilter);
 
 	var tobeFiltered = cloneDeep(_values);
-	console.log('_values =', _values)
-	console.log('tobeFiltered =', tobeFiltered)
+	// console.log('_values =', _values)
+	// console.log('tobeFiltered =', tobeFiltered)
 
 // Remove nodes > nodeFilter
 	tobeFiltered.nodes.splice(nodeFilter, 7 - nodeFilter);
 	const nodesWithNodesRemoved = cloneDeep(tobeFiltered.nodes);
-	console.log('nodesWithNodesRemoved =', nodesWithNodesRemoved);
+	// console.log('nodesWithNodesRemoved =', nodesWithNodesRemoved);
 
 // Remove links which reference nodes > nodeFilter
 	const linksWithRefNodesRemoved = cloneDeep(remove(tobeFiltered.links, item => item.source < (nodeFilter)));
-	console.log('linksWithRefNodesRemoved =', linksWithRefNodesRemoved);
-	console.log('_values.nodes.length - nodesWithNodesRemoved.length =', _values.nodes.length - nodesWithNodesRemoved.length);
+	// console.log('linksWithRefNodesRemoved =', linksWithRefNodesRemoved);
+	// console.log('_values.nodes.length - nodesWithNodesRemoved.length =', _values.nodes.length - nodesWithNodesRemoved.length);
 
 // Reduce values of target nodes
 	const linksWithReducedTargets = cloneDeep(linksWithRefNodesRemoved);
@@ -39,16 +39,17 @@ console.log('nodeFilter = ', nodeFilter);
 	if (linksWithReducedTargets[i].target >= nodeFilter)
 		{linksWithReducedTargets[i].target = linksWithReducedTargets[i].target - (_values.nodes.length - nodesWithNodesRemoved.length);}
 	}
-	  console.log('linksWithReducedTargets =', linksWithReducedTargets);
+	  // console.log('linksWithReducedTargets =', linksWithReducedTargets);
 
 	// Combine nodesWithNodesRemoved and linksWithReducedTargets
-	
+
 	const filtered = {}
-	filtered.nodes = cloneDeep(nodesWithNodesRemoved);
-	filtered.links = cloneDeep(linksWithReducedTargets);
+	filtered.nodes = nodesWithNodesRemoved;
+	filtered.links = linksWithReducedTargets;
 	console.log('filtered =', filtered);
 	const values = cloneDeep(filtered);
-
+	console.log('values in sankey.js = ', values)
+// console.log('values in sankey.js', values);
 	  // var filteredLinks = filtered.links.filter(item =>  { return item.source.index < nodeFilter - 1 || item.source.index > (filtered.nodes.length - 7) });
 	// var filteredLinks = remove(filtered.links, (item =>  { return item.source.index >= nodeFilter - 1 || item.source.index <= (filtered.nodes.length - 7) }));
 

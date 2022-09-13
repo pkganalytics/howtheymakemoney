@@ -23,7 +23,7 @@ const dispatch = useDispatch();
 
 const colours = useSelector(state => state.colours);
 
-const yearMarks = [
+	const yearMarks = [
 	{value: 0, label: '2017'},
 	{value: 25, label: '2018'},
 	{value: 50, label: '2019'},
@@ -42,7 +42,6 @@ const sourceMarks = [
   const [year, setYear] = useState(0);
   const [sources, setSources] = useState(0);
 
-
   const changeYear = (event, year) => {
     setYear(year)
 		if (year == 100) {dispatch(setValues2021()); return}
@@ -60,7 +59,7 @@ const changeColour = (e) => {
 	}
 
   const changeSources = (event, sources) => {
-    setSources(sources)
+		setSources(sources);
 		if (sources == 100) {dispatch(setNodeFilter3()); return}
 		if (sources == 75) {dispatch(setNodeFilter4()); return}
 		if (sources == 50) {dispatch(setNodeFilter5()); return}
@@ -71,7 +70,6 @@ const changeColour = (e) => {
 const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),
   boxShadow: 'none',
-  textAlign: 'center',
   color: theme.palette.text.secondary
 }));
 	return(
