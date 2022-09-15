@@ -12,10 +12,10 @@ import Typography from '@mui/material/Typography';
 
 const indexToTabName= {
 	home: 0,
-	time: 1,
-	subset: 2,
-	scatterPlots: 3,
-	pieCharts: 4,
+	simple: 1,
+	time: 2,
+	color: 3,
+	subset: 4,
 	sankey: 5,
 	geoMaps: 6,
 	contactus: 7
@@ -24,10 +24,10 @@ const indexToTabName= {
 
 const tabNametoIndex = {
 	0: "/",
-	1: "/time",
-	2: "/subset",
-	3: "/scatterPlots",
-	4: "/pieCharts",
+	1: "/simple",
+	2: "/time",
+	3: "/color",
+	4: "/subset",
 	5: "/sankey",
 	6: "/geoMaps",
 	7: "/contactUs"
@@ -53,11 +53,11 @@ const MyMenu = () => {
 		value={indexToTabName[router.pathname.substring(1)] || 0}
 		onChange={handleChange}
 		indicatorColor='secondary'>
-            <Tab label='Home'  />
-			<Tab label='Change over Time' sx={{width: 1/7}} />
+            <Tab label='Home' sx={{width: 1/7}} />
+            <Tab label='Simple Sankey' sx={{width: 1/7}} />
+			<Tab label='Changes over Time' sx={{width: 1/7}} />
+            <Tab label='Using Color' sx={{width: 1/7}} />
             <Tab label='Subsets of Data' sx={{width: 1/7}} />
-            <Tab label='Scatter Plots' sx={{width: 1/7}} />
-            <Tab label='Pie Charts' sx={{width: 1/7}} />
 			<Tab label="Sankey Diagrams" sx={{width: 1/7}} />
             <Tab label='GeoMaps' sx={{width: 1/7}} />
             <Tab label='Contact Us' sx={{width: 1/7}} />
