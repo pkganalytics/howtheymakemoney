@@ -11,11 +11,7 @@ const IndexText = () => {
 			<p>
 				Sankey diagrams are particularly useful for showing changes over time.  In this example, the number of refugees from each origin country is represented by the size of the node.  The nodes are also arranged in order.  This means that, as we move forwards or backwards in time, some nodes move up and down relative to each other.  The movement is made much clearer because the flow lines are animated: this means that there is not an abrupt change, and it's easier for the eyes to follow a particular node or flow-line.
 			</p>
-				<li className="mainList">Adding numbers</li>
-While the sizes of the nodes and the widths of the flow lines are useful for getting a general idea about the number of refugees in each category, it's sometimes useful to have actual numbers.  Mousing over each flow line shows the number of people in that category (for example, those people traveling from Afghanistan to California).  Mousing over each node shows the total number of people either coming from that country or moving to that state.
 		</ul>
-				<li className="mainList">Removing nodes</li>
-Sometimes it's useful to exclude some of the less important data.  For example, it might be useful to see just the top three source countries.  Alteratively, it might be interesting to exclude one particular country (for example, it might be useful to see all refugee flows excluding those from a particular country.)
 	</div>
 	);
 };

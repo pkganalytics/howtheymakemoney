@@ -3,7 +3,7 @@ import { colours } from "./sankeyData";
 
 const colourSlice = createSlice({
 	name: 'colours',
-	initialState: colours[1],
+	initialState: colours[3],
 	reducers: {
 		setColour0: (state) => colours[0],
 		setColour1: (state) => colours[1],

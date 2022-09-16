@@ -1,14 +1,15 @@
-import SankeySvg from "/components/sankey/sankeySvg";
-import SankeySidePanel from "/components/sankey/sankeySidePanel";
+import ColorSidePanel from '../components/color/colorSidePanel';
+import SankeySvg from "../components/sankey/sankeySvg";
 import Grid from '@mui/material/Grid';
 import MediationIcon from '@mui/icons-material/Mediation';
 import { Typography } from '@mui/material';
 import Layout from '../components/Layout';
-import Image from 'next/image';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import remove from 'lodash/remove';
 import cloneDeep from 'lodash/cloneDeep';
+
+
 
 const Sankey = () =>  {
 
@@ -37,7 +38,6 @@ const Sankey = () =>  {
 	filtered.nodes = nodesWithNodesRemoved;
 	filtered.links = linksWithReducedTargets;
 	const values = cloneDeep(filtered);
-	console.log('values in sankey.js = ', values)
 
 	return (
 <Layout title="Sankey Diagrams">
@@ -50,7 +50,7 @@ const Sankey = () =>  {
 	  <MediationIcon color="primary" className="icons" />
   </Grid>
   <Grid item>
-		<Typography variant="h4"> Sankey Diagrams </Typography>
+		<Typography variant="h4"> Simple Sankey Diagram </Typography>
 
   </Grid>
 </Grid>
@@ -63,7 +63,7 @@ const Sankey = () =>  {
 		</Grid>
 	</Grid>
 		<Grid item container md={4} sm={12} sx={{borderLeft: "2px green solid", paddingLeft: "2rem"}}>
-			< SankeySidePanel />
+			< ColorSidePanel />
 
 		</Grid>
 	</Grid>

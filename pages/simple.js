@@ -1,10 +1,10 @@
-import IndexSidePanel from '../components/index/indexSidePanel';
-import IndexText from '../components/index/indexText';
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-import { Typography } from '@mui/material';
-import Layout from '../components/Layout';
+import SimpleSidePanel from '../components/simple/simpleSidePanel';
+import SimpleText from '../components/simple/simpleText';
 import SankeySvg from "../components/sankey/sankeySvg";
 import Grid from '@mui/material/Grid';
+import MediationIcon from '@mui/icons-material/Mediation';
+import { Typography } from '@mui/material';
+import Layout from '../components/Layout';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import remove from 'lodash/remove';
@@ -12,7 +12,7 @@ import cloneDeep from 'lodash/cloneDeep';
 
 
 
-const Index = () => {
+const Sankey = () =>  {
 
 	const colours = useSelector(state => state.colours);
 	const nodeFilter = useSelector(state => state.nodeFilter);
@@ -40,31 +40,36 @@ const Index = () => {
 	filtered.links = linksWithReducedTargets;
 	const values = cloneDeep(filtered);
 
-
 	return (
-	<Layout>
+<Layout title="Sankey Diagrams">
 	<Grid container>
-		<Grid item container md={8} sm={12} >
-			<Grid container direction="row" alignItems="left"  >
-				<Grid item sx={{mr:'1rem', mb:'1rem'}}>
-	  <HelpOutlineIcon  color="primary" className="icons" />
+		<Grid item container md={8} sm={12}>
+			<Grid>
+	<div className="subHeading">
+		<Grid container direction="row" alignItems="center" spacing={1}>
+  <Grid item>
+	  <MediationIcon color="primary" className="icons" />
   </Grid>
   <Grid item>
-		<Typography variant="h4"> Introduction </Typography>
+		<Typography variant="h4"> Simple Sankey Diagram </Typography>
 
   </Grid>
+</Grid>
+	</div>
 	</Grid>
-		<Grid item sm={12} >
-		 <IndexText />
+		<Grid item xs={12}>
+	 <div className="graph" >
+		  <SankeySvg colours={colours} values={values} nodeFilter={nodeFilter}/>
+	</div>
 		</Grid>
 	</Grid>
-		<Grid item md={4} sm={12} sx={{mt:'2rem'}}>
-		  <SankeySvg colours={colours} values={values} nodeFilter={nodeFilter}/>
+		<Grid item container md={4} sm={12} sx={{borderLeft: "2px green solid", paddingLeft: "2rem"}}>
+			< SimpleSidePanel />
 
 		</Grid>
 	</Grid>
-	</Layout>
+		</Layout>
   );
 }
 
-export default Index;
+export default Sankey;

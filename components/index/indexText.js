@@ -8,7 +8,7 @@ const IndexText = () => {
 	return (
 		<div>
 			<Typography variant='h5' color="primary">Flow between nodes</Typography>
-			<Typography variant='body1' display='block'>
+			<Typography variant='body1' display='block' >
 				Sankey diagrams are powerful tools for showing flow from one set of entities to another.  For example, they can be used to show the flow of energy resources from producers to consumers, or the flow of money from donors to recipients.  They differ from flow diagrams in that the amount of flow is indicated by the width of the flow lines.
 				<br /><br />
 				This example shows the flow of refugees: the rectangles on the left represent the countries of origin, while the ones on the right represent the US states to which these refugees are moving.
