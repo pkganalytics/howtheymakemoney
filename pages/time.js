@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import remove from 'lodash/remove';
 import cloneDeep from 'lodash/cloneDeep';
+import RestoreIcon from '@mui/icons-material/Restore';
 
 
 
@@ -47,10 +48,10 @@ const Sankey = () =>  {
 	<div className="subHeading">
 		<Grid container direction="row" alignItems="center" spacing={1}>
   <Grid item>
-	  <MediationIcon color="primary" className="icons" />
+	  <RestoreIcon  color="primary" className="icons" />
   </Grid>
   <Grid item>
-		<Typography variant="h4"> Simple Sankey Diagram </Typography>
+		<Typography variant="h4"> Changes Over Time </Typography>
 
   </Grid>
 </Grid>

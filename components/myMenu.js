@@ -16,9 +16,8 @@ const indexToTabName= {
 	time: 2,
 	color: 3,
 	subset: 4,
-	sankey: 5,
-	geoMaps: 6,
-	contactus: 7
+	intermediate: 5,
+	contactus: 6
 }
 
 
@@ -28,9 +27,8 @@ const tabNametoIndex = {
 	2: "/time",
 	3: "/color",
 	4: "/subset",
-	5: "/sankey",
-	6: "/geoMaps",
-	7: "/contactUs"
+	5: "/intermediate",
+	6: "/contactUs"
 }
 
 const MyMenu = () => {
@@ -58,8 +56,7 @@ const MyMenu = () => {
 			<Tab label='Changes over Time' sx={{width: 1/7}} />
             <Tab label='Using Color' sx={{width: 1/7}} />
             <Tab label='Subsets of Data' sx={{width: 1/7}} />
-			<Tab label="Sankey Diagrams" sx={{width: 1/7}} />
-            <Tab label='GeoMaps' sx={{width: 1/7}} />
+			<Tab label="Intermediate Nodes" sx={{width: 1/7}} />
             <Tab label='Contact Us' sx={{width: 1/7}} />
         </Tabs>
 	</AppBar>

@@ -37,12 +37,9 @@ const Item = styled(Paper)(({ theme }) => ({
 	return(
 		<div>
 			<ul className="mainList">
-<li className="mainList">Using Color</li>
-			<p>
-Color gradations can be used to convey meaning in a Sankey diagram.  In this example, the intensity of the red color is proportional to the number of refugees in each country of origin.  Blue is used in the same way in the rectangles on the right to show the number of refugees per state.
-			</p>
-				<li className="mainList">Using Multiple Colors</li>
-Single colors are sometimes a problem for people who are color-blind.  		</ul>
+<li className="mainList">Using Intermediate Nodes</li>
+				More complex Sankey diagrams can be created using intermediate nodes.  For example, this diagram traces the production (on the left) and use (on the right) of various types of energy.  The central nodes show how this energy is stored or transmitted.  These are imporant bottlenecks in the energy market.  By adding them to the diagram we can look at the data in a new light.
+			  		</ul>
 
         <Item>
 <FormControl>

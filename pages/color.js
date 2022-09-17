@@ -8,10 +8,10 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import remove from 'lodash/remove';
 import cloneDeep from 'lodash/cloneDeep';
+import ColorLensIcon from '@mui/icons-material/ColorLens';
 
 
-
-const Sankey = () =>  {
+const Color = () =>  {
 
 	const colours = useSelector(state => state.colours);
 	const nodeFilter = useSelector(state => state.nodeFilter);
@@ -47,10 +47,10 @@ const Sankey = () =>  {
 	<div className="subHeading">
 		<Grid container direction="row" alignItems="center" spacing={1}>
   <Grid item>
-	  <MediationIcon color="primary" className="icons" />
+	  <ColorLensIcon color="primary" className="icons" />
   </Grid>
   <Grid item>
-		<Typography variant="h4"> Simple Sankey Diagram </Typography>
+		<Typography variant="h4"> Using Color to Convey Meaning </Typography>
 
   </Grid>
 </Grid>
@@ -71,4 +71,4 @@ const Sankey = () =>  {
   );
 }
 
-export default Sankey;
+export default Color;
