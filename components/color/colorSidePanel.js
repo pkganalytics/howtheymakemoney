@@ -14,6 +14,7 @@ import Switch from '@mui/material/Switch';
 import Link from 'next/link';
 import { useSelector, useDispatch } from 'react-redux';
 import { setColour0, setColour1, setColour2, setColour3 } from '../sankey/colourSlice';
+import Box from '@mui/material/Box';
 
 const SankeySidePanel = () => {
 
@@ -35,7 +36,7 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary
 }));
 	return(
-		<div>
+		<Box sx={{pr: '1.5rem'}}>
 			<ul className="mainList">
 <li className="mainList">Using Color</li>
 			<p>
@@ -79,8 +80,7 @@ Single colors are sometimes a problem for people who are color-blind.  		</ul>
 </FormControl>
 
 </Item>
-</div>
-
+		</Box>
 	)
 };
 

@@ -14,6 +14,7 @@ import Switch from '@mui/material/Switch';
 import Link from 'next/link';
 import { useSelector, useDispatch } from 'react-redux';
 import { setValues2021, setValues2020, setValues2019, setValues2018, setValues2017 } from '../sankey/refugeeSlice';
+import Box from '@mui/material/Box';
 
 const TimeSidePanel = () => {
 
@@ -44,8 +45,7 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary
 }));
 	return(
-<div className="sidePanel">
-
+		<Box sx={{pr: '1.5rem'}}>
 
 	<Typography>
 				Sankey diagrams are particularly useful for showing changes over time.  In this example, the number of refugees from each origin country is represented by the size of the node.  The nodes are also arranged in order.  This means that, as we move forwards or backwards in time, some nodes move up and down relative to each other.  The movement is made much clearer because the flow lines are animated: this means that there is not an abrupt change, and it's easier for the eyes to follow a particular node or flow-line.
@@ -66,8 +66,7 @@ While the sizes of the nodes and the widths of the flow lines are useful for get
 </Item>
 
       </Stack>
-</div>
-
+		</Box>
 	)
 };
 
