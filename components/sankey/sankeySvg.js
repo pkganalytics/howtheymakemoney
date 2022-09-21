@@ -16,14 +16,14 @@ import { color } from 'd3-color';
 import cloneDeep from 'lodash/cloneDeep';
 
 function SankeySvg({colours, values, nodeFilter }) {
+console.log('values=', values)
 	console.log('Beginning of functional component')
 	console.log('nodeFilter =', nodeFilter)
   const svgRef = useRef();
   const margin=10;
-
   const [previousState, setPreviousState ] = useState({...values});
   const  { ref, width, height } = useResizeObserver();
-// console.log("nodeFilter=", nodeFilter)
+
   useEffect(() => {
 	  console.log('Beginning of useEffect hook')
     const svg = select(svgRef.current)
@@ -227,7 +227,7 @@ console.log('end of second part')
       svg.selectAll('*').remove();
 	  console.log('Ran return')
     }
-  }, [values, colours, width, height]);
+  }, [values, nodeFilter, colours, width, height]);
 
   return (
       <div className="graph" ref={ref} >
