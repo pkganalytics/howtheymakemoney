@@ -70,6 +70,7 @@ const totalBlue = scaleLinear()
 				  .domain(colorExtent)
 				  .range(colours[1])
 
+
 // add in the links
 const link = svg.append("g")
 	  .selectAll(".link")
@@ -117,7 +118,7 @@ const div = select("body")
 	  .attr("y", d => d.y0)
 	  .attr("height", d  => {return d.y1 - d.y0;})
       .attr("width", sankey.nodeWidth())
-		  .attr("fill", d => { return d.index < 7 ? totalRed(d.value): totalBlue(d.value)})
+		  .attr("fill", d => { return d.index < 7 || d.index > 12 ? "red": "blue"})
       .style("stroke", function(d) {
 		  return rgb(d.color).darker(2); })
 
@@ -176,7 +177,7 @@ const newTotalBlue = scaleLinear()
 				  .range(colours[1])
 
 // Select each element that needs to be changed and pass the new data values
-console.log('Starting second half')
+console.log('is this even working? Starting second half')
 
 
 const link2 = svg.selectAll(".link")
@@ -190,9 +191,12 @@ const link2 = svg.selectAll(".link")
 
 	  // add in the nodes
 const node2 = svg.selectAll(".node")
+		  // .call((d) => console.log('enter node2 after adding data=', svg.selectAll(".node").data(graph2.nodes, d => d.name)))
 	  .data(graph2.nodes, d => d.name)
-		  // .enter().append()
 		  // .exit().remove()
+		  // .call((d) => console.log('enter node2 after enter append=', svg.selectAll(".node").data(graph2.nodes, d => d.name).enter().append()))
+		  // .enter().append()
+		  // .call((d) => console.log('enter node2 after exit remove=', svg.selectAll(".node").data(graph2.nodes, d => d.name).enter().append().exit().remove()))
 
 const rect2 = svg.selectAll('.node rect')
 	  .data(graph2.nodes, d => d.name)
@@ -201,7 +205,7 @@ const rect2 = svg.selectAll('.node rect')
 	  .attr("x", d => d.x0)
 	  .attr("y", d => d.y0)
 	  .attr("height", d  => {return d.y1 - d.y0;})
-		  .attr("fill", d => { return d.index < 7 ? newTotalRed(d.value): newTotalBlue(d.value)})
+		  .attr("fill", d => { return d.index < 7 || d.index > 12 ? "red": "blue"})
 
 	  svg.selectAll('.node rect').exit().remove();
 

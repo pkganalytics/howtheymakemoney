@@ -1,5 +1,6 @@
 import IntermediateSidePanel from '../components/intermediate/intermediateSidePanel';
 import SankeySvg from "../components/sankey/sankeySvg";
+import { intermediateData } from'../components/intermediate/intermediateData';
 import Grid from '@mui/material/Grid';
 import { Typography } from '@mui/material';
 import Layout from '../components/Layout';
@@ -8,8 +9,7 @@ import { useSelector } from 'react-redux';
 import remove from 'lodash/remove';
 import cloneDeep from 'lodash/cloneDeep';
 import ColorLensIcon from '@mui/icons-material/ColorLens';
-import AccountTreeIcon from '@mui/icons-material/AccountTree';
-import { intermediateData } from'../components/intermediate/intermediateData';
+import AddRoadIcon from '@mui/icons-material/AddRoad';
 
 const Intermediate = () =>  {
 
@@ -24,7 +24,7 @@ console.log('intermediateData=', intermediateData)
 	<div className="subHeading">
 		<Grid container direction="row" alignItems="center" spacing={1}>
   <Grid item>
-	  <AccountTreeIcon color="primary" className="icons" />
+	  <AddRoadIcon color="primary" className="icons" />
   </Grid>
   <Grid item>
 		<Typography variant="h4"> Intermediate Nodes </Typography>

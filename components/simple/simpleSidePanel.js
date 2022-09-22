@@ -7,7 +7,7 @@ const IndexSidePanel = () => {
 	return (
 	<div>
 		<br/><br/>
-		<Box sx={{pr: '1.5rem'}}>
+			<Box sx={{pr: '1.5rem', pt: '1rem'}}>
 			<Typography>
 				This is an enlarged version of the Sankey diagram shown on the Index page.  It's fully responsive: in other words, it changes size automatically to adjust to the size of the device.  Moreover, because it's created using D3, it's SVG rather than JPEG or PNG, so the resolution is the same, regardless of the size.
 			<br/><br/>

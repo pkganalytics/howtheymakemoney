@@ -12,7 +12,7 @@ import Switch from '@mui/material/Switch';
 import Link from 'next/link';
 import { useSelector, useDispatch } from 'react-redux';
 import {setNodeFilter3, setNodeFilter4, setNodeFilter5, setNodeFilter6, setNodeFilter7} from '../sankey/nodeFilterSlice';
-
+import Box from '@mui/material/Box';
 
 const SubsetSidePanel = () => {
 
@@ -48,11 +48,11 @@ const Item = styled(Paper)(({ theme }) => ({
 <div className="sidePanel">
 
 
+	<Box sx={{pr: '1.5rem', pt: '1rem'}}>
 	<Typography>
 Sometimes it's useful to exclude some of the less important data.  For example, it might be useful to see just the top three source countries.  Alteratively, it might be interesting to exclude one particular country (for example, it might be useful to see all refugee flows excluding those from a particular country.)
 		<br /><br />
 	</Typography>
-	<Stack spacing={2}>
       <Slider
 		style={{ width: 300 }}
 		value={sources}
@@ -61,7 +61,7 @@ Sometimes it's useful to exclude some of the less important data.  For example, 
 		step={null}
         marks={sourceMarks}
       />
-      </Stack>
+	</Box>
 </div>
 
 	)

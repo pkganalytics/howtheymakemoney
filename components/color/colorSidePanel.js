@@ -36,18 +36,14 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary
 }));
 	return(
-		<Box sx={{pr: '1.5rem'}}>
-			<ul className="mainList">
-<li className="mainList">Using Color</li>
-			<p>
+			<Box sx={{pr: '1.5rem', pt: '1rem'}}>
+				<br /><br />
 Color gradations can be used to convey meaning in a Sankey diagram.  In this example, the intensity of the red color is proportional to the number of refugees in each country of origin.  Blue is used in the same way in the rectangles on the right to show the number of refugees per state.
-			</p>
-				<li className="mainList">Using Multiple Colors</li>
-Single colors are sometimes a problem for people who are color-blind.  		</ul>
+				<br /><br />
+Single colors are sometimes a problem for people who are color-blind.  For this reason, it's sometimes preferable to show gradations between two colors rather than between one color and black.
 
         <Item>
 <FormControl>
-	<FormLabel>Colour Options</FormLabel>
 	 <RadioGroup
     aria-labelledby="demo-radio-buttons-group-label"
 	row

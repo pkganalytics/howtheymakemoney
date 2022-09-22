@@ -43,7 +43,7 @@ export default function BasicMenu() {
 	    <MenuItem onClick={() => router.push("/color")}>Using Color</MenuItem>
         <MenuItem onClick={() => router.push("/subset")}>Subsets of Data</MenuItem>
         <MenuItem onClick={() => router.push("/intermediate")}>Intermediate Nodes</MenuItem>
-        <MenuItem onClick={() => router.push("/contactUs")}>Contact Us</MenuItem>
+        <MenuItem onClick={() => router.push("/vertical")}>Contact Us</MenuItem>
 
       </Menu>
     </div>
