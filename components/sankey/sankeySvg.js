@@ -16,16 +16,12 @@ import { color } from 'd3-color';
 import cloneDeep from 'lodash/cloneDeep';
 
 function SankeySvg({colours, values, nodeFilter }) {
-console.log('values=', values)
-	console.log('Beginning of functional component')
-	console.log('nodeFilter =', nodeFilter)
   const svgRef = useRef();
   const margin=10;
   const [previousState, setPreviousState ] = useState({...values});
   const  { ref, width, height } = useResizeObserver();
 
   useEffect(() => {
-	  console.log('Beginning of useEffect hook')
     const svg = select(svgRef.current)
 			.attr("width", width)
 			.attr("height", height)
@@ -45,15 +41,11 @@ const sankey = d3Sankey()
 
 // load the data
 	  const graph = sankey(previousState);
-console.log('graph =', graph)
 // calculate total for each source node
 const sourceTotals = rollups(graph.links, v => sum (v, d => d.value), d => d.source);
 
-console.log('sourceTotals =', sourceTotals);
 const targetTotals = rollups(graph.links, v => sum (v, d => d.value), d => d.target);
-console.log('targetTotals =', targetTotals);
 const totals = sourceTotals.concat(targetTotals);
-console.log('totals =', totals);
 	  graph.nodes.forEach((element, index) => graph.nodes.total = totals[index][0])
 
 

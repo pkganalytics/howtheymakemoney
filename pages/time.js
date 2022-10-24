@@ -57,7 +57,7 @@ const Sankey = () =>  {
 </Grid>
 	</div>
 	</Grid>
-		<Grid item xs={12}>
+		<Grid item xs={12}  sx={{mt: 3}}>
 	 <div className="graph" >
 		  <SankeySvg colours={colours} values={values} nodeFilter={nodeFilter}/>
 	</div>

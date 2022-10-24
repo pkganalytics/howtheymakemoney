@@ -14,7 +14,7 @@ import Switch from '@mui/material/Switch';
 import Link from 'next/link';
 import { useSelector, useDispatch } from 'react-redux';
 import { setColour0, setColour1, setColour2, setColour3 } from '../sankey/colourSlice';
-import Box from '@mui/material/Box';
+import SidePanelBox from '../../styles/styles';
 
 const SankeySidePanel = () => {
 
@@ -36,47 +36,46 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary
 }));
 	return(
-			<Box sx={{pr: '1.5rem', pt: '1rem'}}>
-				<br /><br />
-Color gradations can be used to convey meaning in a Sankey diagram.  In this example, the intensity of the red color is proportional to the number of refugees in each country of origin.  Blue is used in the same way in the rectangles on the right to show the number of refugees per state.
-				<br /><br />
-Single colors are sometimes a problem for people who are color-blind.  For this reason, it's sometimes preferable to show gradations between two colors rather than between one color and black.
+		<SidePanelBox>
+		Color gradations can be used to convey meaning in a Sankey diagram.  In this example, the intensity of the red color is proportional to the number of refugees in each country of origin.  Blue is used in the same way in the rectangles on the right to show the number of refugees per state.
+		<br /><br />
+	Single colors are sometimes a problem for people who are color-blind.  For this reason, it's sometimes preferable to show gradations between two colors rather than between one color and black.
 
-        <Item>
-<FormControl>
-	 <RadioGroup
-    aria-labelledby="demo-radio-buttons-group-label"
-	row
-    defaultValue="colour0"
-    name="Colour"
-	onChange={changeColour}
- >
-	  <FormControlLabel
-				value="colour0"
-				control={<Radio/>}
-				label="Number shown as color scale (black = 0)"/>
+			<Item>
+	<FormControl>
+		 <RadioGroup
+		aria-labelledby="demo-radio-buttons-group-label"
+		row
+		defaultValue="colour0"
+		name="Colour"
+		onChange={changeColour}
+	 >
+		  <FormControlLabel
+					value="colour0"
+					control={<Radio/>}
+					label="Number shown as color scale (black = 0)"/>
 
-	  <FormControlLabel
-				value="colour1"
-				control={<Radio/>}
-				label="Number shown as color scale (red/blue = 0)"/>
+		  <FormControlLabel
+					value="colour1"
+					control={<Radio/>}
+					label="Number shown as color scale (red/blue = 0)"/>
 
-	  <FormControlLabel
-				value="colour2"
-				control={<Radio/>}
-				label="Colour scale (green = 0)"/>
+		  <FormControlLabel
+					value="colour2"
+					control={<Radio/>}
+					label="Colour scale (green = 0)"/>
 
-	  <FormControlLabel
-				value="colour3"
-				control={<Radio/>}
-				label="Colour scale (red/blue = 0; green = max)"/>
+		  <FormControlLabel
+					value="colour3"
+					control={<Radio/>}
+					label="Colour scale (red/blue = 0; green = max)"/>
 
-  </RadioGroup>
+	  </RadioGroup>
 
-</FormControl>
+	</FormControl>
 
-</Item>
-		</Box>
+	</Item>
+</SidePanelBox>
 	)
 };
 

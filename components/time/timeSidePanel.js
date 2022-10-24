@@ -14,7 +14,7 @@ import Switch from '@mui/material/Switch';
 import Link from 'next/link';
 import { useSelector, useDispatch } from 'react-redux';
 import { setValues2021, setValues2020, setValues2019, setValues2018, setValues2017 } from '../sankey/refugeeSlice';
-import Box from '@mui/material/Box';
+import SidePanelBox from '../../styles/styles';
 
 const TimeSidePanel = () => {
 
@@ -45,27 +45,27 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary
 }));
 	return(
-	<Box sx={{pr: '1.5rem', pt: '1rem'}}>
-	<Typography>
-				Sankey diagrams are particularly useful for showing changes over time.  In this example, the number of refugees from each origin country is represented by the size of the node.  The nodes are also arranged in order.  This means that, as we move forwards or backwards in time, some nodes move up and down relative to each other.  The movement is made much clearer because the flow lines are animated: this means that there is not an abrupt change, and it's easier for the eyes to follow a particular node or flow-line.
-		<br/><br/>
-While the sizes of the nodes and the widths of the flow lines are useful for getting a general idea about the number of refugees in each category, it's sometimes useful to have actual numbers.  Mousing over each flow line shows the number of people in that category (for example, those people traveling from Afghanistan to California).  Mousing over each node shows the total number of people either coming from that country or moving to that state.
-	</Typography>
+		<SidePanelBox>
+			<Typography>
+			Sankey diagrams are particularly useful for showing changes over time.  Using the slider below, it's possible to see data for from 2017-21.
+			<br /><br />
+			Because the rectangles representing the origin and destination of the refugees are sized according to the number of people, and are arranged in order, some of them move up and down relative to each other as the numbers change from year to year.  In order to make these changes easier to follow, the movements are transitioned in over a few seconds.  This means that it's easy to keep track of an element of interest.
+		</Typography>
 
-	<Stack spacing={2}>
-        <Item>
-      <Slider
-		style={{ width: 300 }}
-		value={year}
-		onChange={changeYear}
-		size='small'
-		step={null}
-        marks={yearMarks}
-      />
-</Item>
+			<Stack spacing={2}>
+				<Item style={{textAlign: "center"}}>
+				<Slider
+					style={{ width: 300 }}
+					value={year}
+					onChange={changeYear}
+					size='small'
+					step={null}
+					marks={yearMarks}
+				/>
+				</Item>
 
-      </Stack>
-		</Box>
+		</Stack>
+		</SidePanelBox>
 	)
 };
 

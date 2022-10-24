@@ -38,7 +38,7 @@ export default function BasicMenu() {
         }}
       >
         <MenuItem onClick={() => router.push("/")}>Home</MenuItem>
-		<MenuItem onClick={() => router.push("/simple")}>Simple Sankey</MenuItem>
+		<MenuItem onClick={() => router.push("/tooltips")}>Pop-Ups</MenuItem>
         <MenuItem onClick={() => router.push("/time")}>Changes Over Time</MenuItem>
 	    <MenuItem onClick={() => router.push("/color")}>Using Color</MenuItem>
         <MenuItem onClick={() => router.push("/subset")}>Subsets of Data</MenuItem>

@@ -8,7 +8,7 @@ import Switch from '@mui/material/Switch';
 import Link from 'next/link';
 import { useSelector, useDispatch } from 'react-redux';
 import { setColour0, setColour1, setColour2, setColour3 } from '../sankey/colourSlice';
-import Box from '@mui/material/Box';
+import SidePanelBox from '../../styles/styles';
 
 
 const SankeySidePanel = () => {
@@ -19,15 +19,15 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary
 }));
 	return(
-		<div>
-			<Box sx={{pr: '1.5rem', pt: '1rem'}}>
+		<SidePanelBox>
 			<Typography>
-This diagram adds extra nodes which represent the ways in which refugees are entering the US.  Note that the topological mapping of these nodes corresponds clearly and simply with the physical movement of the people themselves: they start in their countries of origin; they enter the US through a port, airport or land border, and they end up in a particular state.  As with the previous diagrams, we can see the flow of people both through the thickness of the links and from the numbers which appear when we hover over each element using a mouse.
-			</Typography>
-		</Box>
-
-</div>
-
+			This diagram adds extra nodes which represent the ways in which refugees are entering the US.
+			<br /><br />
+			Note that the topological mapping of these nodes corresponds clearly and simply with the physical movement of the people themselves: they start in their countries of origin; they enter the US through a port, airport or land border, and they end up in a particular state. 
+			<br /><br />
+			As with the previous diagrams, we can see the flow of people both through the thickness of the links and from the numbers which appear when we hover over each element using a mouse.
+		</Typography>
+		</SidePanelBox>
 	)
 };
 
