@@ -50,7 +50,7 @@ const Color = () =>  {
 	  <ColorLensIcon color="primary" className="icons" />
   </Grid>
   <Grid item>
-		<Typography variant="h4"> Using Color to Convey Meaning </Typography>
+		<Typography variant="h3"> Using Color to Convey Meaning </Typography>
 
   </Grid>
 </Grid>

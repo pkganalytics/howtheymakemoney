@@ -51,7 +51,7 @@ const Sankey = () =>  {
 	  <RestoreIcon  color="primary" className="icons" />
   </Grid>
   <Grid item>
-		<Typography variant="h4"> Changes Over Time </Typography>
+		<Typography variant="h3"> Changes Over Time </Typography>
 
   </Grid>
 </Grid>

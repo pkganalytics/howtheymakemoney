@@ -45,16 +45,16 @@ const Index = () => {
 	<Layout>
 	<Grid container>
 		<Grid item container md={8} sm={12} >
-			<Grid container direction="row" alignItems="left"  >
-				<Grid item sx={{mr:'1rem', mb:'1rem'}}>
+			<Grid container direction="row" alignItems="center"  >
+				<Grid item >
 	  <MediationIcon  color="primary" className="icons" />
   </Grid>
   <Grid item>
-		<Typography variant="h4"> Introduction </Typography>
+		<Typography variant="h3"> Introduction </Typography>
 
   </Grid>
 	</Grid>
-		<Grid item sm={12} >
+			<Grid item sm={12} sx={{mt:3}}>
 		 <IndexText />
 		</Grid>
 	</Grid>

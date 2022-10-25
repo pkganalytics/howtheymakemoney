@@ -27,7 +27,7 @@ console.log('intermediateData=', intermediateData)
 	  <AddRoadIcon color="primary" className="icons" />
   </Grid>
   <Grid item>
-		<Typography variant="h4"> Intermediate Nodes </Typography>
+		<Typography variant="h3"> Intermediate Nodes </Typography>
 
   </Grid>
 </Grid>

@@ -46,11 +46,9 @@ const Sankey = () =>  {
 			<Grid>
 	<div className="subHeading">
 		<Grid container direction="row" alignItems="center" spacing={1}>
-  <Grid item>
 	  <AddCardIcon color="primary" className="icons" />
-  </Grid>
   <Grid item>
-		<Typography variant="h4"> Tooltips </Typography>
+		<Typography variant="h3"> Tooltips </Typography>
 
   </Grid>
 </Grid>
