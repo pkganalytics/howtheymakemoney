@@ -1,3 +1,51 @@
+export const q322 = {
+"nodes":[
+	{"name": "Corrugted Packaging"},
+	{"name": "Consumer Packaging"},
+	{"name": "Global Paper"},
+	{"name": "Distribution"},
+	{"name": "Revenue"},
+	{"name": "Gross Profit"},
+	{"name": "Cost of Renenues"},
+	{"name": "Operating Profit"},
+	{"name": "Operating Expense"},
+	{"name": "SG&A"},
+	{"name": "Mineral Rights"},
+	{"name": "Net Profit"},
+	{"name": "Tax"},
+	{"name": "Other"}
+],
+"links":[
+{"source":0,"target":4,"value":2382.5},
+{"source":1,"target":4,"value":1270.2},
+{"source":2,"target":4,"value":1610.3},
+{"source":3,"target":4,"value":357.7},
+{"source":4,"target":5,"value":1159.4},
+{"source":4,"target":6,"value":4360.3},
+{"source":5,"target":7,"value":541.2},
+{"source":5,"target":8,"value":618.2},
+{"source":7,"target":11,"value":377.9},
+{"source":7,"target":12,"value":132.7},
+{"source":7,"target":13,"value":30.6},
+{"source":8,"target":9,"value":591},
+{"source":8,"target":10,"value":26},
+{"source":8,"target":11,"value":0.4}
+]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 export const values2021 = {
 "nodes":[
 {"name":"DR Congo"},

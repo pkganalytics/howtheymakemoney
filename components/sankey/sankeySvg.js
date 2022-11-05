@@ -41,26 +41,27 @@ const sankey = d3Sankey()
 
 // load the data
 	  const graph = sankey(previousState);
-// calculate total for each source node
-const sourceTotals = rollups(graph.links, v => sum (v, d => d.value), d => d.source);
+	  console.log('graph=', graph )
+// // calculate total for each source node
+// const sourceTotals = rollups(graph.links, v => sum (v, d => d.value), d => d.source);
 
-const targetTotals = rollups(graph.links, v => sum (v, d => d.value), d => d.target);
-const totals = sourceTotals.concat(targetTotals);
-	  graph.nodes.forEach((element, index) => graph.nodes.total = totals[index][0])
+// const targetTotals = rollups(graph.links, v => sum (v, d => d.value), d => d.target);
+// const totals = sourceTotals.concat(targetTotals);
+// 	  graph.nodes.forEach((element, index) => graph.nodes.total = totals[index][0])
 
 
-// Create array for colors in order to calculate extent
-const colorTotals = [];
-	  graph.nodes.forEach((element, index) => colorTotals[index] = totals[index][0].value);
-const colorExtent = extent(colorTotals);
+// // Create array for colors in order to calculate extent
+// const colorTotals = [];
+// 	  graph.nodes.forEach((element, index) => colorTotals[index] = totals[index][0].value);
+// const colorExtent = extent(colorTotals);
 
-const totalRed = scaleLinear()
-				  .domain(colorExtent)
-				  .range(colours[0])
+// const totalRed = scaleLinear()
+// 				  .domain(colorExtent)
+// 				  .range(colours[0])
 
-const totalBlue = scaleLinear()
-				  .domain(colorExtent)
-				  .range(colours[1])
+// const totalBlue = scaleLinear()
+// 				  .domain(colorExtent)
+// 				  .range(colours[1])
 
 // add in the links
 const link = svg.append("g")
@@ -109,7 +110,8 @@ const div = select("body")
 	  .attr("y", d => d.y0)
 	  .attr("height", d  => {return d.y1 - d.y0;})
       .attr("width", sankey.nodeWidth())
-		  .attr("fill", d => { return d.index < 7 ? totalRed(d.value): totalBlue(d.value)})
+.attr("fill", d => 'red')
+		  // .attr("fill", d => { return d.index < 7 ? totalRed(d.value): totalBlue(d.value)})
       .style("stroke", function(d) {
 		  return rgb(d.color).darker(2); })
 
@@ -146,26 +148,26 @@ console.log('end of first half')
 	  	const graph2 = sankey(values)
 
 console.log('graph2 = ', graph2)
-// calculate total for each source node
-	  const newSourceTotals = rollups(graph2.links, v => sum (v, d => d.value), d => d.source);
-	  const newTargetTotals = rollups(graph2.links, v => sum (v, d => d.value), d => d.target);
-	  const newTotals = newSourceTotals.concat(newTargetTotals);
-	  graph2.nodes.forEach((element, index) => graph2.nodes.total = newTotals[index][0])
+// // calculate total for each source node
+// 	  const newSourceTotals = rollups(graph2.links, v => sum (v, d => d.value), d => d.source);
+// 	  const newTargetTotals = rollups(graph2.links, v => sum (v, d => d.value), d => d.target);
+// 	  const newTotals = newSourceTotals.concat(newTargetTotals);
+// 	  graph2.nodes.forEach((element, index) => graph2.nodes.total = newTotals[index][0])
 
-// Create array for colors in order to calculate extent
-	  const newColorTotals = [];
-	  graph2.nodes.forEach((element, index) => newColorTotals[index] = newTotals[index][0].value);
-	  const newColorExtent = extent(newColorTotals);
+// // Create array for colors in order to calculate extent
+// 	  const newColorTotals = [];
+// 	  graph2.nodes.forEach((element, index) => newColorTotals[index] = newTotals[index][0].value);
+// 	  const newColorExtent = extent(newColorTotals);
 
-const newTotalRed = scaleLinear()
-				  .domain(newColorExtent)
-				   // .range(["#200000", "#ff0000"])
-				  .range(colours[0])
+// const newTotalRed = scaleLinear()
+// 				  .domain(newColorExtent)
+// 				   // .range(["#200000", "#ff0000"])
+// 				  .range(colours[0])
 
-const newTotalBlue = scaleLinear()
-				  .domain(newColorExtent)
-				  // .range(["#000020", "#0000ff"])
-				  .range(colours[1])
+// const newTotalBlue = scaleLinear()
+// 				  .domain(newColorExtent)
+// 				  // .range(["#000020", "#0000ff"])
+// 				  .range(colours[1])
 
 // Select each element that needs to be changed and pass the new data values
 console.log('Starting second half')
@@ -177,7 +179,8 @@ const link2 = svg.selectAll(".link")
       .duration(3000)
       .attr("d", sankeyLinkHorizontal())
 	  .attr("stroke-width", d => d.width)
-		.style("stroke", d => { return newTotalRed(d.source.value) });
+		  .style("stroke", d => "red")
+		// .style("stroke", d => { return newTotalRed(d.source.value) });
 
 
 	  // add in the nodes
@@ -193,7 +196,8 @@ const rect2 = svg.selectAll('.node rect')
 	  .attr("x", d => d.x0)
 	  .attr("y", d => d.y0)
 	  .attr("height", d  => {return d.y1 - d.y0;})
-		  .attr("fill", d => { return d.index < 7 ? newTotalRed(d.value): newTotalBlue(d.value)})
+.attr("fill", d => 'red')
+		  // .attr("fill", d => { return d.index < 7 ? newTotalRed(d.value): newTotalBlue(d.value)})
 
 	  svg.selectAll('.node rect').exit().remove();
 

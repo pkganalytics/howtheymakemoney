@@ -13,9 +13,9 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import Link from 'next/link';
 import { useSelector, useDispatch } from 'react-redux';
-import { setValues2021, setValues2020, setValues2019, setValues2018, setValues2017 } from './refugeeSlice';
+import { q322 } from './refugeeSlice';
 import { setColour0, setColour1, setColour2, setColour3 } from './colourSlice';
-import {setNodeFilter3, setNodeFilter4, setNodeFilter5, setNodeFilter6, setNodeFilter7} from './nodeFilterSlice';
+// import {setNodeFilter3, setNodeFilter4, setNodeFilter5, setNodeFilter6, setNodeFilter7} from './nodeFilterSlice';
 
 const SankeySidePanel = () => {
 

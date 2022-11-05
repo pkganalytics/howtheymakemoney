@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {values2021, values2020, values2019, values2018, values2017} from "./sankeyData";
+import {q322} from "./sankeyData";
 
 const refugeeSlice = createSlice({
 	name: 'year',
-	initialState: values2017,
+	initialState: q322,
 	reducers: {
 		setValues2021: (state) => values2021,
 		setValues2020: (state) => values2020,
