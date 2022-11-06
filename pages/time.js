@@ -1,3 +1,4 @@
+import TimeSlider from '../components/time/timeSlider';
 import TimeSidePanel from '../components/time/timeSidePanel';
 import SankeySvg from "../components/sankey/sankeySvg";
 import Grid from '@mui/material/Grid';
@@ -57,14 +58,15 @@ const Sankey = () =>  {
 </Grid>
 	</div>
 	</Grid>
-		<Grid item xs={12}  sx={{mt: 3}}>
+		<Grid item xs={12} md={12} sx={{mt: 3}}>
 	 <div className="graph" >
 		  <SankeySvg colours={colours} values={values} nodeFilter={nodeFilter}/>
+		 	< TimeSlider />
 	</div>
 		</Grid>
 	</Grid>
 		<Grid item container md={4} sm={12} sx={{borderLeft: "2px green solid", paddingLeft: "2rem"}}>
-			< TimeSidePanel />
+		 	< TimeSidePanel />
 
 		</Grid>
 	</Grid>

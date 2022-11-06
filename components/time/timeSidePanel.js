@@ -1,80 +1,32 @@
-import React, {useState} from "react";
-import { Typography } from '@mui/material';
-import Slider from '@mui/material/Slider';
-import Paper from '@mui/material/Paper';
-import Stack from '@mui/material/Stack';
-import { styled } from '@mui/material/styles';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormGroup from '@mui/material/FormGroup';
-import FormLabel from '@mui/material/FormLabel';
-import FormControl from '@mui/material/FormControl';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
+import React from 'react';
 import Link from 'next/link';
-import { useSelector, useDispatch } from 'react-redux';
-import { setValuesq1, setValuesq2, setValuesq3, setValuesq4, setValuesq5, setValuesq6, setValuesq7, setValuesq8 } from './../sankey/refugeeSlice';
-import SidePanelBox from '../../styles/styles';
+import { Typography } from '@mui/material';
 
-const TimeSidePanel = () => {
-
-const dispatch = useDispatch();
-
-  const [quarter, setQuarter] = useState(0);
-
-	const quarterMarks = [
-	{value: 0, label: '2017'},
-	{value: 14, label: '2018'},
-	{value: 28, label: '2019'},
-	{value: 42, label: '2020'},
-	{value: 56, label: '2021'},
-	{value: 70, label: '2021'},
-	{value: 86, label: '2021'},
-	{value: 100, label: '2021'},
-];
-
-  const changeQuarter = (event, quarter) => {
-    setQuarter(quarter)
-		if (quarter == 100) {dispatch(setValuesq1()); return}
-		if (quarter == 86) {dispatch(setValuesq2()); return}
-		if (quarter == 70) {dispatch(setValuesq3()); return}
-		if (quarter == 56) {dispatch(setValuesq4()); return}
-		if (quarter == 42) {dispatch(setValuesq5()); return}
-		if (quarter == 28) {dispatch(setValuesq6()); return}
-		if (quarter == 14) {dispatch(setValuesq7()); return}
-		if (quarter == 0) {dispatch(setValuesq8()); return}
-  };
-
-
-const Item = styled(Paper)(({ theme }) => ({
-  padding: theme.spacing(1),
-  boxShadow: 'none',
-  color: theme.palette.text.secondary
-}));
-	return(
-		<SidePanelBox>
+const SidePanel = () => {
+	return (
+		<div className="sidePanel">
 			<Typography>
-			Sankey diagrams are particularly useful for showing changes over time.  Using the slider below, it's possible to see data for from 2017-21.
-			<br /><br />
-			Because the rectangles representing the origin and destination of the refugees are sized according to the number of people, and are arranged in order, some of them move up and down relative to each other as the numbers change from year to year.  In order to make these changes easier to follow, the movements are transitioned in over a few seconds.  This means that it's easy to keep track of an element of interest.
-		</Typography>
+			Phasellus eu quam. Quisque interdum cursus purus. In orci. Maecenas vehicula.
+			Sed et mauris. Praesent feugiat viverra lacus. Suspendisse pulvinar
+			lacus ut nunc. Quisque nisi. Suspendisse id risus nec nisi ultrices
+			ornare. Donec eget tellus. Nullam molestie placerat felis. Aenean
+			facilisis. Nunc erat. Integer in tellus. Mauris volutpat, neque vel
+			ornare porttitor, dolor nisi sagittis dolor, sit amet bibendum orci
+			leo blandit lacus.
 
-			<Stack spacing={2}>
-				<Item style={{textAlign: "center"}}>
-				<Slider
-					vertical
-					style={{ width: 400 }}
-					value={quarter}
-					onChange={changeQuarter}
-					size='small'
-					step={null}
-					marks={quarterMarks}
+			In id velit sodales arcu iaculis venenatis. Etiam at leo. Vivamus vitae sem.
+			</Typography>
+			<div>
+				<img
+					src="/twowomenwhiteboard.jpg"
+					srcSet="/twowomenwhiteboard.jpg 1000w, /twowomenwhitboard_m.jpg 400w, /twowomenwhiteboard_s 200w"
+					sizes="(max-width: 600px) 100vw, (min-width: 601px) 35vw"
+					type="image/jpg"
+					className="sidePanelImage"
 				/>
-				</Item>
-
-		</Stack>
-		</SidePanelBox>
-	)
+			</div>
+		</div>
+	);
 };
 
-export default TimeSidePanel;
+export default SidePanel;
