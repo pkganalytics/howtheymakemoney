@@ -13,9 +13,8 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import Link from 'next/link';
 import { useSelector, useDispatch } from 'react-redux';
-import { q322 } from './refugeeSlice';
+import { setValuesq1, setValuesq2, setValuesq3, setValuesq4, setValuesq5, setValuesq6, setValuesq7, setValuesq8 } from './refugeeSlice';
 import { setColour0, setColour1, setColour2, setColour3 } from './colourSlice';
-// import {setNodeFilter3, setNodeFilter4, setNodeFilter5, setNodeFilter6, setNodeFilter7} from './nodeFilterSlice';
 
 const SankeySidePanel = () => {
 
@@ -39,16 +38,19 @@ const sourceMarks = [
 	{value: 100, label: 'Top 3'}
 ];
 
-  const [year, setYear] = useState(0);
+  const [quarter, setQuarter] = useState(0);
   const [sources, setSources] = useState(0);
 
-  const changeYear = (event, year) => {
-    setYear(year)
-		if (year == 100) {dispatch(setValues2021()); return}
-		if (year == 75) {dispatch(setValues2020()); return}
-		if (year == 50) {dispatch(setValues2019()); return}
-		if (year == 25) {dispatch(setValues2018()); return}
-		if (year == 0) {dispatch(setValues2017()); return}
+  const changeQuarter = (event, quarter) => {
+    setQuarter(quarter)
+		if (quarter == 100) {dispatch(setValuesq1()); return}
+		if (quarter == 90) {dispatch(setValuesq2()); return}
+		if (quarter == 80) {dispatch(setValuesq3()); return}
+		if (quarter == 70) {dispatch(setValuesq4()); return}
+		if (quarter == 60) {dispatch(setValuesq5()); return}
+		if (quarter == 50) {dispatch(setValuesq6()); return}
+		if (quarter == 40) {dispatch(setValuesq7()); return}
+		if (quarter == 30) {dispatch(setValuesq8()); return}
   };
 
 const changeColour = (e) => {

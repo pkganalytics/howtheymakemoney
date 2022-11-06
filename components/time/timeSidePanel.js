@@ -13,29 +13,36 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import Link from 'next/link';
 import { useSelector, useDispatch } from 'react-redux';
-import { setValues2021, setValues2020, setValues2019, setValues2018, setValues2017 } from '../sankey/refugeeSlice';
+import { setValuesq1, setValuesq2, setValuesq3, setValuesq4, setValuesq5, setValuesq6, setValuesq7, setValuesq8 } from './../sankey/refugeeSlice';
 import SidePanelBox from '../../styles/styles';
 
 const TimeSidePanel = () => {
 
 const dispatch = useDispatch();
 
-  const [year, setYear] = useState(0);
+  const [quarter, setQuarter] = useState(0);
 
-	const yearMarks = [
+	const quarterMarks = [
 	{value: 0, label: '2017'},
-	{value: 25, label: '2018'},
-	{value: 50, label: '2019'},
-	{value: 75, label: '2020'},
+	{value: 14, label: '2018'},
+	{value: 28, label: '2019'},
+	{value: 42, label: '2020'},
+	{value: 56, label: '2021'},
+	{value: 70, label: '2021'},
+	{value: 86, label: '2021'},
 	{value: 100, label: '2021'},
 ];
-  const changeYear = (event, year) => {
-    setYear(year)
-		if (year == 100) {dispatch(setValues2021()); return}
-		if (year == 75) {dispatch(setValues2020()); return}
-		if (year == 50) {dispatch(setValues2019()); return}
-		if (year == 25) {dispatch(setValues2018()); return}
-		if (year == 0) {dispatch(setValues2017()); return}
+
+  const changeQuarter = (event, quarter) => {
+    setQuarter(quarter)
+		if (quarter == 100) {dispatch(setValuesq1()); return}
+		if (quarter == 86) {dispatch(setValuesq2()); return}
+		if (quarter == 70) {dispatch(setValuesq3()); return}
+		if (quarter == 56) {dispatch(setValuesq4()); return}
+		if (quarter == 42) {dispatch(setValuesq5()); return}
+		if (quarter == 28) {dispatch(setValuesq6()); return}
+		if (quarter == 14) {dispatch(setValuesq7()); return}
+		if (quarter == 0) {dispatch(setValuesq8()); return}
   };
 
 
@@ -55,12 +62,13 @@ const Item = styled(Paper)(({ theme }) => ({
 			<Stack spacing={2}>
 				<Item style={{textAlign: "center"}}>
 				<Slider
-					style={{ width: 300 }}
-					value={year}
-					onChange={changeYear}
+					vertical
+					style={{ width: 400 }}
+					value={quarter}
+					onChange={changeQuarter}
 					size='small'
 					step={null}
-					marks={yearMarks}
+					marks={quarterMarks}
 				/>
 				</Item>
 
