@@ -4,34 +4,34 @@ import Slider from '@mui/material/Slider';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormGroup from '@mui/material/FormGroup';
-import FormLabel from '@mui/material/FormLabel';
-import FormControl from '@mui/material/FormControl';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
-import Link from 'next/link';
 import { useSelector, useDispatch } from 'react-redux';
 import { setValuesq1, setValuesq2, setValuesq3, setValuesq4, setValuesq5, setValuesq6, setValuesq7, setValuesq8 } from './../sankey/refugeeSlice';
-import SidePanelBox from '../../styles/styles';
-import Box from '@mui/material/Box';
+import {q1, q2, q3, q4, q5, q6, q7, q8} from "../../data/wrkData";
+
+const label1 = q1.period;
+const label2 = q2.period;
+const label3 = q3.period;
+const label4 = q4.period;
+const label5 = q5.period;
+const label6 = q6.period;
+const label7 = q7.period;
+const label8 = q8.period;
+
 
 const TimeSidePanel = () => {
-
 const dispatch = useDispatch();
 
-  const [quarter, setQuarter] = useState(0);
+  const [quarter, setQuarter] = useState(100);
 
 	const quarterMarks = [
-	{value: 0, label: '2017'},
-	{value: 14, label: '2018'},
-	{value: 28, label: '2019'},
-	{value: 42, label: '2020'},
-	{value: 56, label: '2021'},
-	{value: 70, label: '2021'},
-	{value: 86, label: '2021'},
-	{value: 100, label: '2021'},
+	{value: 0, label: label8},
+	{value: 14, label: label7},
+	{value: 28, label: label6},
+	{value: 42, label: label5},
+	{value: 56, label: label4},
+	{value: 70, label: label3},
+	{value: 86, label: label2},
+	{value: 100, label: label1},
 ];
 
   const changeQuarter = (event, quarter) => {
@@ -58,7 +58,6 @@ const Item = styled(Paper)(({ theme }) => ({
 			<Stack spacing={2}>
 				<Item style={{textAlign: "center"}}>
 				<Slider
-					vertical
 					style={{ width: 800 }}
 					value={quarter}
 					onChange={changeQuarter}

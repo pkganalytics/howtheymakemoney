@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {q1, q2, q3, q4, q5, q6, q7, q8} from "./sankeyData";
+// import {q1, q2, q3, q4, q5, q6, q7, q8} from "./sankeyData";
+import {q1, q2, q3, q4, q5, q6, q7, q8} from "../../data/wrkData";
 
-const refugeeSlice = createSlice({
+const quarterSlice = createSlice({
 	name: 'year',
 	initialState: q1,
 	reducers: {
@@ -17,6 +18,6 @@ const refugeeSlice = createSlice({
 })
 
 export const {setValuesq1, setValuesq2, setValuesq3, setValuesq4, setValuesq5, setValuesq6, setValuesq7, setValuesq8
-} = refugeeSlice.actions;
+} = quarterSlice.actions;
 
-export default refugeeSlice.reducer;
+export default quarterSlice.reducer;

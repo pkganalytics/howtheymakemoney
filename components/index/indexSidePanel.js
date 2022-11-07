@@ -5,8 +5,11 @@ import { Typography } from '@mui/material';
 const IndexSidePanel = () => {
 	return (
 		<div className="sidePanel">
-			<Typography> 
+			<br />
+			<Typography sx={{fontSize: 16}}>
 				PKG Analytics provides detailed financial analysis for the top twelve packaging companies in the world.  We use Sankey diagrams to provide graphical overviews of the financial statements of each company for the past eight quarters.
+				<br />
+				<br />
 				<br />
 <ul>
       <li>
@@ -25,34 +28,25 @@ const IndexSidePanel = () => {
         <Link href="/wrk">Amcor PLC</Link>
       </li>
       <li>
-        <Link href="/wrk"></Link>
+        <Link href="/wrk">Graphic Packaging Holding Company</Link>
       </li>
       <li>
-        <Link href="/wrk"></Link>
+        <Link href="/wrk">Sonoco</Link>
       </li>
       <li>
-        <Link href="/wrk"></Link>
+        <Link href="/wrk">Sealed Air Corporation</Link>
       </li>
       <li>
-        <Link href="/wrk"></Link>
+        <Link href="/wrk">Veritiv Corporation</Link>
       </li>
       <li>
-        <Link href="/wrk"></Link>
+        <Link href="/wrk">Ball Corporation</Link>
       </li>
       <li>
-        <Link href="/wrk"></Link>
+        <Link href="/wrk">Ardagh Group</Link>
       </li>
       <li>
-        <Link href="/wrk"></Link>
-      </li>
-      <li>
-        <Link href="/wrk"></Link>
-      </li>
-      <li>
-        <Link href="/wrk"></Link>
-      </li>
-      <li>
-        <Link href="/wrk"></Link>
+        <Link href="/wrk">Greif Inc</Link>
       </li>
     </ul>
 			</Typography>
