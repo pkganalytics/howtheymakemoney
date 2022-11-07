@@ -1,6 +1,5 @@
 import IndexSidePanel from '../components/index/indexSidePanel';
 import IndexText from '../components/index/indexText';
-import MediationIcon from '@mui/icons-material/Mediation';
 import { Typography } from '@mui/material';
 import Layout from '../components/Layout';
 import SankeySvg from "../components/sankey/sankeySvg";
@@ -46,22 +45,12 @@ const Index = () => {
 	<Grid container>
 		<Grid item container md={8} sm={12} >
 			<Grid container direction="row" alignItems="center"  >
-				<Grid item >
-	  <MediationIcon  color="primary" className="icons" />
-  </Grid>
-  <Grid item>
-		<Typography variant="h3"> Introduction </Typography>
-
-  </Grid>
 	</Grid>
 			<Grid item sm={12} sx={{mt:3}}>
 		 <IndexText />
+				<IndexSidePanel />
 		</Grid>
 	</Grid>
-		<Grid item md={4} sm={12} sx={{mt:'2rem'}}>
-		  <SankeySvg colours={colours} values={values} nodeFilter={nodeFilter}/>
-
-		</Grid>
 	</Grid>
 	</Layout>
   );

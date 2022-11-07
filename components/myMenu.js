@@ -12,19 +12,13 @@ import Typography from '@mui/material/Typography';
 
 const indexToTabName= {
 	home: 0,
-	tooltips: 1,
-	time: 2,
-	color: 3,
-	intermediate: 4
+	wrk: 1,
 }
 
 
 const tabNametoIndex = {
 	0: "/",
-	1: "/tooltips",
-	2: "/time",
-	3: "/color",
-	4: "/intermediate"
+	1: "/wrk",
 }
 
 const MyMenu = () => {
@@ -37,7 +31,7 @@ const MyMenu = () => {
     return (
       <AppBar position='static'>
 		  <Typography sx={{color: "white", display: "block", fontSize: 45, marginLeft: 20}}>
-			  D3 Sankey
+			 PKG Analytics
 		</Typography>
 		  <div className="smallMenu">
 		   <MaterialMenu />
@@ -48,10 +42,7 @@ const MyMenu = () => {
 		onChange={handleChange}
 		indicatorColor='secondary'>
             <Tab label='Home' sx={{width: 1/7}} />
-            <Tab label='Tooltips' sx={{width: 1/7}} />
-			<Tab label='Changes over Time' sx={{width: 1/7}} />
-            <Tab label='Using Color' sx={{width: 1/7}} />
-			<Tab label="Intermediate Nodes" sx={{width: 1/7}} />
+			<Tab label='WRK' sx={{width: 1/7}} />
         </Tabs>
 	</AppBar>
     )

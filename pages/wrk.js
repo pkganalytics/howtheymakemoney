@@ -1,17 +1,18 @@
+import WrkSlider from '../components/wrk/wrkSlider';
+import WrkSidePanel from '../components/wrk/wrkSidePanel';
+import SankeySvg from "../components/sankey/sankeySvg";
 import Grid from '@mui/material/Grid';
 import MediationIcon from '@mui/icons-material/Mediation';
 import { Typography } from '@mui/material';
 import Layout from '../components/Layout';
-import Image from 'next/image';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import remove from 'lodash/remove';
 import cloneDeep from 'lodash/cloneDeep';
-import SubsetText from '../components/subset/subsetText';
-import SubsetSidePanel from '../components/subset/subsetSidePanel';
-import SubsetSvg from '../components/subset/subsetSvg';
 
-const Subset = () =>  {
+
+
+const Sankey = () =>  {
 
 	const colours = useSelector(state => state.colours);
 	const nodeFilter = useSelector(state => state.nodeFilter);
@@ -47,23 +48,21 @@ const Subset = () =>  {
 	<div className="subHeading">
 		<Grid container direction="row" alignItems="center" spacing={1}>
   <Grid item>
-	  <MediationIcon color="primary" className="icons" />
-  </Grid>
-  <Grid item>
-		<Typography variant="h4"> Removing Nodes </Typography>
+		<Typography variant="h3"> West Rock (WRK) </Typography>
 
   </Grid>
 </Grid>
 	</div>
 	</Grid>
-		<Grid item xs={12}>
+		<Grid item xs={12} md={12} sx={{mt: 3}}>
 	 <div className="graph" >
-		  <SubsetSvg colours={colours} values={values} nodeFilter={nodeFilter}/>
+		  <SankeySvg colours={colours} values={values} nodeFilter={nodeFilter}/>
+		 	< WrkSlider />
 	</div>
 		</Grid>
 	</Grid>
 		<Grid item container md={4} sm={12} sx={{borderLeft: "2px green solid", paddingLeft: "2rem"}}>
-			< SubsetSidePanel />
+		 	< WrkSidePanel />
 
 		</Grid>
 	</Grid>
@@ -71,11 +70,4 @@ const Subset = () =>  {
   );
 }
 
-
-const Index = () => <Layout title="Dynamic D3">
-				<SubsetText />
-				<SubsetSidePanel/>
-			</Layout>
-
-
-export default Subset;
+export default Sankey;
