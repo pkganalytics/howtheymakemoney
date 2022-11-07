@@ -41,18 +41,28 @@ const Index = () => {
 
 
 	return (
-	<Layout>
+<Layout title="PKG Analytics">
 	<Grid container>
-		<Grid item container md={8} sm={12} >
-			<Grid container direction="row" alignItems="center"  >
+		<Grid item container md={8} sm={12}>
+			<Grid>
+	<div className="subHeading">
+		<Grid container direction="row" alignItems="center" spacing={1}>
+
+</Grid>
+	</div>
 	</Grid>
-			<Grid item sm={12} sx={{mt:3}}>
+		<Grid item xs={12} md={12} sx={{mt: 3}}>
+	 <div className="graph" >
 		 <IndexText />
-				<IndexSidePanel />
+	</div>
 		</Grid>
 	</Grid>
+		<Grid item container md={4} sm={12} sx={{borderLeft: "2px green solid", paddingLeft: "2rem"}}>
+		 	< IndexSidePanel />
+
+		</Grid>
 	</Grid>
-	</Layout>
+		</Layout>
   );
 }
 
