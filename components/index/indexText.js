@@ -12,6 +12,7 @@ const IndexText = () => {
       src="/stocks.jpg"
       width={800}
       height={500}
+	  alt=""
     />
 	</div>
 	);

@@ -1,16 +1,17 @@
 import React from 'react';
 import Link from 'next/link';
 import { Typography } from '@mui/material';
+import Image from 'next/image'
 
 const SidePanel = () => {
 	return (
 		<div className="sidePanel">
 			<div>
-				<img
+				<Image
 					src="/westrockLogo.svg"
-					sizes="(max-width: 600px) 100vw, (min-width: 601px) 35vw"
-					type="image/jpg"
-					className="sidePanelImage"
+					width={400}
+					height={300}
+					alt=""
 				/>
 			</div>
 			<Typography>
