@@ -7,6 +7,7 @@ import { styled } from '@mui/material/styles';
 import { useSelector, useDispatch } from 'react-redux';
 import { setValuesq1, setValuesq2, setValuesq3, setValuesq4, setValuesq5, setValuesq6, setValuesq7, setValuesq8 } from './../sankey/refugeeSlice';
 import {q1, q2, q3, q4, q5, q6, q7, q8} from "../data/wrkData";
+import Box from '@mui/material/Box';
 
 const label1 = q1.period;
 const label2 = q2.period;
@@ -54,9 +55,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 	return(
 <div className="sidePanel">
-
-			<Stack spacing={2}>
-				<Item style={{textAlign: "center"}}>
+ <Box sx={{ width: 300 }}>
 				<Slider
 					style={{ width: 800 }}
 					value={quarter}
@@ -65,9 +64,7 @@ const Item = styled(Paper)(({ theme }) => ({
 					step={null}
 					marks={quarterMarks}
 				/>
-				</Item>
-
-		</Stack>
+ </Box>
 </div>
 	)
 };

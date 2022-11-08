@@ -52,15 +52,9 @@ const Index = () => {
 	</div>
 	</Grid>
 		<Grid item xs={12} md={12} sx={{mt: 3}}>
-	 <div className="graph" >
-		 <IndexText />
-	</div>
+		 	< IndexSidePanel />
 		</Grid>
 	</Grid>
-		<Grid item container md={4} sm={12} sx={{borderLeft: "2px green solid", paddingLeft: "2rem"}}>
-		 	< IndexSidePanel />
-
-		</Grid>
 	</Grid>
 		</Layout>
   );
