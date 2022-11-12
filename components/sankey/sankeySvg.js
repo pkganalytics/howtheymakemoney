@@ -15,6 +15,7 @@ import { rollups, sum, min, max, extent, merge } from 'd3-array';
 import { color } from 'd3-color';
 import cloneDeep from 'lodash/cloneDeep';
 
+
 function SankeySvg({colours, values, nodeFilter }) {
   const svgRef = useRef();
   const margin=10;
@@ -41,7 +42,7 @@ const sankey = d3Sankey()
 
 // load the data
 	  const graph = sankey(previousState);
-	  graph.links[4].target.x0 = graph.links[5].target.x0;
+graph.links[4].target.x0 = graph.links[5].target.x0;
 	  console.log('graph=', graph )
 // // calculate total for each source node
 // const sourceTotals = rollups(graph.links, v => sum (v, d => d.value), d => d.source);
@@ -104,6 +105,7 @@ const div = select("body")
 		  // .join("g")
 				  .enter().append("g")
 				  .attr("class", "node");
+console.log('graph.nodes[6]=', graph.nodes[6])
 
 // add the rectangles for the nodes
   node.append("rect")
@@ -135,13 +137,12 @@ const div = select("body")
         });
 // add in the title for the nodes
   node.append("text")
-		  .attr("x", d => d.x0 - 6)
+		  .attr("x", d =>  d.x0 - 6)
       .attr("y", function(d) { return (d.y1 + d.y0) / 2; })
       .attr("dy", "0.35em")
       .attr("text-anchor", "end")
       .text(function(d) { return d.name; })
     .filter(function(d) { return d.x0 < width / 2; })
-      .attr("x", function(d) { return d.x1 + 6; })
       .attr("text-anchor", "start");
 console.log('end of first half')
 
@@ -220,8 +221,8 @@ const title2 = svg.selectAll("title")
       .attr("dy", "0.35em")
       .attr("text-anchor", "end")
       .text(function(d) { return d.name; })
-    .filter(function(d) { return d.x0 < width / 2; })
-      .attr("x", function(d) { return d.x1 + 6; })
+    // .filter(function(d) { return d.x0 < width / 2; })
+    //   .attr("x", function(d) { return d.x1 + 6; })
       .attr("text-anchor", "start");
 	  // setPreviousState(values);
 	  setPreviousState({...values});
