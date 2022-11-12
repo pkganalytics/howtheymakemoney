@@ -41,6 +41,7 @@ const sankey = d3Sankey()
 
 // load the data
 	  const graph = sankey(previousState);
+	  graph.links[4].target.x0 = graph.links[5].target.x0;
 	  console.log('graph=', graph )
 // // calculate total for each source node
 // const sourceTotals = rollups(graph.links, v => sum (v, d => d.value), d => d.source);
@@ -148,6 +149,10 @@ console.log('end of first half')
 	  	const graph2 = sankey(values)
 
 console.log('graph2 = ', graph2)
+
+graph2.links[4].target.x0 = graph2.links[5].target.x0;
+
+
 // // calculate total for each source node
 // 	  const newSourceTotals = rollups(graph2.links, v => sum (v, d => d.value), d => d.source);
 // 	  const newTargetTotals = rollups(graph2.links, v => sum (v, d => d.value), d => d.target);
