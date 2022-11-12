@@ -5,7 +5,8 @@ import {
   json,
   rgb,
   scaleLinear,
-  easeLinear
+  easeLinear,
+  ascending
 } from "d3";
 import { sankey as d3Sankey, sankeyLinkHorizontal } from 'd3-sankey';
 import { format as d3Format } from 'd3-format';
@@ -15,17 +16,16 @@ import { rollups, sum, min, max, extent, merge } from 'd3-array';
 import { color } from 'd3-color';
 import cloneDeep from 'lodash/cloneDeep';
 
-
 function SankeySvg({colours, values, nodeFilter }) {
   const svgRef = useRef();
-  const margin=10;
+  const margin=200;
   const [previousState, setPreviousState ] = useState({...values});
   const  { ref, width, height } = useResizeObserver();
 
   useEffect(() => {
     const svg = select(svgRef.current)
-			.attr("width", width)
-			.attr("height", height)
+			.attr("width", width+200)
+			.attr("height", height);
 
 // format variables
 const formatNumber = d3Format(",.0f"),
@@ -38,11 +38,13 @@ const sankey = d3Sankey()
     .nodePadding(30)
     .size([width, height]);
 
-// const path = sankey.links();
 
 // load the data
 	  const graph = sankey(previousState);
+
+// move "Cost of Goods Sold" so that it's vertically aligned with "Gross Profit"
 graph.links[4].target.x0 = graph.links[5].target.x0;
+
 	  console.log('graph=', graph )
 // // calculate total for each source node
 // const sourceTotals = rollups(graph.links, v => sum (v, d => d.value), d => d.source);
@@ -102,10 +104,11 @@ const div = select("body")
 // add in the nodes
   const node = svg.append("g").selectAll(".node")
 				  .data(graph.nodes, d => d.name)
-		  // .join("g")
 				  .enter().append("g")
 				  .attr("class", "node");
-console.log('graph.nodes[6]=', graph.nodes[6])
+
+
+
 
 // add the rectangles for the nodes
   node.append("rect")
@@ -137,7 +140,7 @@ console.log('graph.nodes[6]=', graph.nodes[6])
         });
 // add in the title for the nodes
   node.append("text")
-		  .attr("x", d =>  d.x0 - 6)
+	  .attr("x", d =>  d.x0 - 20)
       .attr("y", function(d) { return (d.y1 + d.y0) / 2; })
       .attr("dy", "0.35em")
       .attr("text-anchor", "end")
@@ -149,9 +152,17 @@ console.log('end of first half')
 // Recalculate sankey layout ////////////////////////////////
 	  	const graph2 = sankey(values)
 
+// move "Cost of Goods Sold" so that it's vertically aligned with "Gross Profit"
+graph2.links[4].target.x0 = graph2.links[5].target.x0;
+
+//swap positions of "Cost of Goods Sold" and "Gross Profit"
+//to do that, swap y0 values of links 4 and 5
+// const link24y0 = graph.links[4].target.y0;
+// graph2.links[4].target.y0 = graph2.links[5].target.y0;
+// graph2.links[5].target.y0 = link24y0;
+
 console.log('graph2 = ', graph2)
 
-graph2.links[4].target.x0 = graph2.links[5].target.x0;
 
 
 // // calculate total for each source node
@@ -216,14 +227,13 @@ const title2 = svg.selectAll("title")
 	  .data(graph2.nodes, d => d.name)
 	  .transition()
 	  .duration(3000)
-	  .attr("x", d => d.x0 - 6)
+	  .attr("x", d => d.x0 -20)
       .attr("y", function(d) { return (d.y1 + d.y0) / 2; })
       .attr("dy", "0.35em")
       .attr("text-anchor", "end")
       .text(function(d) { return d.name; })
     // .filter(function(d) { return d.x0 < width / 2; })
     //   .attr("x", function(d) { return d.x1 + 6; })
-      .attr("text-anchor", "start");
 	  // setPreviousState(values);
 	  setPreviousState({...values});
 console.log('end of second part')

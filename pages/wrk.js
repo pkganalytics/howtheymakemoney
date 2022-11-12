@@ -54,7 +54,7 @@ const Sankey = () =>  {
 </Grid>
 	</div>
 	</Grid>
-		<Grid item xs={12} md={12} sx={{mt: 3}}>
+			<Grid item xs={12} md={12} sx={{mt: 3, ml: 12}}>
 	 <div className="graph" >
 		  <SankeySvg colours={colours} values={values} nodeFilter={nodeFilter}/>
 		 	< WrkSlider />
