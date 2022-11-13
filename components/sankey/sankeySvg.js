@@ -63,6 +63,21 @@ graph.nodes[11].textAnchor = "start";
 graph.nodes[12].textAnchor = "start";
 graph.nodes[13].textAnchor = "start";
 graph.nodes[14].textAnchor = "start";
+graph.nodes[0].color = "grey";
+graph.nodes[1].color = "grey";
+graph.nodes[2].color = "grey";
+graph.nodes[3].color = "grey";
+graph.nodes[4].color = "grey";
+graph.nodes[5].color = "green";
+graph.nodes[6].color = "red";
+graph.nodes[7].color = "green";
+graph.nodes[8].color = "green";
+graph.nodes[9].color = "red";
+graph.nodes[10].color = "red";
+graph.nodes[11].color = "red";
+graph.nodes[12].color = "red";
+graph.nodes[13].color = "red";
+graph.nodes[14].color = "red";
 };
 
 function SankeySvg({colours, values, nodeFilter }) {
@@ -167,7 +182,7 @@ console.log('graph.nodes=', graph.nodes)
 	  .attr("height", d  => {return d.y1 - d.y0;})
       .attr("width", sankey.nodeWidth())
 .attr("fill", d => 'red')
-		  // .attr("fill", d => { return d.index < 7 ? totalRed(d.value): totalBlue(d.value)})
+	  .attr("fill", d => d.color)
       .style("stroke", function(d) {
 		  return rgb(d.color).darker(2); })
 
@@ -267,7 +282,7 @@ const rect2 = svg.selectAll('.node rect')
 	  .attr("y", d => d.y0)
 	  .attr("height", d  => {return d.y1 - d.y0;})
 .attr("fill", d => 'red')
-		  // .attr("fill", d => { return d.index < 7 ? newTotalRed(d.value): newTotalBlue(d.value)})
+	  .attr("fill", d => d.color)
 
 	  svg.selectAll('.node rect').exit().remove();
 
