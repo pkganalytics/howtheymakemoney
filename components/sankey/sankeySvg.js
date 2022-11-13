@@ -69,7 +69,7 @@ graph.nodes[2].color = "grey";
 graph.nodes[3].color = "grey";
 graph.nodes[4].color = "grey";
 graph.nodes[5].color = "green";
-graph.nodes[6].color = "red";
+graph.nodes[6].color = "green";
 graph.nodes[7].color = "green";
 graph.nodes[8].color = "red";
 graph.nodes[9].color = "green";
@@ -88,7 +88,7 @@ graph.links[2].color = "grey";
 graph.links[3].color = "grey";
 graph.links[4].color = "grey";
 graph.links[5].color = "green";
-graph.links[6].color = "red";
+graph.links[6].color = "green";
 graph.links[7].color = "red";
 graph.links[8].color = "green";
 graph.links[9].color = "red";
@@ -131,7 +131,7 @@ graph.links[4].target.x0 = graph.links[5].target.x0;
 // add link colours
 linkColors(graph);
 
-	  console.log('graph.links[4].color after adding colours =', graph.links[4].color )
+	  console.log('graph.links[6].color after adding colours =', graph.links[6].color )
 	  console.log('graph after adding colours =', graph )
 // // calculate total for each source node
 // const sourceTotals = rollups(graph.links, v => sum (v, d => d.value), d => d.source);
