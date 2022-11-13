@@ -335,7 +335,7 @@ console.log('end of second part')
   }, [values, nodeFilter, colours, width, height]);
 
   return (
-	  <Box ref={ref} sx={{ml: 15, mr: 3}}>
+	  <Box ref={ref} sx={{ml: 15, mr: 3, mb: 4, mt: 2}}>
 			  <svg ref={svgRef}>
 	  </svg>
 	  </Box>
