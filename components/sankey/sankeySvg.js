@@ -18,20 +18,51 @@ import cloneDeep from 'lodash/cloneDeep';
 import Box from '@mui/material/Box';
 
 const setOffset = (graph) => {
-graph.nodes[0].offset = -20;
-graph.nodes[1].offset = -20;
-graph.nodes[2].offset = -20;
-graph.nodes[3].offset = -20;
-graph.nodes[4].offset = -20;
-graph.nodes[5].offset = 20;
-graph.nodes[6].offset = 20;
-graph.nodes[7].offset = 20;
-graph.nodes[8].offset = 20;
-graph.nodes[9].offset = 40;
-graph.nodes[10].offset = 40;
-graph.nodes[11].offset = 40;
-graph.nodes[12].offset = 40;
-graph.nodes[13].offset = 40;
+graph.nodes[0].xoffset = -20;
+graph.nodes[1].xoffset = -20;
+graph.nodes[2].xoffset = -20;
+graph.nodes[3].xoffset = -20;
+graph.nodes[4].xoffset = 25;
+graph.nodes[5].xoffset = 20;
+graph.nodes[6].xoffset = 20;
+graph.nodes[7].xoffset = 20;
+graph.nodes[8].xoffset = 40;
+graph.nodes[9].xoffset = 40;
+graph.nodes[10].xoffset = 40;
+graph.nodes[11].xoffset = 40;
+graph.nodes[12].xoffset = 40;
+graph.nodes[13].xoffset = 40;
+graph.nodes[14].xoffset = 40;
+graph.nodes[0].yoffset = 0;
+graph.nodes[1].yoffset = 0;
+graph.nodes[2].yoffset = 0;
+graph.nodes[3].yoffset = 0;
+graph.nodes[4].yoffset = -25;
+graph.nodes[5].yoffset = -20;
+graph.nodes[6].yoffset = -20;
+graph.nodes[7].yoffset = -20;
+graph.nodes[8].yoffset = 50;
+graph.nodes[9].yoffset = 0;
+graph.nodes[10].yoffset = 0;
+graph.nodes[11].yoffset = 0;
+graph.nodes[12].yoffset = 0;
+graph.nodes[13].yoffset = 0;
+graph.nodes[14].yoffset = 0;
+graph.nodes[0].textAnchor = "end";
+graph.nodes[1].textAnchor = "end";
+graph.nodes[2].textAnchor = "end";
+graph.nodes[3].textAnchor = "end";
+graph.nodes[4].textAnchor = "middle";
+graph.nodes[5].textAnchor = "middle";
+graph.nodes[6].textAnchor = "middle";
+graph.nodes[7].textAnchor = "middle";
+graph.nodes[8].textAnchor = "middle";
+graph.nodes[9].textAnchor = "start";
+graph.nodes[10].textAnchor = "start";
+graph.nodes[11].textAnchor = "start";
+graph.nodes[12].textAnchor = "start";
+graph.nodes[13].textAnchor = "start";
+graph.nodes[14].textAnchor = "start";
 };
 
 function SankeySvg({colours, values, nodeFilter }) {
@@ -161,13 +192,14 @@ console.log('graph.nodes=', graph.nodes)
 setOffset(graph);
 
   node.append("text")
-	  .attr("x", d =>  d.x0 + d.offset)
-      .attr("y", function(d) { return (d.y1 + d.y0) / 2; })
+	  .attr("x", d =>  d.x0 + d.xoffset)
+	  // .attr("y", d => { return (((d.y1 + d.y0) / 2) + d.yoffset); })
+		  .attr("y", d => { return (d.textAnchor == 'middle' ? d.y0 + d.yoffset :((d.y1 + d.y0) / 2)) ; })
       .attr("dy", "0.35em")
       .attr("text-anchor", "end")
       .text(function(d) { return d.name; })
     .filter(function(d) { return d.x0 < width / 2; })
-      .attr("text-anchor", "start");
+		  .attr("text-anchor", d => d.textAnchor);
 console.log('end of first half')
 
 // Recalculate sankey layout ////////////////////////////////
@@ -247,10 +279,10 @@ setOffset(graph2);
 	  .data(graph2.nodes, d => d.name)
 	  .transition()
 	  .duration(3000)
-	  .attr("x", d => d.x0 + d.offset)
-      .attr("y", function(d) { return (d.y1 + d.y0) / 2; })
+	  .attr("x", d => d.x0 + d.xoffset)
+		  .attr("y", d => { return (d.textAnchor == 'middle' ? d.y0 + d.yoffset :((d.y1 + d.y0) / 2)) ; })
       .attr("dy", "0.35em")
-      .attr("text-anchor", "end")
+	  .attr("text-anchor", d => d.textAnchor)
       .text(function(d) { return d.name; })
     // .filter(function(d) { return d.x0 < width / 2; })
     //   .attr("x", function(d) { return d.x1 + 6; })
@@ -264,12 +296,10 @@ console.log('end of second part')
   }, [values, nodeFilter, colours, width, height]);
 
   return (
-      // <div className="graph" ref={ref} >
-		  <Box ref={ref} sx={{ml: 15, mr: 3, border: 'red solid thin'}}>
+	  <Box ref={ref} sx={{ml: 15, mr: 3}}>
 			  <svg ref={svgRef}>
 	  </svg>
 	  </Box>
-      // </div>
   );
 };
 
