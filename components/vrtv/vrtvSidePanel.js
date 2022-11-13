@@ -7,7 +7,7 @@ const SidePanel = () => {
 	return (
 		<div className="sidePanel">
 				<Image
-					src="/westrockLogo.svg"
+					src="/vrtv.svg"
 					width={400}
 					height={300}
 					alt=""
