@@ -15,27 +15,27 @@ const IndexSidePanel = () => {
 				<br />
 				<Link href="/wrk">West Rock (WRK)</Link>
 				<br />
-				<Link href="/about">The International Paper Company</Link>
+				<Link href="/ip">The International Paper Company</Link>
 				<br />
-				<Link href="/wrk">CCL Industries Inc.</Link>
+				<Link href="/cclb">CCL Industries Inc.</Link>
 				<br />
-				<Link href="/wrk">Packaging Corporation of America</Link>
+				<Link href="/pkg">Packaging Corporation of America</Link>
 				<br />
-				<Link href="/wrk">Amcor PLC</Link>
+				<Link href="/amcr">Amcor PLC</Link>
 				<br />
-				<Link href="/wrk">Graphic Packaging Holding Company</Link>
+				<Link href="/gpk">Graphic Packaging Holding Company</Link>
 				<br />
-				<Link href="/wrk">Sonoco</Link>
+				<Link href="/son">Sonoco</Link>
 				<br />
-				<Link href="/wrk">Sealed Air Corporation</Link>
+				<Link href="/see">Sealed Air Corporation</Link>
 				<br />
-				<Link href="/wrk">Veritiv Corporation</Link>
+				<Link href="/vrtv">Veritiv Corporation</Link>
 				<br />
-				<Link href="/wrk">Ball Corporation</Link>
+				<Link href="/ball">Ball Corporation</Link>
 				<br />
-				<Link href="/wrk">Ardagh Group</Link>
+				<Link href="/ambp">Ardagh Group</Link>
 				<br />
-				<Link href="/wrk">Greif Inc</Link>
+				<Link href="/gef">Greif Inc</Link>
 				<br />
 				<br />
 				<br />
