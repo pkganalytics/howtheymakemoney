@@ -71,14 +71,33 @@ graph.nodes[4].color = "grey";
 graph.nodes[5].color = "green";
 graph.nodes[6].color = "red";
 graph.nodes[7].color = "green";
-graph.nodes[8].color = "green";
-graph.nodes[9].color = "red";
+graph.nodes[8].color = "red";
+graph.nodes[9].color = "green";
 graph.nodes[10].color = "red";
-graph.nodes[11].color = "red";
+graph.nodes[11].color = "green";
 graph.nodes[12].color = "red";
 graph.nodes[13].color = "red";
 graph.nodes[14].color = "red";
 };
+
+
+const linkColors = (graph) => {
+graph.links[0].color = "grey";
+graph.links[1].color = "grey";
+graph.links[2].color = "grey";
+graph.links[3].color = "grey";
+graph.links[4].color = "grey";
+graph.links[5].color = "green";
+graph.links[6].color = "red";
+graph.links[7].color = "red";
+graph.links[8].color = "green";
+graph.links[9].color = "red";
+graph.links[10].color = "red";
+graph.links[11].color = "red";
+graph.links[12].color = "red";
+graph.links[13].color = "red";
+}
+
 
 function SankeySvg({colours, values, nodeFilter }) {
   const svgRef = useRef();
@@ -109,7 +128,11 @@ const sankey = d3Sankey()
 // move "Cost of Goods Sold" so that it's vertically aligned with "Gross Profit"
 graph.links[4].target.x0 = graph.links[5].target.x0;
 
-	  console.log('graph=', graph )
+// add link colours
+linkColors(graph);
+
+	  console.log('graph.links[4].color after adding colours =', graph.links[4].color )
+	  console.log('graph after adding colours =', graph )
 // // calculate total for each source node
 // const sourceTotals = rollups(graph.links, v => sum (v, d => d.value), d => d.source);
 
@@ -140,6 +163,7 @@ const link = svg.append("g")
       .attr("class", "link")
       .attr("d", sankeyLinkHorizontal())
 	  .attr("stroke-width", d => d.width)
+	  .style("stroke", d => d.color)
 
 .on("mouseover", function(event, d) {
 	div.transition()
@@ -223,6 +247,8 @@ console.log('end of first half')
 // move "Cost of Goods Sold" so that it's vertically aligned with "Gross Profit"
 graph2.links[4].target.x0 = graph2.links[5].target.x0;
 
+// add link colours
+linkColors(graph2);
 //swap positions of "Cost of Goods Sold" and "Gross Profit"
 //to do that, swap y0 values of links 4 and 5
 // const link24y0 = graph.links[4].target.y0;
@@ -264,9 +290,7 @@ const link2 = svg.selectAll(".link")
       .duration(3000)
       .attr("d", sankeyLinkHorizontal())
 	  .attr("stroke-width", d => d.width)
-		  .style("stroke", d => "red")
-		// .style("stroke", d => { return newTotalRed(d.source.value) });
-
+	  .attr("stroke", d => d.color)
 
 	  // add in the nodes
 const node2 = svg.selectAll(".node")
