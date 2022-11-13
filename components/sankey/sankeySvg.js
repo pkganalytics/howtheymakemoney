@@ -15,16 +15,34 @@ import { transition } from 'd3-transition';
 import { rollups, sum, min, max, extent, merge } from 'd3-array';
 import { color } from 'd3-color';
 import cloneDeep from 'lodash/cloneDeep';
+import Box from '@mui/material/Box';
+
+const setOffset = (graph) => {
+graph.nodes[0].offset = -20;
+graph.nodes[1].offset = -20;
+graph.nodes[2].offset = -20;
+graph.nodes[3].offset = -20;
+graph.nodes[4].offset = -20;
+graph.nodes[5].offset = 20;
+graph.nodes[6].offset = 20;
+graph.nodes[7].offset = 20;
+graph.nodes[8].offset = 20;
+graph.nodes[9].offset = 40;
+graph.nodes[10].offset = 40;
+graph.nodes[11].offset = 40;
+graph.nodes[12].offset = 40;
+graph.nodes[13].offset = 40;
+};
 
 function SankeySvg({colours, values, nodeFilter }) {
   const svgRef = useRef();
-  const margin=200;
+  const margin=100;
   const [previousState, setPreviousState ] = useState({...values});
   const  { ref, width, height } = useResizeObserver();
 
   useEffect(() => {
     const svg = select(svgRef.current)
-			.attr("width", width+200)
+			.attr("width", width)
 			.attr("height", height);
 
 // format variables
@@ -34,9 +52,9 @@ const formatNumber = d3Format(",.0f"),
 
 // Set the sankey diagram properties
 const sankey = d3Sankey()
-    .nodeWidth(36)
+    .nodeWidth(26)
     .nodePadding(30)
-    .size([width, height]);
+    .size([width-100, height]);
 
 
 // load the data
@@ -101,13 +119,14 @@ const div = select("body")
 			  .attr("class", "tooltip")
 			  .style("opacity", 0);
 
+// Change x0 positions in graph.nodes
+console.log('graph.nodes=', graph.nodes)
+
 // add in the nodes
   const node = svg.append("g").selectAll(".node")
 				  .data(graph.nodes, d => d.name)
 				  .enter().append("g")
 				  .attr("class", "node");
-
-
 
 
 // add the rectangles for the nodes
@@ -139,8 +158,10 @@ const div = select("body")
                 .style("opacity", 0);
         });
 // add in the title for the nodes
+setOffset(graph);
+
   node.append("text")
-	  .attr("x", d =>  d.x0 - 20)
+	  .attr("x", d =>  d.x0 + d.offset)
       .attr("y", function(d) { return (d.y1 + d.y0) / 2; })
       .attr("dy", "0.35em")
       .attr("text-anchor", "end")
@@ -220,14 +241,13 @@ const rect2 = svg.selectAll('.node rect')
 
 const title2 = svg.selectAll("title")
 
- node.selectAll("text")
-
+setOffset(graph2);
 
   node.selectAll("text")
 	  .data(graph2.nodes, d => d.name)
 	  .transition()
 	  .duration(3000)
-	  .attr("x", d => d.x0 -20)
+	  .attr("x", d => d.x0 + d.offset)
       .attr("y", function(d) { return (d.y1 + d.y0) / 2; })
       .attr("dy", "0.35em")
       .attr("text-anchor", "end")
@@ -244,10 +264,12 @@ console.log('end of second part')
   }, [values, nodeFilter, colours, width, height]);
 
   return (
-      <div className="graph" ref={ref} >
-        <svg ref={svgRef}>
-        </svg>
-      </div>
+      // <div className="graph" ref={ref} >
+		  <Box ref={ref} sx={{ml: 15, mr: 3, border: 'red solid thin'}}>
+			  <svg ref={svgRef}>
+	  </svg>
+	  </Box>
+      // </div>
   );
 };
 
