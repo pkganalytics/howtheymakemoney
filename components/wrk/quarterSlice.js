@@ -1,8 +1,9 @@
+
 import { createSlice } from '@reduxjs/toolkit';
 import {q1, q2, q3, q4, q5, q6, q7, q8} from "../data/wrkData";
 
 const quarterSlice = createSlice({
-	name: 'year',
+	name: 'quarter',
 	initialState: q1,
 	reducers: {
 		setValuesq1: (state) => q1,

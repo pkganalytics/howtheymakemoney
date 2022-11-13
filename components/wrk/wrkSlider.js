@@ -5,7 +5,7 @@ import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import { useSelector, useDispatch } from 'react-redux';
-import { setValuesq1, setValuesq2, setValuesq3, setValuesq4, setValuesq5, setValuesq6, setValuesq7, setValuesq8 } from './../sankey/refugeeSlice';
+import { setValuesq1, setValuesq2, setValuesq3, setValuesq4, setValuesq5, setValuesq6, setValuesq7, setValuesq8 } from './quarterSlice';
 import {q1, q2, q3, q4, q5, q6, q7, q8} from "../data/wrkData";
 import Box from '@mui/material/Box';
 
@@ -37,14 +37,14 @@ const dispatch = useDispatch();
 
   const changeQuarter = (event, quarter) => {
     setQuarter(quarter)
-		if (quarter == 100) {dispatch(setValuesq1()); return}
-		if (quarter == 86) {dispatch(setValuesq2()); return}
-		if (quarter == 70) {dispatch(setValuesq3()); return}
-		if (quarter == 56) {dispatch(setValuesq4()); return}
-		if (quarter == 42) {dispatch(setValuesq5()); return}
-		if (quarter == 28) {dispatch(setValuesq6()); return}
-		if (quarter == 14) {dispatch(setValuesq7()); return}
-		if (quarter == 0) {dispatch(setValuesq8()); return}
+		// if (quarter == 100) {dispatch(setValuesq1()); return}
+		// if (quarter == 86) {dispatch(setValuesq2()); return}
+		// if (quarter == 70) {dispatch(setValuesq3()); return}
+		// if (quarter == 56) {dispatch(setValuesq4()); return}
+		// if (quarter == 42) {dispatch(setValuesq5()); return}
+		// if (quarter == 28) {dispatch(setValuesq6()); return}
+		// if (quarter == 14) {dispatch(setValuesq7()); return}
+		// if (quarter == 0) {dispatch(setValuesq8()); return}
   };
 
 

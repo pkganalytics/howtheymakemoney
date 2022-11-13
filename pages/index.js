@@ -13,31 +13,31 @@ import cloneDeep from 'lodash/cloneDeep';
 
 const Index = () => {
 
-	const colours = useSelector(state => state.colours);
-	const nodeFilter = useSelector(state => state.nodeFilter);
-	const _values = useSelector(state => state.year);
+	// const colours = useSelector(state => state.colours);
+	// const nodeFilter = useSelector(state => state.nodeFilter);
+	// const _values = useSelector(state => state.year);
 
-	var tobeFiltered = cloneDeep(_values);
+	// var tobeFiltered = cloneDeep(_values);
 
-// Remove nodes > nodeFilter
-	tobeFiltered.nodes.splice(nodeFilter, 7 - nodeFilter);
-	const nodesWithNodesRemoved = cloneDeep(tobeFiltered.nodes);
+// // Remove nodes > nodeFilter
+	// tobeFiltered.nodes.splice(nodeFilter, 7 - nodeFilter);
+	// const nodesWithNodesRemoved = cloneDeep(tobeFiltered.nodes);
 
-// Remove links which reference nodes > nodeFilter
-	const linksWithRefNodesRemoved = cloneDeep(remove(tobeFiltered.links, item => item.source < (nodeFilter)));
+// // Remove links which reference nodes > nodeFilter
+	// const linksWithRefNodesRemoved = cloneDeep(remove(tobeFiltered.links, item => item.source < (nodeFilter)));
 
-// Reduce values of target nodes
-	const linksWithReducedTargets = cloneDeep(linksWithRefNodesRemoved);
+// // Reduce values of target nodes
+	// const linksWithReducedTargets = cloneDeep(linksWithRefNodesRemoved);
 
-	for (let i = 0; i < linksWithReducedTargets.length; i++) {
-	if (linksWithReducedTargets[i].target >= nodeFilter)
-		{linksWithReducedTargets[i].target = linksWithReducedTargets[i].target - (_values.nodes.length - nodesWithNodesRemoved.length);}
-	}
+	// for (let i = 0; i < linksWithReducedTargets.length; i++) {
+	// if (linksWithReducedTargets[i].target >= nodeFilter)
+	// 	{linksWithReducedTargets[i].target = linksWithReducedTargets[i].target - (_values.nodes.length - nodesWithNodesRemoved.length);}
+	// }
 
-	const filtered = {}
-	filtered.nodes = nodesWithNodesRemoved;
-	filtered.links = linksWithReducedTargets;
-	const values = cloneDeep(filtered);
+	// const filtered = {}
+	// filtered.nodes = nodesWithNodesRemoved;
+	// filtered.links = linksWithReducedTargets;
+	// const values = cloneDeep(filtered);
 
 
 	return (

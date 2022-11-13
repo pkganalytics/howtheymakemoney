@@ -55,7 +55,7 @@ export const q2 = {
 	{"name": "Other Expenses"}
 ],
 "links":[
-	{"source":0,"target":4, "Corrugated Packaging": 0, "value":2382.5},
+	{"source":0,"target":4, "Corrugated Packaging": 0, "value":2282.5},
 	{"source":1,"target":4, "Consumer Packaging": 0, "value":2270.2},
 	{"source":2,"target":4, "Global Paper": 0, "value":1610.3},
 	{"source":3,"target":4,"Distribution": 0, "value":357.7},

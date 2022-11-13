@@ -77,7 +77,6 @@ graph.nodes[10].color = "red";
 graph.nodes[11].color = "green";
 graph.nodes[12].color = "red";
 graph.nodes[13].color = "red";
-graph.nodes[14].color = "red";
 };
 
 
@@ -99,12 +98,12 @@ graph.links[13].color = "red";
 }
 
 
-function SankeySvg({colours, values, nodeFilter }) {
+function SankeySvg({ quarter }) {
   const svgRef = useRef();
   const margin=100;
-  const [previousState, setPreviousState ] = useState({...values});
+  const [previousState, setPreviousState ] = useState({...quarter});
   const  { ref, width, height } = useResizeObserver();
-
+console.log('quarter.period=', quarter.period)
   useEffect(() => {
     const svg = select(svgRef.current)
 			.attr("width", width)
@@ -125,11 +124,12 @@ const sankey = d3Sankey()
 // load the data
 	  const graph = sankey(previousState);
 
-// move "Cost of Goods Sold" so that it's vertically aligned with "Gross Profit"
-graph.links[4].target.x0 = graph.links[5].target.x0;
 
 // add link colours
 linkColors(graph);
+setOffset(graph);
+// move "Cost of Goods Sold" so that it's vertically aligned with "Gross Profit"
+graph.links[4].target.x0 = graph.links[5].target.x0;
 
 	  console.log('graph.links[6].color after adding colours =', graph.links[6].color )
 	  console.log('graph after adding colours =', graph )
@@ -228,7 +228,6 @@ console.log('graph.nodes=', graph.nodes)
                 .style("opacity", 0);
         });
 // add in the title for the nodes
-setOffset(graph);
 
   node.append("text")
 	  .attr("x", d =>  d.x0 + d.xoffset)
@@ -242,13 +241,14 @@ setOffset(graph);
 console.log('end of first half')
 
 // Recalculate sankey layout ////////////////////////////////
-	  	const graph2 = sankey(values)
+	  	const graph2 = sankey(quarter)
 
 // move "Cost of Goods Sold" so that it's vertically aligned with "Gross Profit"
 graph2.links[4].target.x0 = graph2.links[5].target.x0;
 
 // add link colours
 linkColors(graph2);
+setOffset(graph2);
 //swap positions of "Cost of Goods Sold" and "Gross Profit"
 //to do that, swap y0 values of links 4 and 5
 // const link24y0 = graph.links[4].target.y0;
@@ -304,15 +304,14 @@ const rect2 = svg.selectAll('.node rect')
 	  .duration(3000)
 	  .attr("x", d => d.x0)
 	  .attr("y", d => d.y0)
-	  .attr("height", d  => {return d.y1 - d.y0;})
-.attr("fill", d => 'red')
+	  // .attr("height", d  => {return d.y1 - d.y0;})
+// .attr("fill", d => 'red')
 	  .attr("fill", d => d.color)
 
 	  svg.selectAll('.node rect').exit().remove();
 
 const title2 = svg.selectAll("title")
 
-setOffset(graph2);
 
   node.selectAll("text")
 	  .data(graph2.nodes, d => d.name)
@@ -325,14 +324,14 @@ setOffset(graph2);
       .text(function(d) { return d.name; })
     // .filter(function(d) { return d.x0 < width / 2; })
     //   .attr("x", function(d) { return d.x1 + 6; })
-	  // setPreviousState(values);
-	  setPreviousState({...values});
+	  // setPreviousState(quarter);
+	  setPreviousState({...quarter});
 console.log('end of second part')
 	  return () => {
       svg.selectAll('*').remove();
 	  console.log('Ran return')
     }
-  }, [values, nodeFilter, colours, width, height]);
+  }, [quarter, width, height]);
 
   return (
 	  <Box ref={ref} sx={{ml: 15, mr: 3, mb: 4, mt: 2}}>

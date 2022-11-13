@@ -5,7 +5,7 @@ import nodeFilterReducer from './/sankey/nodeFilterSlice'
 
 
 export default configureStore({reducer: {
-								year: quarterReducer,
+								quarter: quarterReducer,
 								colours: colourReducer,
 								nodeFilter: nodeFilterReducer
 							}});
