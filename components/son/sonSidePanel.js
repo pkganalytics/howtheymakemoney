@@ -12,9 +12,7 @@ const SidePanel = () => {
 					height={300}
 					alt=""
 				/>
-			<Typography>
-				WestRock is an American corrugated packaging company.  It was formed in July 2015 after the merger of MeadWestvaco and RockTenn. WestRock is the 2nd largest American packaging company. It is one of the world's largest paper and packaging companies with US$15 billion in annual revenue and 42,000 employees in 30 countries. The company is headquartered in Sandy Springs, Georgia, consolidating offices from Norcross, Georgia and Richmond, Virginia.
-			</Typography>
+			<Typography>Sonoco is the world's largest producer of tubes, cores, and fiber concrete columns under the brand name Sonotube concrete forms and a leading manufacturer of blow-molded plastic containers, consumer and industrial thermoformed plastic packaging, engineered molded and extruded plastic products, rigid paperboard containers, and convenience closures. Sonoco's operations consist of its consumer packaging businesses, Global Flexibles and Global Plastics; its Global Services division; its Industrial Converted Products businesses and its Protective Packaging division, which produces highly engineered, custom-designed protective, temperature-assurance, and retail security packaging.</Typography>
 		</div>
 	);
 };

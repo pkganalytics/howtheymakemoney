@@ -12,9 +12,7 @@ const SidePanel = () => {
 					height={300}
 					alt=""
 				/>
-			<Typography>
-				WestRock is an American corrugated packaging company.  It was formed in July 2015 after the merger of MeadWestvaco and RockTenn. WestRock is the 2nd largest American packaging company. It is one of the world's largest paper and packaging companies with US$15 billion in annual revenue and 42,000 employees in 30 countries. The company is headquartered in Sandy Springs, Georgia, consolidating offices from Norcross, Georgia and Richmond, Virginia.
-			</Typography>
+			<Typography>Sealed Air Corporation is a packaging company known for its brands: Cryovac food packaging and Bubble Wrap cushioning packaging. It sold off its stake in Diversey Holdings in 2017. Headquartered in Charlotte, North Carolina.</Typography>
 		</div>
 	);
 };

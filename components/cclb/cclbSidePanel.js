@@ -13,7 +13,7 @@ const SidePanel = () => {
 					alt=""
 				/>
 			<Typography>
-				WestRock is an American corrugated packaging company.  It was formed in July 2015 after the merger of MeadWestvaco and RockTenn. WestRock is the 2nd largest American packaging company. It is one of the world's largest paper and packaging companies with US$15 billion in annual revenue and 42,000 employees in 30 countries. The company is headquartered in Sandy Springs, Georgia, consolidating offices from Norcross, Georgia and Richmond, Virginia.
+CCL Industries Inc. is a Toronto, Ontario-based company founded in 1951. It describes itself as the world's largest label maker. It is listed on the Toronto Stock Exchange, and is an S&P/TSX 60 Component. CCL consists of five divisions – CCL Label, CCL Container, Avery, Checkpoint, and Innovia. It has 154 manufacturing facilities in North America, Latin America, Europe, Asia, Australia and Africa operated by approximately 20,000 employees.
 			</Typography>
 		</div>
 	);

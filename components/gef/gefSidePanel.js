@@ -12,9 +12,7 @@ const SidePanel = () => {
 					height={300}
 					alt=""
 				/>
-			<Typography>
-				WestRock is an American corrugated packaging company.  It was formed in July 2015 after the merger of MeadWestvaco and RockTenn. WestRock is the 2nd largest American packaging company. It is one of the world's largest paper and packaging companies with US$15 billion in annual revenue and 42,000 employees in 30 countries. The company is headquartered in Sandy Springs, Georgia, consolidating offices from Norcross, Georgia and Richmond, Virginia.
-			</Typography>
+			<Typography>Greif, Inc. (NYSE: GEF) is an American manufacturing company based in Delaware, Ohio. Originally a manufacturer of barrels, the company is now focused on producing industrial packaging and containers.</Typography>
 		</div>
 	);
 };

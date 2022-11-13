@@ -13,7 +13,7 @@ const SidePanel = () => {
 					alt=""
 				/>
 			<Typography>
-				WestRock is an American corrugated packaging company.  It was formed in July 2015 after the merger of MeadWestvaco and RockTenn. WestRock is the 2nd largest American packaging company. It is one of the world's largest paper and packaging companies with US$15 billion in annual revenue and 42,000 employees in 30 countries. The company is headquartered in Sandy Springs, Georgia, consolidating offices from Norcross, Georgia and Richmond, Virginia.
+Packaging Corporation of America is an American manufacturing company based in Lake Forest, Illinois.[2] The company has about 15,500 employees, with operations primarily in the United States.
 			</Typography>
 		</div>
 	);

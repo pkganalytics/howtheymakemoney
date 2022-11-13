@@ -12,9 +12,7 @@ const SidePanel = () => {
 					height={300}
 					alt=""
 				/>
-			<Typography>
-				WestRock is an American corrugated packaging company.  It was formed in July 2015 after the merger of MeadWestvaco and RockTenn. WestRock is the 2nd largest American packaging company. It is one of the world's largest paper and packaging companies with US$15 billion in annual revenue and 42,000 employees in 30 countries. The company is headquartered in Sandy Springs, Georgia, consolidating offices from Norcross, Georgia and Richmond, Virginia.
-			</Typography>
+			<Typography>Ardagh Group is a Luxembourg-based producer of glass and metal products that has "grown in the past two decades into one of the world’s largest metal and glass packaging companies".</Typography>
 		</div>
 	);
 };
