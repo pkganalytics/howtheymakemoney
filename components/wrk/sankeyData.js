@@ -7,7 +7,7 @@ export const q1 = {
 	{"name": "Distribution"},
 	{"name": "Revenue"},
 	{"name": "Gross Profit"},
-	{"name": "Cost of Renenues"},
+	{"name": "Cost of Goods Sold"},
 	{"name": "Operating Profit"},
 	{"name": "Operating Expense"},
 	{"name": "SG&A"},
