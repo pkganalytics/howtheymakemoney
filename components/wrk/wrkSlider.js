@@ -37,14 +37,14 @@ const dispatch = useDispatch();
 
   const changeQuarter = (event, quarter) => {
     setQuarter(quarter)
-		// if (quarter == 100) {dispatch(setValuesq1()); return}
-		// if (quarter == 86) {dispatch(setValuesq2()); return}
-		// if (quarter == 70) {dispatch(setValuesq3()); return}
-		// if (quarter == 56) {dispatch(setValuesq4()); return}
-		// if (quarter == 42) {dispatch(setValuesq5()); return}
-		// if (quarter == 28) {dispatch(setValuesq6()); return}
-		// if (quarter == 14) {dispatch(setValuesq7()); return}
-		// if (quarter == 0) {dispatch(setValuesq8()); return}
+		if (quarter == 100) {dispatch(setValuesq1()); return}
+		if (quarter == 86) {dispatch(setValuesq2()); return}
+		if (quarter == 70) {dispatch(setValuesq3()); return}
+		if (quarter == 56) {dispatch(setValuesq4()); return}
+		if (quarter == 42) {dispatch(setValuesq5()); return}
+		if (quarter == 28) {dispatch(setValuesq6()); return}
+		if (quarter == 14) {dispatch(setValuesq7()); return}
+		if (quarter == 0) {dispatch(setValuesq8()); return}
   };
 
 

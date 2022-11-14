@@ -14,7 +14,6 @@ import useResizeObserver from "use-resize-observer/polyfilled";
 import { transition } from 'd3-transition';
 import { rollups, sum, min, max, extent, merge } from 'd3-array';
 import { color } from 'd3-color';
-import cloneDeep from 'lodash/cloneDeep';
 import Box from '@mui/material/Box';
 
 const setOffset = (graph) => {
@@ -102,8 +101,8 @@ function SankeySvg({ quarter }) {
   const svgRef = useRef();
   const margin=100;
   const [previousState, setPreviousState ] = useState({...quarter});
-  const  { ref, width, height } = useResizeObserver();
-console.log('quarter=', quarter)
+  let  { ref, width, height } = useResizeObserver();
+
   useEffect(() => {
     const svg = select(svgRef.current)
 			.attr("width", width)
@@ -122,8 +121,7 @@ const sankey = d3Sankey()
 
 
 // load the data
-	  const graph = sankey(previousState);
-
+	  let graph = sankey(previousState);
 
 // add link colours
 linkColors(graph);
@@ -220,7 +218,7 @@ console.log('graph.nodes=', graph.nodes)
 console.log('end of first half')
 
 // Recalculate sankey layout ////////////////////////////////
-	  	const graph2 = sankey(quarter)
+	  	let graph2 = sankey(quarter)
 
 // move "Cost of Goods Sold" so that it's vertically aligned with "Gross Profit"
 graph2.links[4].target.x0 = graph2.links[5].target.x0;
@@ -238,27 +236,6 @@ console.log('graph2 = ', graph2)
 
 
 
-// // calculate total for each source node
-// 	  const newSourceTotals = rollups(graph2.links, v => sum (v, d => d.value), d => d.source);
-// 	  const newTargetTotals = rollups(graph2.links, v => sum (v, d => d.value), d => d.target);
-// 	  const newTotals = newSourceTotals.concat(newTargetTotals);
-// 	  graph2.nodes.forEach((element, index) => graph2.nodes.total = newTotals[index][0])
-
-// // Create array for colors in order to calculate extent
-// 	  const newColorTotals = [];
-// 	  graph2.nodes.forEach((element, index) => newColorTotals[index] = newTotals[index][0].value);
-// 	  const newColorExtent = extent(newColorTotals);
-
-// const newTotalRed = scaleLinear()
-// 				  .domain(newColorExtent)
-// 				   // .range(["#200000", "#ff0000"])
-// 				  .range(colours[0])
-
-// const newTotalBlue = scaleLinear()
-// 				  .domain(newColorExtent)
-// 				  // .range(["#000020", "#0000ff"])
-// 				  .range(colours[1])
-
 // Select each element that needs to be changed and pass the new data values
 console.log('Starting second half')
 
@@ -271,11 +248,6 @@ const link2 = svg.selectAll(".link")
 	  .attr("stroke-width", d => d.width)
 	  .attr("stroke", d => d.color)
 
-	  // add in the nodes
-const node2 = svg.selectAll(".node")
-	  .data(graph2.nodes, d => d.name)
-		  // .enter().append()
-		  // .exit().remove()
 
 const rect2 = svg.selectAll('.node rect')
 	  .data(graph2.nodes, d => d.name)
@@ -283,7 +255,7 @@ const rect2 = svg.selectAll('.node rect')
 	  .duration(3000)
 	  .attr("x", d => d.x0)
 	  .attr("y", d => d.y0)
-	  // .attr("height", d  => {return d.y1 - d.y0;})
+	  .attr("height", d  => {return d.y1 - d.y0;})
 // .attr("fill", d => 'red')
 	  .attr("fill", d => d.color)
 
