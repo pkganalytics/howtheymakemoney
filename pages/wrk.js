@@ -11,34 +11,9 @@ import remove from 'lodash/remove';
 import cloneDeep from 'lodash/cloneDeep';
 
 
-
 const Sankey = () =>  {
 	const _quarter = useSelector(state => state.quarter);
-	// const colours = useSelector(state => state.colours);
-	// const nodeFilter = useSelector(state => state.nodeFilter);
-	// const _values = useSelector(state => state.quarter);
 const quarter = cloneDeep(_quarter);
-	// var tobeFiltered = cloneDeep(_values);
-
-// // Remove nodes > nodeFilter
-	// tobeFiltered.nodes.splice(nodeFilter, 7 - nodeFilter);
-	// const nodesWithNodesRemoved = cloneDeep(tobeFiltered.nodes);
-
-// // Remove links which reference nodes > nodeFilter
-	// const linksWithRefNodesRemoved = cloneDeep(remove(tobeFiltered.links, item => item.source < (nodeFilter)));
-
-// // Reduce values of target nodes
-	// const linksWithReducedTargets = cloneDeep(linksWithRefNodesRemoved);
-
-	// for (let i = 0; i < linksWithReducedTargets.length; i++) {
-	// if (linksWithReducedTargets[i].target >= nodeFilter)
-	// 	{linksWithReducedTargets[i].target = linksWithReducedTargets[i].target - (_values.nodes.length - nodesWithNodesRemoved.length);}
-	// }
-
-	// const filtered = {}
-	// filtered.nodes = nodesWithNodesRemoved;
-	// filtered.links = linksWithReducedTargets;
-	// const values = cloneDeep(filtered);
 
 	return (
 <Layout title="Sankey Diagrams">

@@ -103,7 +103,7 @@ function SankeySvg({ quarter }) {
   const margin=100;
   const [previousState, setPreviousState ] = useState({...quarter});
   const  { ref, width, height } = useResizeObserver();
-console.log('quarter.period=', quarter.period)
+console.log('quarter=', quarter)
   useEffect(() => {
     const svg = select(svgRef.current)
 			.attr("width", width)
@@ -133,26 +133,6 @@ graph.links[4].target.x0 = graph.links[5].target.x0;
 
 	  console.log('graph.links[6].color after adding colours =', graph.links[6].color )
 	  console.log('graph after adding colours =', graph )
-// // calculate total for each source node
-// const sourceTotals = rollups(graph.links, v => sum (v, d => d.value), d => d.source);
-
-// const targetTotals = rollups(graph.links, v => sum (v, d => d.value), d => d.target);
-// const totals = sourceTotals.concat(targetTotals);
-// 	  graph.nodes.forEach((element, index) => graph.nodes.total = totals[index][0])
-
-
-// // Create array for colors in order to calculate extent
-// const colorTotals = [];
-// 	  graph.nodes.forEach((element, index) => colorTotals[index] = totals[index][0].value);
-// const colorExtent = extent(colorTotals);
-
-// const totalRed = scaleLinear()
-// 				  .domain(colorExtent)
-// 				  .range(colours[0])
-
-// const totalBlue = scaleLinear()
-// 				  .domain(colorExtent)
-// 				  .range(colours[1])
 
 // add in the links
 const link = svg.append("g")
@@ -231,11 +211,10 @@ console.log('graph.nodes=', graph.nodes)
 
   node.append("text")
 	  .attr("x", d =>  d.x0 + d.xoffset)
-	  // .attr("y", d => { return (((d.y1 + d.y0) / 2) + d.yoffset); })
 		  .attr("y", d => { return (d.textAnchor == 'middle' ? d.y0 + d.yoffset :((d.y1 + d.y0) / 2)) ; })
       .attr("dy", "0.35em")
       .attr("text-anchor", "end")
-      .text(function(d) { return d.name; })
+      .text(function(d) { return d.name + '(' + d.value + ')'; })
     .filter(function(d) { return d.x0 < width / 2; })
 		  .attr("text-anchor", d => d.textAnchor);
 console.log('end of first half')
@@ -317,11 +296,12 @@ const title2 = svg.selectAll("title")
 	  .data(graph2.nodes, d => d.name)
 	  .transition()
 	  .duration(3000)
+		  // .text(function(d) { return d.name  })
+      .text(function(d) { return d.name + ' (' + d.value + ')'; })
 	  .attr("x", d => d.x0 + d.xoffset)
 		  .attr("y", d => { return (d.textAnchor == 'middle' ? d.y0 + d.yoffset :((d.y1 + d.y0) / 2)) ; })
       .attr("dy", "0.35em")
 	  .attr("text-anchor", d => d.textAnchor)
-      .text(function(d) { return d.name; })
     // .filter(function(d) { return d.x0 < width / 2; })
     //   .attr("x", function(d) { return d.x1 + 6; })
 	  // setPreviousState(quarter);
@@ -334,7 +314,7 @@ console.log('end of second part')
   }, [quarter, width, height]);
 
   return (
-	  <Box ref={ref} sx={{ml: 15, mr: 3, mb: 4, mt: 2}}>
+	  <Box ref={ref} sx={{ml: 22, mr: 6, mb: 4, mt: 2}}>
 			  <svg ref={svgRef}>
 	  </svg>
 	  </Box>
