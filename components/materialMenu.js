@@ -38,12 +38,17 @@ export default function BasicMenu() {
         }}
       >
         <MenuItem onClick={() => router.push("/")}>Home</MenuItem>
-		<MenuItem onClick={() => router.push("/tooltips")}>Pop-Ups</MenuItem>
-        <MenuItem onClick={() => router.push("/time")}>Changes Over Time</MenuItem>
-	    <MenuItem onClick={() => router.push("/color")}>Using Color</MenuItem>
-        <MenuItem onClick={() => router.push("/subset")}>Subsets of Data</MenuItem>
-        <MenuItem onClick={() => router.push("/intermediate")}>Intermediate Nodes</MenuItem>
-        <MenuItem onClick={() => router.push("/vertical")}>Contact Us</MenuItem>
+		<MenuItem onClick={() => router.push("/ip")}>IP</MenuItem>
+        <MenuItem onClick={() => router.push("/cclb")}>CCLB</MenuItem>
+	    <MenuItem onClick={() => router.push("/pkg")}>PKG</MenuItem>
+        <MenuItem onClick={() => router.push("/amcr")}>AMCR</MenuItem>
+        <MenuItem onClick={() => router.push("/gpk")}>GPK</MenuItem>
+        <MenuItem onClick={() => router.push("/son")}>SON</MenuItem>
+        <MenuItem onClick={() => router.push("/see")}>SEE</MenuItem>
+        <MenuItem onClick={() => router.push("/vrtv")}>VRTV</MenuItem>
+        <MenuItem onClick={() => router.push("/ball")}>BALL</MenuItem>
+        <MenuItem onClick={() => router.push("/ambp")}>AMBP</MenuItem>
+        <MenuItem onClick={() => router.push("/gef")}>GEF</MenuItem>
 
       </Menu>
     </div>
