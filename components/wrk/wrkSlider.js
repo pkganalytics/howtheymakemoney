@@ -6,33 +6,36 @@ import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import { useSelector, useDispatch } from 'react-redux';
 import { setValuesq1, setValuesq2, setValuesq3, setValuesq4, setValuesq5, setValuesq6, setValuesq7, setValuesq8 } from './quarterSlice';
-import {q1, q2, q3, q4, q5, q6, q7, q8} from "../data/wrkData";
 import Box from '@mui/material/Box';
+import {q1, q2, q3, q4, q5, q6, q7, q8} from "../data/wrkData";
 
-const label1 = q1.period;
-const label2 = q2.period;
-const label3 = q3.period;
-const label4 = q4.period;
-const label5 = q5.period;
-const label6 = q6.period;
-const label7 = q7.period;
-const label8 = q8.period;
+// Determining slider label, based on string inside data JSON
+const _labels = new Array(8);
+ _labels[0] = q1.period;
+ _labels[1] = q2.period;
+ _labels[2] = q3.period;
+ _labels[3] = q4.period;
+ _labels[4] = q5.period;
+ _labels[5] = q6.period;
+ _labels[6] = q7.period;
+ _labels[7] = q8.period;
 
+const labels = _labels.sort();
 
-const TimeSidePanel = () => {
+const WrkSlider = () => {
 const dispatch = useDispatch();
 
   const [quarter, setQuarter] = useState(100);
 
 	const quarterMarks = [
-	{value: 0, label: label8},
-	{value: 14, label: label7},
-	{value: 28, label: label6},
-	{value: 42, label: label5},
-	{value: 56, label: label4},
-	{value: 70, label: label3},
-	{value: 86, label: label2},
-	{value: 100, label: label1},
+	{value: 0, label: labels[0]},
+	{value: 14, label: labels[1]},
+	{value: 28, label: labels[2]},
+	{value: 42, label: labels[3]},
+	{value: 56, label: labels[4]},
+	{value: 70, label: labels[5]},
+	{value: 86, label: labels[6]},
+	{value: 100, label: labels[7]},
 ];
 
   const changeQuarter = (event, quarter) => {
@@ -69,4 +72,4 @@ const Item = styled(Paper)(({ theme }) => ({
 	)
 };
 
-export default TimeSidePanel;
+export default WrkSlider;

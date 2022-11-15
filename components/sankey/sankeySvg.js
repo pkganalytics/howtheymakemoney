@@ -129,9 +129,6 @@ setOffset(graph);
 // move "Cost of Goods Sold" so that it's vertically aligned with "Gross Profit"
 graph.links[4].target.x0 = graph.links[5].target.x0;
 
-	  console.log('graph.links[6].color after adding colours =', graph.links[6].color )
-	  console.log('graph after adding colours =', graph )
-
 // add in the links
 const link = svg.append("g")
 	  .selectAll(".link")
@@ -168,7 +165,6 @@ const div = select("body")
 			  .style("opacity", 0);
 
 // Change x0 positions in graph.nodes
-console.log('graph.nodes=', graph.nodes)
 
 // add in the nodes
   const node = svg.append("g").selectAll(".node")
@@ -231,8 +227,6 @@ setOffset(graph2);
 // const link24y0 = graph.links[4].target.y0;
 // graph2.links[4].target.y0 = graph2.links[5].target.y0;
 // graph2.links[5].target.y0 = link24y0;
-
-console.log('graph2 = ', graph2)
 
 
 
