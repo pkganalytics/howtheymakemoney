@@ -9,27 +9,18 @@ import { setValuesq1, setValuesq2, setValuesq3, setValuesq4, setValuesq5, setVal
 import Box from '@mui/material/Box';
 
 // Determining slider label, based on string inside data JSON
-const _labels = [];
-const _labels[0] = q1.period;
-const _labels[1] = q2.period;
-const _labels[2] = q3.period;
-const _labels[3] = q4.period;
-const _labels[4] = q5.period;
-const _labels[5] = q6.period;
-const _labels[6] = q7.period;
-const _labels[7] = q8.period;
+let _labels = [];
+ _labels[0] = q1.period;
+ _labels[1] = q2.period;
+ _labels[2] = q3.period;
+ _labels[3] = q4.period;
+ _labels[4] = q5.period;
+ _labels[5] = q6.period;
+ _labels[6] = q7.period;
+ _labels[7] = q8.period;
 
-const labels = _labels.sort;
+let labels = _labels.sort;
 console.log("labels=", labels)
-
-// const label1 = q1.period;
-// const label2 = q2.period;
-// const label3 = q3.period;
-// const label4 = q4.period;
-// const label5 = q5.period;
-// const label6 = q6.period;
-// const label7 = q7.period;
-// const label8 = q8.period;
 
 
 const WrkSlider = () => {
