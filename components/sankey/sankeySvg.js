@@ -23,9 +23,9 @@ graph.nodes[2].xoffset = -20;
 graph.nodes[3].xoffset = -20;
 graph.nodes[4].xoffset = 25;
 graph.nodes[5].xoffset = 20;
-graph.nodes[6].xoffset = 20;
+graph.nodes[6].xoffset = 130;
 graph.nodes[7].xoffset = 20;
-graph.nodes[8].xoffset = 40;
+graph.nodes[8].xoffset = 20;
 graph.nodes[9].xoffset = 40;
 graph.nodes[10].xoffset = 40;
 graph.nodes[11].xoffset = 40;
@@ -38,7 +38,7 @@ graph.nodes[2].yoffset = 0;
 graph.nodes[3].yoffset = 0;
 graph.nodes[4].yoffset = -25;
 graph.nodes[5].yoffset = -20;
-graph.nodes[6].yoffset = -20;
+graph.nodes[6].yoffset = 80;
 graph.nodes[7].yoffset = -20;
 graph.nodes[8].yoffset = 50;
 graph.nodes[9].yoffset = 0;
@@ -84,8 +84,8 @@ graph.links[0].color = "grey";
 graph.links[1].color = "grey";
 graph.links[2].color = "grey";
 graph.links[3].color = "grey";
-graph.links[4].color = "red";
-graph.links[5].color = "green";
+graph.links[4].color = "green";
+graph.links[5].color = "red";
 graph.links[6].color = "green";
 graph.links[7].color = "red";
 graph.links[8].color = "green";
@@ -115,6 +115,7 @@ const formatNumber = d3Format(",.0f"),
 
 // Set the sankey diagram properties
 const sankey = d3Sankey()
+		  .linkSort(null)
     .nodeWidth(26)
     .nodePadding(30)
     .size([width-100, height]);
@@ -127,7 +128,12 @@ const sankey = d3Sankey()
 linkColors(graph);
 setOffset(graph);
 // move "Cost of Goods Sold" so that it's vertically aligned with "Gross Profit"
-graph.links[4].target.x0 = graph.links[5].target.x0;
+// graph.links[4].target.x0 = graph.links[5].target.x0;
+//swap positions of "Cost of Goods Sold" and "Gross Profit"
+//to do that, swap y0 values of links 4 and 5
+// const link24y0 = graph.links[4].target.y0;
+// graph.links[4].target.y0 = graph.links[5].target.y0;
+// graph.links[5].target.y0 = link24y0;
 
 // add in the links
 const link = svg.append("g")
@@ -217,7 +223,7 @@ console.log('end of first half')
 	  	let graph2 = sankey(quarter)
 
 // move "Cost of Goods Sold" so that it's vertically aligned with "Gross Profit"
-graph2.links[4].target.x0 = graph2.links[5].target.x0;
+// graph2.links[4].target.x0 = graph2.links[5].target.x0;
 
 // add link colours
 linkColors(graph2);
@@ -225,8 +231,11 @@ setOffset(graph2);
 //swap positions of "Cost of Goods Sold" and "Gross Profit"
 //to do that, swap y0 values of links 4 and 5
 // const link24y0 = graph.links[4].target.y0;
+// const link24y1 = graph.links[4].target.y1;
 // graph2.links[4].target.y0 = graph2.links[5].target.y0;
+// graph2.links[4].target.y1 = graph2.links[5].target.y1;
 // graph2.links[5].target.y0 = link24y0;
+// graph2.links[5].target.y1 = link24y1;
 
 
 
@@ -280,7 +289,7 @@ console.log('end of second part')
   }, [quarter, width, height]);
 
   return (
-	  <Box ref={ref} sx={{ml: 22, mr: 6, mb: 4, mt: 2}}>
+	  <Box ref={ref} sx={{ml: 22, mr: 12, mt: 2, mb: 2}}>
 			  <svg ref={svgRef}>
 	  </svg>
 	  </Box>
