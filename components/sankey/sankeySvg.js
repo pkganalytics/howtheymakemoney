@@ -25,7 +25,7 @@ graph.nodes[4].xoffset = 25;
 graph.nodes[5].xoffset = 20;
 graph.nodes[6].xoffset = 130;
 graph.nodes[7].xoffset = 20;
-graph.nodes[8].xoffset = 40;
+graph.nodes[8].xoffset = 30;
 graph.nodes[9].xoffset = 40;
 graph.nodes[10].xoffset = 40;
 graph.nodes[11].xoffset = 40;
@@ -38,9 +38,9 @@ graph.nodes[2].yoffset = 0;
 graph.nodes[3].yoffset = 0;
 graph.nodes[4].yoffset = -25;
 graph.nodes[5].yoffset = -20;
-graph.nodes[6].yoffset = 80;
+graph.nodes[6].yoffset = 150;
 graph.nodes[7].yoffset = -20;
-graph.nodes[8].yoffset = 50;
+graph.nodes[8].yoffset = 60;
 graph.nodes[9].yoffset = 0;
 graph.nodes[10].yoffset = 0;
 graph.nodes[11].yoffset = 0;
@@ -215,7 +215,7 @@ const div = select("body")
 		  .attr("y", d => { return (d.textAnchor == 'middle' ? d.y0 + d.yoffset :((d.y1 + d.y0) / 2)) ; })
       .attr("dy", "0.35em")
       .attr("text-anchor", "end")
-      .text(function(d) { return d.name + '(' + d.value + ')'; })
+		  .text(function(d) { if (d.name != 'Blank') {return d.name + '(' + d.value + ')'; }})
     .filter(function(d) { return d.x0 < width / 2; })
 		  .attr("text-anchor", d => d.textAnchor);
 console.log('end of first half')
@@ -268,7 +268,7 @@ const title2 = svg.selectAll("title")
 	  .transition()
 	  .duration(3000)
 		  // .text(function(d) { return d.name  })
-      .text(function(d) { return d.name + ' (' + d.value + ')'; })
+		  .text(function(d) { if (d.name != 'Blank') {return d.name + '(' + d.value + ')'; }})
 	  .attr("x", d => d.x0 + d.xoffset)
 		  .attr("y", d => { return (d.textAnchor == 'middle' ? d.y0 + d.yoffset :((d.y1 + d.y0) / 2)) ; })
       .attr("dy", "0.35em")
