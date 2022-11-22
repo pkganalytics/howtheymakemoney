@@ -15,7 +15,7 @@ export const q1 = {
 	{"name": "Other Profits"},
 	{"name": "SG&A"},
 	{"name": "Mineral Rights"},
-	{"name": "Other Expenses"}
+	{"name": "Blank"}
 ],
 "links":[
 	{"source":0,"target":4, "Corrugated Packaging": 0, "value":2382.5},
@@ -31,7 +31,8 @@ export const q1 = {
 	{"source":7,"target":10,"Tax": 0, "value":132.7},
 	{"source":8,"target":12,"SG&A": 0, "value":591},
 	{"source":8,"target":13,"Mineral Rights": 0, "value":26},
-	{"source":8,"target":14,"Other Expenses": 0, "value":0.4}
+	{"source":8,"target":14,"Other Expenses": 0, "value":0.4},
+	{"source":6,"target":14,"Other Expenses": 0, "value":0.4}
 ]
 }
 

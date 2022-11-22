@@ -25,7 +25,7 @@ graph.nodes[4].xoffset = 25;
 graph.nodes[5].xoffset = 20;
 graph.nodes[6].xoffset = 130;
 graph.nodes[7].xoffset = 20;
-graph.nodes[8].xoffset = 20;
+graph.nodes[8].xoffset = 40;
 graph.nodes[9].xoffset = 40;
 graph.nodes[10].xoffset = 40;
 graph.nodes[11].xoffset = 40;
@@ -76,6 +76,7 @@ graph.nodes[10].color = "red";
 graph.nodes[11].color = "green";
 graph.nodes[12].color = "red";
 graph.nodes[13].color = "red";
+graph.nodes[14].color = "white";
 };
 
 
@@ -89,11 +90,12 @@ graph.links[5].color = "red";
 graph.links[6].color = "green";
 graph.links[7].color = "red";
 graph.links[8].color = "green";
-graph.links[9].color = "red";
+graph.links[9].color = "green";
 graph.links[10].color = "red";
 graph.links[11].color = "red";
 graph.links[12].color = "red";
 graph.links[13].color = "red";
+graph.links[14].color = "white";
 }
 
 
@@ -127,13 +129,12 @@ const sankey = d3Sankey()
 // add link colours
 linkColors(graph);
 setOffset(graph);
+	  console.log('graph.nodes[6].x0=', graph.nodes[6].x0)
+	  // graph.nodes[6].x0 = graph.links[4].target.x0;
+console.log('graph.links[4].target.x0=', graph.links[4].target.x0)
+console.log('graph.links[5].target.x0=', graph.links[5].target.x0)
 // move "Cost of Goods Sold" so that it's vertically aligned with "Gross Profit"
-// graph.links[4].target.x0 = graph.links[5].target.x0;
-//swap positions of "Cost of Goods Sold" and "Gross Profit"
-//to do that, swap y0 values of links 4 and 5
-// const link24y0 = graph.links[4].target.y0;
-// graph.links[4].target.y0 = graph.links[5].target.y0;
-// graph.links[5].target.y0 = link24y0;
+// graph.links[5].target.x0 = graph.links[4].target.x0
 
 // add in the links
 const link = svg.append("g")
@@ -187,8 +188,8 @@ const div = select("body")
       .attr("width", sankey.nodeWidth())
 .attr("fill", d => 'red')
 	  .attr("fill", d => d.color)
-      .style("stroke", function(d) {
-		  return rgb(d.color).darker(2); })
+      // .style("stroke", function(d) {
+		  // return rgb(d.color); })
 
 .on("mouseover", function(event, d) {
 	div.transition()
@@ -222,20 +223,15 @@ console.log('end of first half')
 // Recalculate sankey layout ////////////////////////////////
 	  	let graph2 = sankey(quarter)
 
+console.log('graph.links[4].target.x0=', graph.links[4].target.x0)
+console.log('graph.links[5].target.x0=', graph.links[5].target.x0)
 // move "Cost of Goods Sold" so that it's vertically aligned with "Gross Profit"
-// graph2.links[4].target.x0 = graph2.links[5].target.x0;
+// graph.links[5].target.x0 = graph.links[4].target.x0
+// 	  graph.nodes[6].x0 = graph.links[4].target.x0;
 
 // add link colours
 linkColors(graph2);
 setOffset(graph2);
-//swap positions of "Cost of Goods Sold" and "Gross Profit"
-//to do that, swap y0 values of links 4 and 5
-// const link24y0 = graph.links[4].target.y0;
-// const link24y1 = graph.links[4].target.y1;
-// graph2.links[4].target.y0 = graph2.links[5].target.y0;
-// graph2.links[4].target.y1 = graph2.links[5].target.y1;
-// graph2.links[5].target.y0 = link24y0;
-// graph2.links[5].target.y1 = link24y1;
 
 
 
