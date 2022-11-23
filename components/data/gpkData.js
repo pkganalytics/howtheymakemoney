@@ -15,23 +15,24 @@ export const q1 = {
 	{"name": "Other Profits"},
 	{"name": "SG&A"},
 	{"name": "Mineral Rights"},
-	{"name": "Other Expenses"}
+	{"name": "Blank"}
 ],
 "links":[
 	{"source":0,"target":4, "Corrugated Packaging": 0, "value":2382.5},
 	{"source":1,"target":4, "Consumer Packaging": 0, "value":1270.2},
 	{"source":2,"target":4, "Global Paper": 0, "value":1610.3},
 	{"source":3,"target":4,"Distribution": 0, "value":357.7},
-	{"source":4,"target":6,"Cost of Goods Sold": 0, "value":4360.3},
 	{"source":4,"target":5,"Revenue": 0, "value":1159.4},
+	{"source":4,"target":6,"Cost of Goods Sold": 0, "value":4360.3},
 	{"source":5,"target":7,"Operating Profit": 0, "value":541.2},
 	{"source":5,"target":8,"Operating Expense": 0, "value":618.2},
 	{"source":7,"target":9,"Net Profit": 0, "value":377.9},
-	{"source":7,"target":10,"Tax": 0, "value":132.7},
 	{"source":7,"target":11,"Other Profits": 0, "value":30.6},
+	{"source":7,"target":10,"Tax": 0, "value":132.7},
 	{"source":8,"target":12,"SG&A": 0, "value":591},
 	{"source":8,"target":13,"Mineral Rights": 0, "value":26},
-	{"source":8,"target":14,"Other Expenses": 0, "value":0.4}
+	{"source":8,"target":14,"Other Expenses": 0, "value":0.4},
+	{"source":6,"target":14,"Other Expenses": 0, "value":0.4}
 ]
 }
 
@@ -52,23 +53,24 @@ export const q2 = {
 	{"name": "Other Profits"},
 	{"name": "SG&A"},
 	{"name": "Mineral Rights"},
-	{"name": "Other Expenses"}
+	{"name": "Blank"}
 ],
 "links":[
-	{"source":0,"target":4, "Corrugated Packaging": 0, "value":2282.5},
+	{"source":0,"target":4, "Corrugated Packaging": 0, "value":1382.5},
 	{"source":1,"target":4, "Consumer Packaging": 0, "value":2270.2},
 	{"source":2,"target":4, "Global Paper": 0, "value":1610.3},
 	{"source":3,"target":4,"Distribution": 0, "value":357.7},
-	{"source":4,"target":6,"Cost of Goods Sold": 0, "value":3360.3},
 	{"source":4,"target":5,"Revenue": 0, "value":1159.4},
+	{"source":4,"target":6,"Cost of Goods Sold": 0, "value":4360.3},
 	{"source":5,"target":7,"Operating Profit": 0, "value":541.2},
 	{"source":5,"target":8,"Operating Expense": 0, "value":618.2},
 	{"source":7,"target":9,"Net Profit": 0, "value":377.9},
-	{"source":7,"target":10,"Tax": 0, "value":132.7},
 	{"source":7,"target":11,"Other Profits": 0, "value":30.6},
+	{"source":7,"target":10,"Tax": 0, "value":132.7},
 	{"source":8,"target":12,"SG&A": 0, "value":591},
 	{"source":8,"target":13,"Mineral Rights": 0, "value":26},
-	{"source":8,"target":14,"Other Expenses": 0, "value":0.4}
+	{"source":8,"target":14,"Other Expenses": 0, "value":0.4},
+	{"source":6,"target":14,"Other Expenses": 0, "value":0.4}
 ]
 }
 export const q3 = {
@@ -83,27 +85,29 @@ export const q3 = {
 	{"name": "Cost of Goods Sold"},
 	{"name": "Operating Profit"},
 	{"name": "Operating Expense"},
-	{"name": "SG&A"},
-	{"name": "Mineral Rights"},
 	{"name": "Net Profit"},
 	{"name": "Tax"},
-	{"name": "Other"}
+	{"name": "Other Profits"},
+	{"name": "SG&A"},
+	{"name": "Mineral Rights"},
+	{"name": "Blank"}
 ],
 "links":[
-	{"source":0,"target":4, "Corrugated Packaging": 0, "value":1382.5},
-	{"source":1,"target":4, "Consumer Packaging": 0, "value":1210.2},
-	{"source":2,"target":4, "Global Paper": 0, "value":2610.3},
-	{"source":3,"target":4,"Distribution": 0, "value":1357.7},
+	{"source":0,"target":4, "Corrugated Packaging": 0, "value":2382.5},
+	{"source":1,"target":4, "Consumer Packaging": 0, "value":1270.2},
+	{"source":2,"target":4, "Global Paper": 0, "value":1610.3},
+	{"source":3,"target":4,"Distribution": 0, "value":357.7},
 	{"source":4,"target":5,"Revenue": 0, "value":1159.4},
-	{"source":4,"target":6,"Gross Profit": 0, "value":4360.3},
-	{"source":5,"target":7,"Cost of Goods Sold": 0, "value":541.2},
-	{"source":5,"target":8,"Operating Profit": 0, "value":618.2},
-	{"source":7,"target":11,"Operating Expense": 0, "value":377.9},
-	{"source":7,"target":12,"SG&A": 0, "value":132.7},
-	{"source":7,"target":13,"Mineral Rights": 0, "value":30.6},
-	{"source":8,"target":9,"Net Profit": 0, "value":591},
-	{"source":8,"target":10,"Tax": 0, "value":26},
-	{"source":8,"target":11,"Other": 0, "value":0.4}
+	{"source":4,"target":6,"Cost of Goods Sold": 0, "value":4360.3},
+	{"source":5,"target":7,"Operating Profit": 0, "value":541.2},
+	{"source":5,"target":8,"Operating Expense": 0, "value":618.2},
+	{"source":7,"target":9,"Net Profit": 0, "value":377.9},
+	{"source":7,"target":11,"Other Profits": 0, "value":30.6},
+	{"source":7,"target":10,"Tax": 0, "value":132.7},
+	{"source":8,"target":12,"SG&A": 0, "value":591},
+	{"source":8,"target":13,"Mineral Rights": 0, "value":26},
+	{"source":8,"target":14,"Other Expenses": 0, "value":0.4},
+	{"source":6,"target":14,"Other Expenses": 0, "value":0.4}
 ]
 }
 export const q4 = {
@@ -118,27 +122,29 @@ export const q4 = {
 	{"name": "Cost of Goods Sold"},
 	{"name": "Operating Profit"},
 	{"name": "Operating Expense"},
-	{"name": "SG&A"},
-	{"name": "Mineral Rights"},
 	{"name": "Net Profit"},
 	{"name": "Tax"},
-	{"name": "Other"}
+	{"name": "Other Profits"},
+	{"name": "SG&A"},
+	{"name": "Mineral Rights"},
+	{"name": "Blank"}
 ],
 "links":[
 	{"source":0,"target":4, "Corrugated Packaging": 0, "value":2382.5},
 	{"source":1,"target":4, "Consumer Packaging": 0, "value":1270.2},
-	{"source":2,"target":4, "Global Paper": 0, "value":1310.3},
-	{"source":3,"target":4,"Distribution": 0, "value":1757.7},
-	{"source":4,"target":5,"Revenue": 0, "value":1119.4},
-	{"source":4,"target":6,"Gross Profit": 0, "value":4360.3},
-	{"source":5,"target":7,"Cost of Goods Sold": 0, "value":541.2},
-	{"source":5,"target":8,"Operating Profit": 0, "value":618.2},
-	{"source":7,"target":11,"Operating Expense": 0, "value":377.9},
-	{"source":7,"target":12,"SG&A": 0, "value":132.7},
-	{"source":7,"target":13,"Mineral Rights": 0, "value":30.6},
-	{"source":8,"target":9,"Net Profit": 0, "value":591},
-	{"source":8,"target":10,"Tax": 0, "value":26},
-	{"source":8,"target":11,"Other": 0, "value":0.4}
+	{"source":2,"target":4, "Global Paper": 0, "value":1610.3},
+	{"source":3,"target":4,"Distribution": 0, "value":357.7},
+	{"source":4,"target":5,"Revenue": 0, "value":1159.4},
+	{"source":4,"target":6,"Cost of Goods Sold": 0, "value":4360.3},
+	{"source":5,"target":7,"Operating Profit": 0, "value":541.2},
+	{"source":5,"target":8,"Operating Expense": 0, "value":618.2},
+	{"source":7,"target":9,"Net Profit": 0, "value":377.9},
+	{"source":7,"target":11,"Other Profits": 0, "value":30.6},
+	{"source":7,"target":10,"Tax": 0, "value":132.7},
+	{"source":8,"target":12,"SG&A": 0, "value":591},
+	{"source":8,"target":13,"Mineral Rights": 0, "value":26},
+	{"source":8,"target":14,"Other Expenses": 0, "value":0.4},
+	{"source":6,"target":14,"Other Expenses": 0, "value":0.4}
 ]
 }
 export const q5 = {
@@ -153,27 +159,29 @@ export const q5 = {
 	{"name": "Cost of Goods Sold"},
 	{"name": "Operating Profit"},
 	{"name": "Operating Expense"},
-	{"name": "SG&A"},
-	{"name": "Mineral Rights"},
 	{"name": "Net Profit"},
 	{"name": "Tax"},
-	{"name": "Other"}
+	{"name": "Other Profits"},
+	{"name": "SG&A"},
+	{"name": "Mineral Rights"},
+	{"name": "Blank"}
 ],
 "links":[
 	{"source":0,"target":4, "Corrugated Packaging": 0, "value":2382.5},
 	{"source":1,"target":4, "Consumer Packaging": 0, "value":1270.2},
 	{"source":2,"target":4, "Global Paper": 0, "value":1610.3},
-	{"source":3,"target":4,"Distribution": 0, "value":1357.7},
+	{"source":3,"target":4,"Distribution": 0, "value":357.7},
 	{"source":4,"target":5,"Revenue": 0, "value":1159.4},
-	{"source":4,"target":6,"Gross Profit": 0, "value":3360.3},
-	{"source":5,"target":7,"Cost of Goods Sold": 0, "value":541.2},
-	{"source":5,"target":8,"Operating Profit": 0, "value":618.2},
-	{"source":7,"target":11,"Operating Expense": 0, "value":377.9},
-	{"source":7,"target":12,"SG&A": 0, "value":132.7},
-	{"source":7,"target":13,"Mineral Rights": 0, "value":30.6},
-	{"source":8,"target":9,"Net Profit": 0, "value":591},
-	{"source":8,"target":10,"Tax": 0, "value":26},
-	{"source":8,"target":11,"Other": 0, "value":0.4}
+	{"source":4,"target":6,"Cost of Goods Sold": 0, "value":4360.3},
+	{"source":5,"target":7,"Operating Profit": 0, "value":541.2},
+	{"source":5,"target":8,"Operating Expense": 0, "value":618.2},
+	{"source":7,"target":9,"Net Profit": 0, "value":377.9},
+	{"source":7,"target":11,"Other Profits": 0, "value":30.6},
+	{"source":7,"target":10,"Tax": 0, "value":132.7},
+	{"source":8,"target":12,"SG&A": 0, "value":591},
+	{"source":8,"target":13,"Mineral Rights": 0, "value":26},
+	{"source":8,"target":14,"Other Expenses": 0, "value":0.4},
+	{"source":6,"target":14,"Other Expenses": 0, "value":0.4}
 ]
 }
 export const q6 = {
@@ -188,27 +196,29 @@ export const q6 = {
 	{"name": "Cost of Goods Sold"},
 	{"name": "Operating Profit"},
 	{"name": "Operating Expense"},
-	{"name": "SG&A"},
-	{"name": "Mineral Rights"},
 	{"name": "Net Profit"},
 	{"name": "Tax"},
-	{"name": "Other"}
+	{"name": "Other Profits"},
+	{"name": "SG&A"},
+	{"name": "Mineral Rights"},
+	{"name": "Blank"}
 ],
 "links":[
 	{"source":0,"target":4, "Corrugated Packaging": 0, "value":2382.5},
 	{"source":1,"target":4, "Consumer Packaging": 0, "value":1270.2},
 	{"source":2,"target":4, "Global Paper": 0, "value":1610.3},
 	{"source":3,"target":4,"Distribution": 0, "value":357.7},
-	{"source":4,"target":5,"Revenue": 0, "value":1359.4},
-	{"source":4,"target":6,"Gross Profit": 0, "value":2360.3},
-	{"source":5,"target":7,"Cost of Goods Sold": 0, "value":541.2},
-	{"source":5,"target":8,"Operating Profit": 0, "value":218.2},
-	{"source":7,"target":11,"Operating Expense": 0, "value":377.9},
-	{"source":7,"target":12,"SG&A": 0, "value":132.7},
-	{"source":7,"target":13,"Mineral Rights": 0, "value":30.6},
-	{"source":8,"target":9,"Net Profit": 0, "value":591},
-	{"source":8,"target":10,"Tax": 0, "value":26},
-	{"source":8,"target":11,"Other": 0, "value":0.4}
+	{"source":4,"target":5,"Revenue": 0, "value":1159.4},
+	{"source":4,"target":6,"Cost of Goods Sold": 0, "value":4360.3},
+	{"source":5,"target":7,"Operating Profit": 0, "value":541.2},
+	{"source":5,"target":8,"Operating Expense": 0, "value":618.2},
+	{"source":7,"target":9,"Net Profit": 0, "value":377.9},
+	{"source":7,"target":11,"Other Profits": 0, "value":30.6},
+	{"source":7,"target":10,"Tax": 0, "value":132.7},
+	{"source":8,"target":12,"SG&A": 0, "value":591},
+	{"source":8,"target":13,"Mineral Rights": 0, "value":26},
+	{"source":8,"target":14,"Other Expenses": 0, "value":0.4},
+	{"source":6,"target":14,"Other Expenses": 0, "value":0.4}
 ]
 }
 export const q7 = {
@@ -223,11 +233,12 @@ export const q7 = {
 	{"name": "Cost of Goods Sold"},
 	{"name": "Operating Profit"},
 	{"name": "Operating Expense"},
-	{"name": "SG&A"},
-	{"name": "Mineral Rights"},
 	{"name": "Net Profit"},
 	{"name": "Tax"},
-	{"name": "Other"}
+	{"name": "Other Profits"},
+	{"name": "SG&A"},
+	{"name": "Mineral Rights"},
+	{"name": "Blank"}
 ],
 "links":[
 	{"source":0,"target":4, "Corrugated Packaging": 0, "value":2382.5},
@@ -235,15 +246,16 @@ export const q7 = {
 	{"source":2,"target":4, "Global Paper": 0, "value":1610.3},
 	{"source":3,"target":4,"Distribution": 0, "value":357.7},
 	{"source":4,"target":5,"Revenue": 0, "value":1159.4},
-	{"source":4,"target":6,"Gross Profit": 0, "value":2360.3},
-	{"source":5,"target":7,"Cost of Goods Sold": 0, "value":541.2},
-	{"source":5,"target":8,"Operating Profit": 0, "value":618.2},
-	{"source":7,"target":11,"Operating Expense": 0, "value":377.9},
-	{"source":7,"target":12,"SG&A": 0, "value":132.7},
-	{"source":7,"target":13,"Mineral Rights": 0, "value":30.6},
-	{"source":8,"target":9,"Net Profit": 0, "value":591},
-	{"source":8,"target":10,"Tax": 0, "value":26},
-	{"source":8,"target":11,"Other": 0, "value":0.4}
+	{"source":4,"target":6,"Cost of Goods Sold": 0, "value":4360.3},
+	{"source":5,"target":7,"Operating Profit": 0, "value":541.2},
+	{"source":5,"target":8,"Operating Expense": 0, "value":618.2},
+	{"source":7,"target":9,"Net Profit": 0, "value":377.9},
+	{"source":7,"target":11,"Other Profits": 0, "value":30.6},
+	{"source":7,"target":10,"Tax": 0, "value":132.7},
+	{"source":8,"target":12,"SG&A": 0, "value":591},
+	{"source":8,"target":13,"Mineral Rights": 0, "value":26},
+	{"source":8,"target":14,"Other Expenses": 0, "value":0.4},
+	{"source":6,"target":14,"Other Expenses": 0, "value":0.4}
 ]
 }
 export const q8 = {
@@ -258,29 +270,29 @@ export const q8 = {
 	{"name": "Cost of Goods Sold"},
 	{"name": "Operating Profit"},
 	{"name": "Operating Expense"},
-	{"name": "SG&A"},
-	{"name": "Mineral Rights"},
 	{"name": "Net Profit"},
 	{"name": "Tax"},
-	{"name": "Other"}
+	{"name": "Other Profits"},
+	{"name": "SG&A"},
+	{"name": "Mineral Rights"},
+	{"name": "Blank"}
 ],
 "links":[
 	{"source":0,"target":4, "Corrugated Packaging": 0, "value":2382.5},
 	{"source":1,"target":4, "Consumer Packaging": 0, "value":1270.2},
-	{"source":2,"target":4, "Global Paper": 0, "value":2610.3},
+	{"source":2,"target":4, "Global Paper": 0, "value":1610.3},
 	{"source":3,"target":4,"Distribution": 0, "value":357.7},
 	{"source":4,"target":5,"Revenue": 0, "value":1159.4},
-	{"source":4,"target":6,"Gross Profit": 0, "value":3360.3},
-	{"source":5,"target":7,"Cost of Goods Sold": 0, "value":541.2},
-	{"source":5,"target":8,"Operating Profit": 0, "value":618.2},
-	{"source":7,"target":11,"Operating Expense": 0, "value":377.9},
-	{"source":7,"target":12,"SG&A": 0, "value":132.7},
-	{"source":7,"target":13,"Mineral Rights": 0, "value":30.6},
-	{"source":8,"target":9,"Net Profit": 0, "value":591},
-	{"source":8,"target":10,"Tax": 0, "value":26},
-	{"source":8,"target":11,"Other": 0, "value":0.4}
+	{"source":4,"target":6,"Cost of Goods Sold": 0, "value":4360.3},
+	{"source":5,"target":7,"Operating Profit": 0, "value":541.2},
+	{"source":5,"target":8,"Operating Expense": 0, "value":618.2},
+	{"source":7,"target":9,"Net Profit": 0, "value":377.9},
+	{"source":7,"target":11,"Other Profits": 0, "value":30.6},
+	{"source":7,"target":10,"Tax": 0, "value":132.7},
+	{"source":8,"target":12,"SG&A": 0, "value":591},
+	{"source":8,"target":13,"Mineral Rights": 0, "value":26},
+	{"source":8,"target":14,"Other Expenses": 0, "value":0.4},
+	{"source":6,"target":14,"Other Expenses": 0, "value":0.4}
 ]
 }
 
-
-export const colours = [[["#200000", "#ff0000"], ["#000020", "#0000ff"]], [["#ff0000", "#200000"], ["#0000ff", "#000020"]],[["#00ff00", "#ff0000"], ["#00ff00", "#0000ff"]], [["#ff0000", "#00ff00"], ["#0000ff", "#ff0000"]]];

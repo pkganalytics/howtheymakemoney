@@ -13,7 +13,7 @@ import cloneDeep from 'lodash/cloneDeep';
 
 
 const Sankey = () =>  {
-	const _quarter = useSelector(state => state.quarter);
+	const _quarter = useSelector(state => state.gpkquarter);
 const quarter = cloneDeep(_quarter);
 
 	return (
