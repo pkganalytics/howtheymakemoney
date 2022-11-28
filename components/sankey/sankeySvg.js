@@ -71,8 +71,8 @@ graph.nodes[5].color = "green";
 graph.nodes[6].color = "red";
 graph.nodes[7].color = "green";
 graph.nodes[8].color = "red";
-graph.nodes[9].color = "green";
-graph.nodes[10].color = "red";
+graph.nodes[9].color = "red";
+graph.nodes[10].color = "green";
 graph.nodes[11].color = "green";
 graph.nodes[12].color = "red";
 graph.nodes[13].color = "red";
@@ -89,9 +89,9 @@ graph.links[4].color = "green";
 graph.links[5].color = "red";
 graph.links[6].color = "green";
 graph.links[7].color = "red";
-graph.links[8].color = "green";
+graph.links[8].color = "red";
 graph.links[9].color = "green";
-graph.links[10].color = "red";
+graph.links[10].color = "green";
 graph.links[11].color = "red";
 graph.links[12].color = "red";
 graph.links[13].color = "red";
@@ -118,6 +118,7 @@ const formatNumber = d3Format(",.0f"),
 // Set the sankey diagram properties
 const sankey = d3Sankey()
 		  .linkSort(null)
+		.nodeSort(null)
     .nodeWidth(26)
     .nodePadding(30)
     .size([width-100, height]);
@@ -227,7 +228,7 @@ console.log('graph.links[4].target.x0=', graph.links[4].target.x0)
 console.log('graph.links[5].target.x0=', graph.links[5].target.x0)
 // move "Cost of Goods Sold" so that it's vertically aligned with "Gross Profit"
 // graph.links[5].target.x0 = graph.links[4].target.x0
-// 	  graph.nodes[6].x0 = graph.links[4].target.x0;
+	  graph.nodes[6].x0 = graph.links[4].target.x0;
 
 // add link colours
 linkColors(graph2);
